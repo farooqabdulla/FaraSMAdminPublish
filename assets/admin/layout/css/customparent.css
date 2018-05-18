@@ -1,0 +1,329 @@
+.page-sidebar .page-sidebar-menu > li > a span.students{background: url(../../img/Parent-Sprite.png) no-repeat; background-position: 1% 94%; padding: 6px 28px; width: 38px; height: 34px; margin:10px auto; display: block;}
+.page-sidebar .page-sidebar-menu > li.active > a span.students{background: url(../../img/Parent-Sprite.png) no-repeat; background-position: 1% 77%; padding: 6px 28px; width: 38px; height: 36px; margin:10px auto; display: block;}
+
+.page-sidebar .page-sidebar-menu > li > a span.school{background: url(../../img/Parent-Sprite.png) no-repeat; background-position: 19% 94%; padding: 6px 28px; width: 38px; height: 34px; margin:10px auto; display: block;}
+.page-sidebar .page-sidebar-menu > li.active > a span.school{background: url(../../img/Parent-Sprite.png) no-repeat; background-position: 19% 77%; padding: 6px 28px; width: 38px; height: 37px; margin:10px auto; display: block;}
+
+.page-sidebar .page-sidebar-menu > li > a span.transaction{background: url(../../img/Parent-Sprite.png) no-repeat; background-position: 37% 95%; padding: 6px 28px; width: 38px; height: 38px; margin:10px auto; display: block;}
+.page-sidebar .page-sidebar-menu > li.active > a span.transaction{background: url(../../img/Parent-Sprite.png) no-repeat; background-position: 37% 77%; padding: 6px 28px; width: 38px; height: 38px; margin:10px auto; display: block;}
+
+.page-sidebar .page-sidebar-menu > li > a span.profile{background: url(../../img/Parent-Sprite.png) no-repeat; background-position: 54% 95%; padding: 6px 28px; width: 38px; height: 38px; margin:10px auto; display: block;}
+.page-sidebar .page-sidebar-menu > li.active > a span.profile{background: url(../../img/Parent-Sprite.png) no-repeat; background-position: 54% 77%; padding: 6px 28px; width: 38px; height: 38px; margin:10px auto; display: block;}
+
+.page-sidebar .page-sidebar-menu > li{text-align: center;}
+
+@media (max-width:991px){
+	.page-sidebar .page-sidebar-menu > li > a span.students{background: url(../../img/Parent-Sprite.png) no-repeat; background-position: 47% 19%; padding: 0px 14px; width: 20px; height: 21px; display:inline;}
+	.page-sidebar .page-sidebar-menu > li.active > a span.students{background: url(../../img/Parent-Sprite.png) no-repeat; background-position: 47% 8%; padding: 0px 14px; width: 20px; height: 21px; display:inline;}
+	
+	.page-sidebar .page-sidebar-menu > li > a span.school{background: url(../../img/Parent-Sprite.png) no-repeat; background-position: 82% 18%; padding: 1px 14px; width: 20px; height: 21px; display: inline;}
+	.page-sidebar .page-sidebar-menu > li.active > a span.school{background: url(../../img/Parent-Sprite.png) no-repeat; background-position: 92% 18%; padding: 1px 14px; width: 20px; height: 21px; display: inline;}
+	
+	.page-sidebar .page-sidebar-menu > li > a span.transaction{background: url(../../img/Parent-Sprite.png) no-repeat; background-position: 55% 19%; padding: 1px 14px; width: 20px; height: 21px; display: inline;}
+	.page-sidebar .page-sidebar-menu > li.active > a span.transaction{background: url(../../img/Parent-Sprite.png) no-repeat; background-position: 55% 7%; padding: 2px 14px; width: 20px; height: 21px; display: inline;}
+	
+	.page-sidebar .page-sidebar-menu > li > a span.profile{background: url(../../img/Parent-Sprite.png) no-repeat; background-position: 37% 19%; padding: 1px 14px; width: 20px; height: 20px; display: inline;}
+	.page-sidebar .page-sidebar-menu > li.active > a span.profile{background: url(../../img/Parent-Sprite.png) no-repeat; background-position: 37% 7%; padding: 1px 14px; width: 20px; height: 20px; display: inline;}
+	
+	.page-sidebar .page-sidebar-menu > li{text-align: left;}
+	.page-sidebar .page-sidebar-menu > li > a{padding: 25px 15px;}
+	.page-sidebar .page-sidebar-menu > li > a .title{margin-left:15px;}
+	.page-sidebar, .page-sidebar.in{margin: 0 0px 10px 0px !important}
+	
+	.page-sidebar-wrapper{width: 100%; background: #656364;}
+	.page-sidebar.navbar-collapse.in, .page-sidebar.navbar-collapse {position: absolute; height: 100% !important; width: 100%;}
+	
+}
+@media (max-width:480px){
+	.logo-default{width: 150px;}
+	.trans_filt{margin-bottom: 8px;}
+	.trans_filt select{font-size: 13px;}
+}
+@media (max-width:767px){
+	.menu-bottom{display: block !important; background: #edf0f7; position: absolute; bottom: 0; width: 100%; text-align: center}
+	.menu-bottom label{padding: 15px; float:left;font-size: 12px; color: #6d6e72; width: 50%; margin-bottom: 0px;}
+	.menu-bottom label a{color: #6d6e72;}
+}
+.menu-bottom{display:none;}
+.page-sidebar-closed .page-sidebar .page-sidebar-menu.page-sidebar-menu-closed > li:hover > a > span{display: inline}
+.page-sidebar-closed .page-sidebar .page-sidebar-menu.page-sidebar-menu-closed > li:hover > a{background: #edf0f7; color: #404040;}
+
+.top-menu .navbar-nav li > a{color:#414042}
+
+
+/* Common classes */
+.bold-6{font-weight: 600;}
+.bord-right{border-right:1px solid #d8d9dd;}
+.text-grey{color: #6D6E71;}
+.f_11{font-size: 11px;}
+.f_12{font-size: 12px;}
+.f_13{font-size: 13px;}
+.f_14{font-size: 14px;}
+.f_15{font-size: 15px;}
+.f_18{font-size: 18px;}
+.f_20{font-size: 20px;}
+.blocked{display: block;}
+.btn-primary{background: #0085fe;}
+.btn-default{background: #e6e7e9; color:#939598;}
+.btn{border-radius: 2px !important}
+.lite{background: #fff; padding: 15px; box-shadow:5px 6px 11px #ddd }
+.margin-top-5{margin-top: 5px;}
+.margin-top-25{margin-top: 25px;}
+.margin-top-30{margin-top: 30px;}
+.margin-top-40{margin-top: 40px;}
+.margin-left-5{margin-left: 5px;}
+.margin-left-10{margin-left: 10px;}
+.margin-left-15{margin-left: 15px;}
+.margin-right-10{margin-right: 10px !important;}
+.margin-right-15{margin-right: 15px !important;}
+.margin-right-20{margin-right: 20px !important;}
+.mb-0{margin-bottom: 0px !important}
+.mt-0{margin-top: 0px !important}
+.input-line-sm{width:50px; border-bottom: 2px solid #808285; border-top:none; border-right:none; border-left:none; background-color:transparent; height: 34px; padding: 8px; text-align: center;}
+hr{border-color: #ddd !important}
+.input-line{border-bottom: 1px solid #cacaca; border-top:none; border-right:none; border-left:none; background-color:#fff; height: 34px; padding: 8px; width:100%}
+.no-border, .no-border th, .no-border td{border: none !important;}
+.table-striped > tbody > tr:nth-of-type(2n+1){background:#e6f9ff}
+.full-w{width:100%}
+/* Common classes end */
+
+.add_student{margin-top:150px;}
+.student_select{background: #e6f9ff}
+.hr-sm{margin-top:10px !important; margin-bottom: 10px !important;}
+.total_amount{color:#0084FE; text-align: center; margin-top:15px; margin-bottom: 15px;}
+.total_amount .num{font-size: 24px; font-weight: 600;}
+
+
+.prof_pic {
+    width: 100px;
+    height: 100px;
+    margin: 20px auto;
+    position: relative;
+}
+.prof_pic img {
+    float: none;
+    margin: 0 auto;
+    width: 90px;
+    height: 90px;
+    -webkit-border-radius: 50% !important;
+    -moz-border-radius: 50% !important;
+    border-radius: 50% !important;
+    border: 5px solid #f9f9f9;
+}
+.label-edit {
+    background: #4485ee;
+    color: #fff;
+    height: 30px;
+    width: 30px;
+    border-radius: 50px !important;
+    padding-top: 5px;
+    text-align: center;
+	position: absolute;
+	right: 0px;
+	top: 50px;
+}
+
+
+
+/* login styles */
+
+.login_panel{border-radius: 4px !important; margin-top:20%; margin-bottom: 30px;}
+	.login_panel .login_panel_head{background: url(../../img/login_panel_top_bg.png) no-repeat; background-size: cover; height: 85px}
+	.login_panel .login_panel_head img{margin-top:25px}
+	.login_panel .login_panel_body{background: #fff; padding: 15px;  min-height: 330px;}
+	.login_panel .login_panel_body .tabbable-line .nav-tabs{
+		border-bottom: none;
+		width: 200px;
+		margin: auto;
+	}
+	.login_panel .login_panel_body .tabbable-line .nav-tabs > li{width:50%}
+	.login_panel .login_panel_body .tabbable-line .nav-tabs > li.active a{border-bottom: 2px solid #0084FE; border-top:none; border-right: none; border-left:none; color:#102A4F; font-weight: 600}
+	.login_panel .login_panel_body .tabbable-line .nav-tabs > li a{border-bottom: 2px solid #fff; color:#808285}
+	.login_panel .login_panel_body .tabbable-line .tab-content{margin-top:20px}
+	.signIn{width: 250px; margin: auto;}
+
+.login_foot{font-size: 12px; color:#fff; text-align: center; width: 100%; position: fixed; bottom: 10px}
+
+.login_verification{width: 70%; margin: 50px auto 30px}
+.verf_btns{width: 70%; margin: 50px auto 0}
+.verf_btns button{width:105px;}
+
+.reset_pass label{font-weight: normal !important; font-size: 13px; margin-bottom: 10px}
+.reset_pass{margin: 30px auto 0; width: 70%;}
+.pass_reset-succ{width: 70%; margin: 20px auto;}
+@media (max-width:480px){
+	
+	.verf_btns{width: 90%;}
+}
+
+@media (max-width:1028px){
+	
+	.reset_pass{width: 75%;}
+}
+
+.login_verify_link{width:75%; text-align: center; font-size: 15px; margin:40px auto 30px}
+/* login styles end */
+
+
+.contct_info td:first-child{color:#6D6E71}
+.contct_info td:last-child{font-weight: 600;}
+
+
+.notifications{padding: 0px; margin: 0px;}
+.notifications li{list-style-type: none; background:#edf0f7; border-bottom: 1px solid #d8d9dd; padding: 15px }
+.notifications li:last-child{border-bottom: none}
+.notifications li a{color:#414042}
+.notifications li label{margin-bottom: 0px;}
+
+.time-label{background: #fff; padding: 3px; border-radius: 3px !important; font-size: 12px;}
+.notification-view{min-height: 350px; width: 80%; margin: 40px auto}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* checkbox styles */
+
+.control-group {
+  display: inline-block;
+  vertical-align: top;
+  background: #fff;
+  text-align: left;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+  padding: 30px;
+  width: 200px;
+  height: 210px;
+  margin: 10px;
+}
+.control {
+  /*display: block;*/
+  position: relative;
+  padding-left: 30px;
+  margin-bottom: 15px;
+  cursor: pointer;
+  /*font-size: 18px;*/
+}
+.control input {
+  position: absolute;
+  z-index: -1;
+  opacity: 0;
+}
+.control__indicator {
+  position: absolute;
+  top: 2px;
+  left: 0;
+  height: 20px;
+  width: 20px;
+  background: #e6e6e6;
+}
+.control--radio .control__indicator {
+  border-radius: 50% !important;
+}
+.control:hover input ~ .control__indicator,
+.control input:focus ~ .control__indicator {
+  background: #ccc;
+}
+.control input:checked ~ .control__indicator {
+  background: #2aa1c0;
+}
+.control:hover input:not([disabled]):checked ~ .control__indicator,
+.control input:checked:focus ~ .control__indicator {
+  background: #0e647d;
+}
+.control input:disabled ~ .control__indicator {
+  background: #e6e6e6;
+  opacity: 0.6;
+  pointer-events: none;
+}
+.control__indicator:after {
+  content: '';
+  position: absolute;
+  display: none;
+}
+.control input:checked ~ .control__indicator:after {
+  display: block;
+}
+.control--checkbox .control__indicator:after {
+  left: 8px;
+  top: 4px;
+  width: 5px;
+  height: 10px;
+  border: solid #fff;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+.control--checkbox input:disabled ~ .control__indicator:after {
+  border-color: #7b7b7b;
+}
+.control--radio .control__indicator:after {
+  left: 7px;
+  top: 7px;
+  height: 6px;
+  width: 6px;
+  border-radius: 50% !important;
+  background: #fff;
+}
+.control--radio input:disabled ~ .control__indicator:after {
+  background: #7b7b7b;
+}
+.select {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 15px;
+  width: 100%;
+}
+.select select {
+  display: inline-block;
+  width: 100%;
+  cursor: pointer;
+  padding: 10px 15px;
+  outline: 0;
+  border: 0;
+  border-radius: 0;
+  background: #e6e6e6;
+  color: #7b7b7b;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+.select select::-ms-expand {
+  display: none;
+}
+.select select:hover,
+.select select:focus {
+  color: #000;
+  background: #ccc;
+}
+.select select:disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}
+.select__arrow {
+  position: absolute;
+  top: 16px;
+  right: 15px;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+  border-style: solid;
+  border-width: 8px 5px 0 5px;
+  border-color: #7b7b7b transparent transparent transparent;
+}
+.select select:hover ~ .select__arrow,
+.select select:focus ~ .select__arrow {
+  border-top-color: #000;
+}
+.select select:disabled ~ .select__arrow {
+  border-top-color: #ccc;
+}
+
+/* checkbox styles end */
