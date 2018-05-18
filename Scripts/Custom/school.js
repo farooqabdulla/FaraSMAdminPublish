@@ -165,7 +165,21 @@ function bindAllSchools(response) {
     for (i = 0; i < response.AllSchoolsDetails.length; i++) {
         var tblBody; var tblEnd; var tblBdy; var finalBody;
         var imageFileName = (schoolDetails[i]["logopath"]).trim() == "" ? '/assets/admin/img/defaultSchool.png' : webUrl + (schoolDetails[i]["logopath"]).trim();
-
+        var instituteName = "";
+        if (schoolDetails[i]["SchoolName"].length > 9)
+        {
+            instituteName = schoolDetails[i]["SchoolName"].substring(0, 9) + "...";
+        }
+        else {
+            instituteName = schoolDetails[i]["SchoolName"]
+        }
+        var instituteEmail = "";
+        if (schoolDetails[i]["Email"].length > 12) {
+            instituteEmail = schoolDetails[i]["Email"].substring(0, 9) + "...";
+        }
+        else {
+            instituteEmail = schoolDetails[i]["Email"];
+        }
         tblBody = " <tr><td>"
                       + "<div class='pull-left dp'> <img src='" + imageFileName + "' class='img-responsive' alt='profile pic'></div>"
                         + "<div class='pull-left'> <h4 class='text-blue f_15 text-bold mb-0'><a  id ='" + schoolDetails[i]["InstituteID"] + "_" + schoolDetails[i]["StatusID"] + "' href='#' style='text-overflow: ellipsis;'  title='" + schoolDetails[i]["SchoolName"] + "' class='text-blue schoolClick' data-toggle='modal' data-target=''>"
@@ -178,15 +192,15 @@ function bindAllSchools(response) {
                     //    + "<div class='pull-left'> <h4 class='text-blue f_15 text-bold mb-0'>"
                     //    }
 
-                       + schoolDetails[i]["Name"] + " <a/></h4>"
+                       + instituteName + " <a/></h4>"
                         + "<span class='f_12 margin-top-5 inlineBlock text-grey'>" + schoolDetails[i]["InstituteCode"] + "</span> </div> "
                         + "</td>"
-                        + "<td>" + schoolDetails[i]["Email"] + "</td>"
+                        + "<td><span title=" + schoolDetails[i]["Email"] + ">" + instituteEmail + "</span></td>"
                         + "<td>" + schoolDetails[i]["PhoneNo"] + "</td>"
                         + "<td>" + schoolDetails[i]["CreatedDate"] + "</td>"
                         + "<td>" + schoolDetails[i]["Transactions"] + "</td>"
                         + "<td>" + schoolDetails[i]["Revenue"] + "</td>"
-                        + "<td>" + schoolDetails[i]["BlockReason"] + "</td>";
+                        + "<td width='12%'>" + schoolDetails[i]["BlockReason"] + "</td>";
 
         if (schoolDetails[i]["StatusID"] == 3) {  // School status as Approved
 
