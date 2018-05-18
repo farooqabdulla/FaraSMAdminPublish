@@ -3,7 +3,12 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="stu_srch_box">
+
+     <div class="text-center text-grey" id="DivNoDataFound" style="display:none">
+        
+         <label class="blocked f_18" style="padding-top:20%">No Schools Records Found</label>
+    </div>
+    <div class="stu_srch_box" style="display:none" id="DivDataFound">
         <div class="clearfix srch_top">
             <div class="col-sm-2 col-md-2 col-xs-2 left-srch">
                 <label id="filter" class="filt_btn mb-0 select" onclick="toggleClick();"><i class="fa fa-sliders margin-right-10"></i><span class="hidden-xs">Filters</span> </label>
@@ -41,7 +46,7 @@
                     </ul>
                 </div>
             </div>
-            <div id="sbContent" class="sbContent">
+            <div id="sbContent" class="sbContent" style="min-height:500px;">
                 <div class="table-responsive">
                 <table class="table table-borderd tblStudent">
                     <thead>

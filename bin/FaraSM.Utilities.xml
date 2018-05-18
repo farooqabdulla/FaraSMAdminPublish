@@ -1,0 +1,225 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>FaraSM.Utilities</name>
+    </assembly>
+    <members>
+        <member name="M:FaraSM.Utilities.CustomExtensions.IsDbNull(System.Object)">
+            <summary>
+            Determines whether [is database null].
+            </summary>
+            <param name="input">The input.</param>
+            <returns>
+              <c>true</c> if the input is equivalanet to DbNull.Value; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:FaraSM.Utilities.CustomExtensions.IsSuccess(System.Data.SqlClient.SqlCommand)">
+            <summary>
+            Determines whether this instance has Success flag set.
+            </summary>
+            <param name="sqlCommand">The SQL command.</param>
+            <returns>
+              <c>true</c> if the specified SQL command's Success parameter is bit equivalant of true; otherwise, <c>false</c>.
+            </returns>
+            <exception cref="T:System.Collections.Generic.KeyNotFoundException">Success output parameter is not found in the sqlcommand parameters list.</exception>
+        </member>
+        <member name="M:FaraSM.Utilities.CustomExtensions.GetMessage(System.Data.SqlClient.SqlCommand)">
+            <summary>
+            Gets the Message parameter value of the SqlCommand.
+            </summary>
+            <param name="sqlCommand">The SQL command.</param>
+            <returns></returns>
+            <exception cref="T:System.Collections.Generic.KeyNotFoundException">Message Output parameter is not found in the sqlcommand parameters list.</exception>
+        </member>
+        <member name="M:FaraSM.Utilities.DateSplit.SplitDate(System.String)">
+            <summary>
+            Below method using split date as dd-mm-yyyy to yyyy-mm-dd
+            </summary>
+            <param name="Date"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FaraSM.Utilities.DateSplit.DateFormateSplit(System.String)">
+            <summary>
+            Below method using split date as dd/mm/yyyy to yyyy/mm/dd
+            </summary>
+            <param name="Date"></param>
+            <returns></returns>
+        </member>
+        <member name="T:FaraSM.Utilities.Helper">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:FaraSM.Utilities.Helper.#ctor(FaraSM.UserDefinedClasses.ResponseFormat)">
+            <summary>
+            Initializes a new instance of the <see cref="T:FaraSM.Utilities.Helper"/> class.
+            </summary>
+            <param name="responseFormat">The response format.</param>
+            <exception cref="T:System.ArgumentNullException">ResponseFormat can not be null</exception>
+        </member>
+        <member name="M:FaraSM.Utilities.Helper.InitializeResponseVariables">
+            <summary>
+            Initializes the response variables.
+            </summary>
+        </member>
+        <member name="M:FaraSM.Utilities.Helper.ResetResponseVariables">
+            <summary>
+            Resets the response variables.
+            </summary>
+        </member>
+        <member name="M:FaraSM.Utilities.Helper.TerminateRequest(System.Int32,System.Int32,System.String,System.Boolean,System.String)">
+            <summary>
+            Terminates the request.
+            </summary>
+            <param name="statusCode">The status code.</param>
+            <param name="subStatusCode">The sub status code.</param>
+            <param name="statusDescription">The status description.</param>
+            <param name="clearExistingResponseBuffer">if set to <c>true</c> [clear existing response buffer].</param>
+            <param name="responsePayload">The response payload.</param>
+        </member>
+        <member name="M:FaraSM.Utilities.Helper.GetStatusCode(System.Object@,System.Boolean)">
+            <summary>
+            Gets the status code.
+            </summary>
+            <param name="result">The result.</param>
+            <param name="removeKey">if set to <c>true</c> [Removes the key/element from the result].</param>
+            <returns></returns>
+        </member>
+        <member name="M:FaraSM.Utilities.Helper.GetSubStatusCode(System.Object@,System.Boolean)">
+            <summary>
+            Gets the sub status code.
+            </summary>
+            <param name="result">The result.</param>
+            <param name="removeKey">if set to <c>true</c> [Removes the key/element] from the result.</param>
+            <returns>Status Code from the Response Payload</returns>
+        </member>
+        <member name="M:FaraSM.Utilities.Helper.CreateProperty(System.String,System.Object,System.Boolean)">
+            <summary>
+            Creates the property.
+            </summary>
+            <param name="key">The key.</param>
+            <param name="value">The value.</param>
+            <param name="isInsertFirst">if set to <c>true</c> [inserts the specified key at index 0].</param>
+        </member>
+        <member name="M:FaraSM.Utilities.Helper.CreateProperty(System.String,System.Object,Newtonsoft.Json.Linq.JObject@,System.Boolean)">
+            <summary>
+            Creates the property.
+            </summary>
+            <param name="key">The key.</param>
+            <param name="value">The value.</param>
+            <param name="json">The json.</param>
+            <param name="isInsertFirst">if set to <c>true</c> [is insert first].</param>
+        </member>
+        <member name="M:FaraSM.Utilities.Helper.CreateProperty(System.String,System.Object,System.Xml.XmlElement@,System.Xml.XmlDocument@)">
+            <summary>
+            Creates the property.
+            </summary>
+            <param name="key">The key.</param>
+            <param name="value">The value.</param>
+            <param name="rootElement">The root element.</param>
+            <param name="xmlDoc">The XML document.</param>
+        </member>
+        <member name="M:FaraSM.Utilities.Helper.ExtractValue(System.String)">
+            <summary>
+            Extracts the value.
+            </summary>
+            <param name="key">The key to lookup.</param>
+            <returns></returns>
+        </member>
+        <member name="M:FaraSM.Utilities.Helper.ParseDataSet(System.Data.DataSet,System.Collections.Generic.Dictionary{System.String,FaraSM.UserDefinedClasses.TableProperties},System.Boolean)">
+            <summary>
+            Parses the data set.
+            </summary>
+            <param name="ds">The ds.</param>
+            <param name="tableProperties">The table properties.</param>
+            <param name="constructAsArrayForOneRow">if set to <c>true</c> [construct as array for one row].</param>
+        </member>
+        <member name="M:FaraSM.Utilities.Helper.GenerateErrorResponse(System.String)">
+            <summary>
+            Generates the error response.
+            </summary>
+            <param name="sqlCommand">The SQL command.</param>
+        </member>
+        <member name="M:FaraSM.Utilities.Helper.EscapeInput(System.String)">
+            <summary>
+            Escapes the input.
+            </summary>
+            <param name="input">The input.</param>
+            <returns>Escaped String</returns>
+        </member>
+        <member name="M:FaraSM.Utilities.Helper.ConvertOutputParametersToDataTable(System.Data.SqlClient.SqlParameterCollection)">
+            <summary>
+            Converts the output parameters to data table.
+            </summary>
+            <param name="parameters">The parameters.</param>
+            <returns>DataTable</returns>
+        </member>
+        <member name="M:FaraSM.Utilities.Helper.PopulateCommonOutputParameters(System.Data.SqlClient.SqlCommand@)">
+            <summary>
+            Populates the common output parameters.
+            </summary>
+            <param name="sqlCommand">The SQL command.</param>
+        </member>
+        <member name="M:FaraSM.Utilities.Helper.IsCSRFAttack">
+            <summary>
+            Determines whether [is CSRF attack].
+            </summary>
+            <returns>
+              <c>true</c> if [is CSRF attack]; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:FaraSM.Utilities.Helper.IsCORSAttack">
+            <summary>
+            Determines whether [is cors attack].
+            </summary>
+            <returns>
+              <c>true</c> if [is cors attack]; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="P:FaraSM.Utilities.Helper.HasSuccessFlag">
+            <summary>
+            Gets a value indicating whether this instance has success flag.
+            </summary>
+            <value>
+              <c>true</c> if this instance has success flag; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:FaraSM.Utilities.Helper.IsOutputXmlFormat">
+            <summary>
+            Gets a value indicating whether this instance is output XML format.
+            </summary>
+            <value>
+              <c>true</c> if this instance is output XML format; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:FaraSM.Utilities.Helper.UUID">
+            <summary>
+            Gets the UUID.
+            </summary>
+            <value>
+            The UUID.
+            </value>
+        </member>
+        <member name="P:FaraSM.Utilities.Helper.ResponseFormat">
+            <summary>
+            Gets or sets the response format.
+            </summary>
+            <value>
+            The response format.
+            </value>
+        </member>
+        <member name="P:FaraSM.Utilities.Helper.RequestFormat">
+            <summary>
+            Gets or sets the request format.
+            </summary>
+            <value>
+            The request format.
+            </value>
+        </member>
+        <member name="T:FaraSM.Utilities.SessionUtil">
+            <summary>  
+             This class performs getting and setting sessions.  
+            </summary>  
+        </member>
+    </members>
+</doc>

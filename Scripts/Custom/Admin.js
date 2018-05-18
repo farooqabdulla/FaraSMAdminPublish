@@ -19,7 +19,7 @@ $("#btnAdminLogin").on("click", function () {
     data = { type: 1, emailId: userEmail, password: encryptedPassword };
     request.Initiate("/AjaxHandlers/Admin.ashx", "JSON", false, data, function (successResponseData) {
         if (successResponseData.Success == true) {
-            window.location.href = "/AdminProfile.aspx";
+            window.location.href = "/Schools.aspx";
         }
         else {
             ErrorNotifier(successResponseData.Message);

@@ -6,7 +6,7 @@
 <html lang="en" class="no-js">
 <head>
     <meta charset="utf-8" />
-    <title>School Management</title>
+    <title>FaraAdmin-FaraPay</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta content="width=device-width, initial-scale=1" name="viewport" />
     <meta content="" name="description" />
@@ -46,6 +46,24 @@
     </script>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
+    <style>
+        #ulAdminLeftMenus li, #ulAdminLeftMenus li a{
+            min-height:128px;
+        }
+        #ulAdminLeftMenus li .sub-menu li, #ulAdminLeftMenus li .sub-menu li a{
+             min-height:58px;
+        }
+        .page-sidebar .page-sidebar-menu > li > a span.student_tab{
+            padding: 9px 28px;
+        }
+        .sub-menu{
+            margin:0;
+        }
+        .sub-menu .active{
+                background: #dfefff !important;
+    color: #414042;
+        }
+    </style>
 </head>
 <!-- END HEAD -->
 <!-- BEGIN BODY -->

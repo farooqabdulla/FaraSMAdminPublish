@@ -29,7 +29,9 @@ $(document).ready(function () {
         }
     }
 });
-
+$(".sidebar-toggler i").click(function () {
+    $(this).toggleClass("fa-angle-double-left fa-angle-double-right");
+});
 
 $("#logout").on("click", function () {
     var data = { type: 1 };

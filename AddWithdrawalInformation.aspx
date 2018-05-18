@@ -9,7 +9,7 @@
         <label class="blocked f_18">Start Adding Withdrawal Information for School Now !</label>
         <button type="button" class="btn btn-primary margin-top-10" data-toggle="modal" data-target="#withdr_infor">Add Withdrawal Info</button>
     </div>
-     <div class="stu_srch_box" id="Withdrawlsdisplay">
+     <div class="stu_srch_box" id="Withdrawlsdisplay" style="display:none">
         <div class="clearfix srch_top">
           <div class="col-sm-2 col-md-2 col-xs-2 left-srch">
             <label id="filter" class="filt_btn mb-0 select" onclick="toggleClick();"> <i class="fa fa-sliders margin-right-10"></i> <span class="hidden-xs">Filters</span> </label>

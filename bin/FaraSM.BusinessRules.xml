@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>FaraSM.BusinessRules</name>
+    </assembly>
+    <members>
+        <member name="M:FaraSM.BusinessRules.FeeCategory.#ctor(FaraSM.Utilities.Helper)">
+            <summary>
+            Initializes a new instance of the <see cref="T:FaraSM.BusinessRules.Parent"/> class.
+            </summary>
+            <param name="helper">The helper.</param>
+            <exception cref="T:System.ArgumentNullException">Helper parameter should not be null</exception>
+        </member>
+        <member name="M:FaraSM.BusinessRules.FeeCategory.BulkFeecategoryInsert(System.Int32,System.Int32,System.Data.DataTable)">
+            <summary>
+            Creates this instance.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:FaraSM.BusinessRules.Parent">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:FaraSM.BusinessRules.Parent.#ctor(FaraSM.Utilities.Helper)">
+            <summary>
+            Initializes a new instance of the <see cref="T:FaraSM.BusinessRules.Parent"/> class.
+            </summary>
+            <param name="helper">The helper.</param>
+            <exception cref="T:System.ArgumentNullException">Helper parameter should not be null</exception>
+        </member>
+        <member name="M:FaraSM.BusinessRules.Parent.ParentRegistration(System.String,System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            Creates this instance.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FaraSM.BusinessRules.ParentQuickPay.#ctor(FaraSM.Utilities.Helper)">
+            <summary>
+            Initializes a new instance of the <see cref="T:FaraSM.BusinessRules.Parent"/> class.
+            </summary>
+            <param name="helper">The helper.</param>
+            <exception cref="T:System.ArgumentNullException">Helper parameter should not be null</exception>
+        </member>
+        <member name="M:FaraSM.BusinessRules.ParentQuickPay.GetSchoolOnCountry(System.Int32,System.Int32)">
+            <summary>
+            Creates this instance.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FaraSM.BusinessRules.School.#ctor(FaraSM.Utilities.Helper)">
+            <summary>
+            Initializes a new instance of the <see cref="T:FaraSM.BusinessRules.Parent"/> class.
+            </summary>
+            <param name="helper">The helper.</param>
+            <exception cref="T:System.ArgumentNullException">Helper parameter should not be null</exception>
+        </member>
+        <member name="M:FaraSM.BusinessRules.School.schoolLoginValidation(System.String,System.String)">
+            <summary>
+            Creates this instance.
+            </summary>
+            <returns></returns>
+            
+        </member>
+    </members>
+</doc>

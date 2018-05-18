@@ -270,7 +270,7 @@ function GetCountriesandcities() {
             }
             else {
                 //alert("countries not found");
-                ErrorNotifier("country  data  not found");
+                //ErrorNotifier("country  data  not found");
             }
         });
     }
@@ -290,7 +290,7 @@ function getInstituteAreas() {
         }
         else {
             // alert("cities not found");
-            ErrorNotifier("locations  data  not found");
+            //ErrorNotifier("locations  data  not found");
         }
     });
 }

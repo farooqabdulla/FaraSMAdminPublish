@@ -58,14 +58,17 @@ function GetTransactionList() {
             //maxamount = successResponseData.maxAmount + ' ' + currencycode;
             //minamount = successResponseData.minamount + ' ' + currencycode;
             //Balanceslider();
+            $('#DivNoDataFound').hide();
+            $('#DivDataFound').show();
         }
            
 
 
         else {
-            ErrorNotifier("no data found");
+            //ErrorNotifier("no data found");
             //alert("no data found");
-
+            $('#DivNoDataFound').show();
+            $('#DivDataFound').hide();
         }
 
 
@@ -127,7 +130,7 @@ function GetCountriesandcities()
                 }
             }
             else {
-                ErrorNotifier("country  data  not found");
+              //  ErrorNotifier("country  data  not found");
             }
         });
     }
@@ -147,7 +150,7 @@ function getInstituteAreas() {
         }
         else {
             //alert("cities not found");
-            ErrorNotifier(" cites data  not found");
+            //ErrorNotifier(" cites data  not found");
         }
     });
 }

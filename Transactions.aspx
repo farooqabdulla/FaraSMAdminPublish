@@ -4,15 +4,13 @@
      
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="text-center text-grey add_student" style="display: none">
-        <!--<h4 class="bold">Hi Administrator</h4>-->
-        <img src="assets/admin/img/Fee.png" alt="" />
-        <h3 class="blocked f_18 text-navyBlue text-bold">There are no fee Categories added</h3>
-        <button type="button" class="btn btn-primary margin-top-10" data-toggle="modal" data-target="#add_std">Add Fee Category</button>
+     <div class="text-center text-grey" id="DivNoDataFound" style="display:none">
+        
+         <label class="blocked f_18" style="padding-top:20%">No Transaction Records Found</label>
     </div>
 
     <!--show below when data present in the grid-->
-    <div class="stu_srch_box">
+    <div class="stu_srch_box" style="display:none" id="DivDataFound">
         <div class="clearfix srch_top">
             <div class="col-sm-2 col-md-2 col-xs-2 left-srch">
                 <label id="filter" class="filt_btn mb-0 select" onclick="toggleClick();"><i class="fa fa-sliders margin-right-10"></i><span class="hidden-xs">Filters</span> </label>

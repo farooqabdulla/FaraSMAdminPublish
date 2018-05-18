@@ -140,6 +140,9 @@ function getAllSchoolsDetails() {
         if (response.Success == true) {
             if (response.AllSchoolsDetails.length > 0) {
                 bindAllSchools(response);
+                $('#DivNoDataFound').hide();
+                $('#DivDataFound').show();
+                
             }
             else {
                 $("#tblBdySchoolDetails").html("<tr><td colspan='7' style='text-align:center'>No Records Found</td></tr>");
@@ -147,6 +150,8 @@ function getAllSchoolsDetails() {
         }
         else {
             $("#tblBdySchoolDetails").html("<tr><td colspan='7' style='text-align:center'>No Records Found</td></tr>");
+            $('#DivNoDataFound').show();
+            $('#DivDataFound').hide();
         }
     });
 }
@@ -384,7 +389,7 @@ function viewProfile() {
     if (statusID == 3 || statusID == 5)//Active and Block acounts can be redicrect to school details
     {
         var adminUrl = document.getElementById('hdnAdminUrl').value;
-        var location = "FeeCategory.aspx?AcademicYearID=";
+        var location = "SchoolDetails.aspx?InstituteID=";
         var url = (adminUrl + location + instituteID);
         window.open(url);
     }
