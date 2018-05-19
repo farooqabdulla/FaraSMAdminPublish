@@ -73,7 +73,7 @@ $("#myfile").on('change', function () {
     //    success: function (res) {
     request.InitiateFormRequest("/AjaxHandlers/Admin.ashx", "JSON", false, formData, function (res) {
 
-        if (res.success == true) {
+        if (res.Success == true) {
             SuccessNotifier("profile image uploaded");
         }
         else {

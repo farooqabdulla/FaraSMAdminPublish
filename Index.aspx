@@ -47,8 +47,8 @@
             <div class="col-lg-4 col-md-4 col-sm-6">
                 <div class="login_panel">
                     <div class="login_panel_head text-center">
-                        <a  href="/Index.aspx">
-                        <img src="assets/admin/img/logo-w.png" height="35" alt="logo"></a>
+                        <img src="assets/admin/img/logo-w.png" height="35" alt="logo">
+                        
                     </div>
                     <div class="login_panel_body">
                         <div class="signIn material">

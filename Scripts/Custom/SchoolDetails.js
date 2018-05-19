@@ -77,7 +77,7 @@ $(document).ready(function () {
         var data = { type: 11, instituteId: instituteId };
         request.Initiate("/AjaxHandlers/AdminSchool.ashx", "JSON", true, data, function (res) {
             if (res.Success == true) {
-                var logoPath = ((res.InstituteDetails[0].logopath == '') ? "/InstituteFiles/default.jpg" : res.InstituteDetails[0].logopath);
+                var logoPath = ((res.InstituteDetails[0].logopath == '') ? "/Images/ProfileImages/defaultimage.png" : res.InstituteDetails[0].logopath);
                 $("#imgSchoolLogo").attr("src", $('#hdnWebUrl').val() + logoPath);
                 $("#h3SchoolName").html(res.InstituteDetails[0].Name);
                 $("#labelSchoolEmail").html(res.InstituteDetails[0].Email);
