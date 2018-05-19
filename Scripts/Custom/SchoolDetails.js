@@ -243,11 +243,12 @@ $(document).ready(function () {
         var data = { type: 19, instituteId: instituteId, statusId: statusId, startDate: startDate, endDate: endDate, numberOfRecords: numberOfRecords };
         request.Initiate("/AjaxHandlers/AdminSchool.ashx", "JSON", true, data, function (res) {
             if (res.Success == true) {
+                $('#tBodyTransactions').empty();
                 if (res.TransactionsTable.length == 0) {
                     $('#noDataTr').show();
                 } else {
                     $('#noDataTr').hide();
-                    $('#tBodyTransactions').empty();
+                    //$('#tBodyTransactions').empty();
                     $.each(res.TransactionsTable, function () {
                         $("#tBodyTransactions").append(
                             "<tr><td>" + this.OrderId + "</td><td>" + this.PaymentMode + "</td><td>" + this.Amount + "</td><td>" + this.DateNTime

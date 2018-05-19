@@ -7,10 +7,10 @@
         <div class="col-md-3">
             <div class="stu_srch_box text-center pad-10 profileDetails">
                 <img id="imgSchoolLogo" src="assets/admin/img/School.png" alt="SchoolLogo" />
-                <h3 id="h3SchoolName">Emirates International School</h3>
-                <label id="labelSchoolEmail" class="text-center f_13 margin-top-5 blocked margin-bottom-10">emiratesinternational@gmail.com</label>
-                <label id="labelSchoolContactNo" class="text-center blocked f_13">+12 12345 678</label>
-                <label id="labelInstituteCode" class="text-grey f_12 margin-bottom-15">ST-0089</label>
+                <h3 id="h3SchoolName"></h3>
+                <label id="labelSchoolEmail" class="text-center f_13 margin-top-5 blocked margin-bottom-10"></label>
+                <label id="labelSchoolContactNo" class="text-center blocked f_13"></label>
+                <label id="labelInstituteCode" class="text-grey f_12 margin-bottom-15"></label>
                 <label class="blocked f_12 text-grey margin-bottom-20">
                     <span>Address:</span><br>
                     <span id="spanSchoolAddress"></span>
@@ -45,19 +45,19 @@
                             <div class="col-sm-4">
                                 <div class="db_box">
                                     <h5 class="head">Total Fee Estimation</h5>
-                                    <label id="labelTotalFeeEstm" class="number">288888.00 <span class="text">bhd</span></label>
+                                    <label id="labelTotalFeeEstm" class="number">0 <span class="text">bhd</span></label>
                                 </div>
                             </div>
                             <div class="col-sm-4">
                                 <div class="db_box">
                                     <h5 class="head">Total Fee Collected</h5>
-                                    <label id="labelTotalCollected" class="number">288888.00 <span class="text">bhd</span></label>
+                                    <label id="labelTotalCollected" class="number">0 <span class="text">bhd</span></label>
                                 </div>
                             </div>
                             <div class="col-sm-4">
                                 <div class="db_box">
                                     <h5 class="head">Total Fee Due</h5>
-                                    <label id="labelTotalFeeDue" class="number">288 <span class="text">bhd</span></label>
+                                    <label id="labelTotalFeeDue" class="number">0 <span class="text">bhd</span></label>
                                 </div>
                             </div>
                         </div>
@@ -71,19 +71,19 @@
                             </div>
                             <div class="col-md-4 col-sm-4 col-xs-6 col-lg-2">
                                 <div class="stats">
-                                    <h4 id="h3TotalClasses" class="num">45</h4>
+                                    <h4 id="h3TotalClasses" class="num"></h4>
                                     <label class="name">Classes</label>
                                 </div>
                             </div>
                             <div class="col-md-4 col-sm-4 col-xs-6 col-lg-2">
                                 <div class="stats">
-                                    <h4 id="h3TotalSections" class="num">3</h4>
+                                    <h4 id="h3TotalSections" class="num"></h4>
                                     <label class="name">Sections</label>
                                 </div>
                             </div>
                             <div class="col-md-4 col-sm-4 col-xs-6 col-lg-2">
                                 <div class="stats">
-                                    <h4 id="h3TotalFeeCategories" class="num">15</h4>
+                                    <h4 id="h3TotalFeeCategories" class="num"></h4>
                                     <label class="name">Fee Categories</label>
                                 </div>
                             </div>
@@ -128,14 +128,14 @@
                     </div>
                     <div class="tab-pane pad-15" id="tab_15_2">
                         <div class="row margin-bottom-15">
-                            <div class="col-sm-4">
+                            <div class="col-sm-6">
                                 <div class="form-group">
                                     <input type="text" id="inputSecretKey" required="required" />
                                     <label class="control-label" for="select">Secret Key(API KEY)*</label>
                                     <i class="bar"></i>
                                 </div>
                             </div>
-                            <div class="col-sm-4">
+                            <div class="col-sm-6">
                                 <div class="form-group">
                                     <input type="text" id="inputPayTabsEmail" required="required" />
                                     <label class="control-label" for="select">Paytabs Email ID *</label>
@@ -159,19 +159,19 @@
                             <div class="col-sm-4">
                                 <div class="db_box">
                                     <h5 class="head">Transactions Today<%--<span class="font-green normal margin-left-10"><i id="symbolTransactionToday" class="fa fa-long-arrow-down"></i><span id="percentageTransactionToday">34%</span></span>--%></h5>
-                                    <label id="labelTotalTrnsToday" class="number">288888.00 <span id="spanTTCurrency" class="text">bhd</span></label>
+                                    <label id="labelTotalTrnsToday" class="number">0 <span id="spanTTCurrency" class="text">bhd</span></label>
                                 </div>
                             </div>
                             <div class="col-sm-4">
                                 <div class="db_box">
                                     <h5 class="head">Available Balance</h5>
-                                    <label id="labelAvailableBalance" class="number">288888.00 <span id="spanAVCurrency" class="text">bhd</span></label>
+                                    <label id="labelAvailableBalance" class="number">0 <span id="spanAVCurrency" class="text">bhd</span></label>
                                 </div>
                             </div>
                             <div class="col-sm-4">
                                 <div class="db_box">
                                     <h5 class="head">NO. Of Transactions</h5>
-                                    <label id="noOfTrns" class="number">288 </label>
+                                    <label id="noOfTrns" class="number">0 </label>
                                 </div>
                             </div>
                         </div>
@@ -260,23 +260,23 @@
                             <div class="tab-pane active pad-15" id="payD">
                                 <div class="clearfix margin-bottom-15">
                                     <label class="pull-left margin-right-10">Amount :</label>
-                                    <label id="modalTrAmount" class="pull-left text-blue bold">230.00 BHD</label>
+                                    <label id="modalTrAmount" class="pull-left text-blue bold">0</label>
                                 </div>
                                 <div class="clearfix margin-bottom-15">
                                     <label class="pull-left margin-right-10">To :</label>
-                                    <label id="modalStudentName" class="pull-left">John Anderson</label>
+                                    <label id="modalStudentName" class="pull-left"></label>
                                 </div>
                                 <div class="clearfix margin-bottom-15">
                                     <label class="pull-left margin-right-10">Time :</label>
-                                    <label id="modalTrTime" class="pull-left">03-01-2012 02:43:25 PM</label>
+                                    <label id="modalTrTime" class="pull-left"></label>
                                 </div>
                                 <div class="clearfix margin-bottom-15">
                                     <label class="pull-left margin-right-10">Result :</label>
-                                    <label id="modalPaymntStatus" class="pull-left font-red bold">Payment Rejected</label>
+                                    <label id="modalPaymntStatus" class="pull-left font-red bold"></label>
                                 </div>
                                 <div class="clearfix margin-bottom-15">
                                     <label class="pull-left margin-right-10">Reason :</label>
-                                    <label class="pull-left">Transaction currency is not supported, Please contact your merchant</label>
+                                    <label class="pull-left"></label>
                                 </div>
                             </div>
 
