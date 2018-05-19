@@ -168,14 +168,14 @@ function bindAllSchools(response) {
         var instituteName = "";
         if (schoolDetails[i]["SchoolName"].length > 9)
         {
-            instituteName = schoolDetails[i]["SchoolName"].substring(0, 9) + "...";
+            instituteName = schoolDetails[i]["SchoolName"].substring(0, 6) + "...";
         }
         else {
             instituteName = schoolDetails[i]["SchoolName"]
         }
         var instituteEmail = "";
         if (schoolDetails[i]["Email"].length > 12) {
-            instituteEmail = schoolDetails[i]["Email"].substring(0, 9) + "...";
+            instituteEmail = schoolDetails[i]["Email"].substring(0, 6) + "...";
         }
         else {
             instituteEmail = schoolDetails[i]["Email"];
