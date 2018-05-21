@@ -47,7 +47,8 @@
             <div class="col-lg-4 col-md-4 col-sm-6">
                 <div class="login_panel">
                     <div class="login_panel_head text-center">
-                        <img src="assets/admin/img/logo-w.png" height="35" alt="logo">
+                        <%--<img src="assets/admin/img/logo-w.png" height="35" alt="logo">--%>
+                        <img src="assets/admin/img/Farapay%20WHITE_LOGO.png" alt="logo" />
                         
                     </div>
                     <div class="login_panel_body">

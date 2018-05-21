@@ -5,6 +5,8 @@
 //$('#inputStartDate').val(endDate);
 //$('#inputEndDate').val(startDate);
 var colorClassArray = ["text-warning", "font-blue", "font-green", "font-red", "text-dark"];
+var currency = "";
+
 
 $(document).ready(function () {
 
@@ -86,6 +88,7 @@ $(document).ready(function () {
                 $("#spanSchoolAddress").html(res.InstituteDetails[0].Address);
                 $("#spanSchoolCityName").html(res.InstituteDetails[0].CityName);
                 $('#spanSchoolCountryName').html(res.InstituteDetails[0].CountryName);
+                currency = res.InstituteDetails[0].Currency;
 
                 //// Begin Delete account block account
                 document.getElementById("blockAccountOrDeleteAccount").style.visibility = "hidden";
@@ -118,7 +121,7 @@ $(document).ready(function () {
         request.Initiate("/AjaxHandlers/AdminSchool.ashx", "JSON", true, data, function (res) {
             if (res.Success == true) {
                 $("#labelTotalTrnsToday").html(res.TransactionsToday);
-                $("#labelAvailableBalance").html(res.AvailableWalletBalance);
+                $("#labelAvailableBalance").html(res.AvailableWalletBalance + " " + currency);
                 $("#noOfTrns").html(res.NumberOfTransactions);
                 $("#h3TotalAcademicYear").html(res.NumberOfAcademicYears);
                 $("#h3TotalClasses").html(res.NumberOfClasses);
@@ -217,9 +220,9 @@ $(document).ready(function () {
         var data = { type: 17, instituteId: instituteId };
         request.Initiate("/AjaxHandlers/AdminSchool.ashx", "JSON", true, data, function (res) {
             if (res.Success == true) {
-                $("#labelTotalFeeEstm").html(res.FeeSummary[0].TotalEstimationFee);
-                $("#labelTotalCollected").html(res.FeeSummary[0].TotalPaidOnline);
-                $("#labelTotalFeeDue").html(res.FeeSummary[0].TotalFeeDue);
+                $("#labelTotalFeeEstm").html(res.FeeSummary[0].TotalEstimationFee + " " + currency);
+                $("#labelTotalCollected").html(res.FeeSummary[0].TotalPaidOnline + " " + currency);
+                $("#labelTotalFeeDue").html(res.FeeSummary[0].TotalFeeDue + " " + currency);
             }
         })
     }
@@ -242,10 +245,13 @@ $(document).ready(function () {
         endDate = $('#inputEndDate').val();
         var data = { type: 19, instituteId: instituteId, statusId: statusId, startDate: startDate, endDate: endDate, numberOfRecords: numberOfRecords };
         request.Initiate("/AjaxHandlers/AdminSchool.ashx", "JSON", true, data, function (res) {
+
             if (res.Success == true) {
                 $('#tBodyTransactions').empty();
                 if (res.TransactionsTable.length == 0) {
+                    $('#tBodyTransactions').empty();
                     $('#noDataTr').show();
+
                 } else {
                     $('#noDataTr').hide();
                     //$('#tBodyTransactions').empty();
