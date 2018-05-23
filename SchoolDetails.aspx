@@ -276,7 +276,7 @@
                                 </div>
                                 <div class="clearfix margin-bottom-15">
                                     <label class="pull-left margin-right-10">Reason :</label>
-                                    <label class="pull-left"></label>
+                                    <label id="idReason" class="pull-left"></label>
                                 </div>
                             </div>
 

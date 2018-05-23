@@ -285,6 +285,8 @@ $(document).ready(function () {
                             $('#modalCity').html(res.TransactionDetails[i].CityName);
                             $('#modalState').html(res.TransactionDetails[i].StateName);
                             $('#modalPostal').html(res.TransactionDetails[i].PostalCode);
+                            $('#idReason').html(res.TransactionDetails[i].Reason);
+                            
                             addressFlag = true;
                         }
                         studentId = res.TransactionDetails[i].StudentId;
@@ -300,6 +302,7 @@ $(document).ready(function () {
                     $('#modalCity').html("N/A");
                     $('#modalState').html("N/A");
                     $('#modalPostal').html("N/A");
+                    $('#idReason').html("N/A");
                 }
             }
         })
