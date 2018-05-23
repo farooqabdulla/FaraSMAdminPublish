@@ -4,11 +4,11 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-     <div class="text-center text-grey" id="DivNoDataFound" style="display:none">
-        
-         <label class="blocked f_18" style="padding-top:20%">No Schools Records Found</label>
+    <div class="text-center text-grey" id="DivNoDataFound" style="display: none">
+
+        <label class="blocked f_18" style="padding-top: 20%">No Schools Records Found</label>
     </div>
-    <div class="stu_srch_box" style="display:none" id="DivDataFound">
+    <div class="stu_srch_box" style="display: none" id="DivDataFound">
         <div class="clearfix srch_top">
             <div class="col-sm-2 col-md-2 col-xs-2 left-srch">
                 <label id="filter" class="filt_btn mb-0 select" onclick="toggleClick();"><i class="fa fa-sliders margin-right-10"></i><span class="hidden-xs">Filters</span> </label>
@@ -46,39 +46,42 @@
                     </ul>
                 </div>
             </div>
-            <div id="sbContent" class="sbContent" style="min-height:500px;">
+            <div id="sbContent" class="sbContent" style="min-height: 500px;">
                 <div class="table-responsive">
-                <table class="table table-borderd tblStudent">
-                    <thead>
-                        <tr>
-                            <%--<th>School Name </th>--%>
-                            <%--//<i class="fa fa-sort margin-left-5"></i>--%>
-                            <%-- <th>Email ID </th>--%>
-                            <%--<i class="fa fa-sort margin-left-5"></i>--%>
-                            <%-- <th>Phone Number </th>--%>
-                            <%--<i class="fa fa-sort margin-left-5">--%>
-                            <%--<th>Created Date </th>--%>
-                            <%--<i class="fa fa-sort margin-left-5"></i>--%>
-                            <%-- <th>Transactions </th>--%>
-                            <%--<i class="fa fa-sort margin-left-5"></i>--%>
-                            <%--<th>Revenue </th>--%>
-                            <%--<i class="fa fa-sort margin-left-5"></i>--%>
-                            <%-- <th>Status </th>--%>
-                            <%--<i class="fa fa-sort margin-left-5"></i>--%>
-                            <th>School Name <i class="fa fa-sort margin-left-5"></i></th>
-                            <th>Email ID <i class="fa fa-sort margin-left-5"></i></th>
-                            <th>Phone Number <i class="fa fa-sort margin-left-5"></i></th>
-                            <th>Created Date <i class="fa fa-sort margin-left-5"></i></th>
-                            <th>Transactions <i class="fa fa-sort margin-left-5"></i></th>
-                            <th>Revenue <i class="fa fa-sort margin-left-5"></i></th>
-                             <th>Comments <i class="fa fa-sort margin-left-5"></i></th>
-                            <th>Status <i class="fa fa-sort margin-left-5"></i></th>
-                        </tr>
-                    </thead>
-                    <tbody id="tblBdySchoolDetails">
-                    </tbody>
-                </table>
+                    <table class="table table-borderd tblStudent">
+                        <thead>
+                            <tr>
+                                <%--<th>School Name </th>--%>
+                                <%--//<i class="fa fa-sort margin-left-5"></i>--%>
+                                <%-- <th>Email ID </th>--%>
+                                <%--<i class="fa fa-sort margin-left-5"></i>--%>
+                                <%-- <th>Phone Number </th>--%>
+                                <%--<i class="fa fa-sort margin-left-5">--%>
+                                <%--<th>Created Date </th>--%>
+                                <%--<i class="fa fa-sort margin-left-5"></i>--%>
+                                <%-- <th>Transactions </th>--%>
+                                <%--<i class="fa fa-sort margin-left-5"></i>--%>
+                                <%--<th>Revenue </th>--%>
+                                <%--<i class="fa fa-sort margin-left-5"></i>--%>
+                                <%-- <th>Status </th>--%>
+                                <%--<i class="fa fa-sort margin-left-5"></i>--%>
+                                <th>School Name <i class="fa fa-sort margin-left-5"></i></th>
+                                <th>Email ID <i class="fa fa-sort margin-left-5"></i></th>
+                                <th>Phone Number <i class="fa fa-sort margin-left-5"></i></th>
+                                <th>Created Date <i class="fa fa-sort margin-left-5"></i></th>
+                                <th>Transactions <i class="fa fa-sort margin-left-5"></i></th>
+                                <th>Revenue <i class="fa fa-sort margin-left-5"></i></th>
+                                <th>Comments <i class="fa fa-sort margin-left-5"></i></th>
+                                <th>Status <i class="fa fa-sort margin-left-5"></i></th>
+                            </tr>
+                        </thead>
+                        <tbody id="tblBdySchoolDetails">
+                        </tbody>
+                    </table>
+                    <div class="col-md-12 text-center">
+                        <ul class="pagination pagination-lg pager" id="myPager"></ul>
                     </div>
+                </div>
             </div>
         </div>
     </div>
@@ -149,7 +152,7 @@
 
                         <div class="form-group">
                             <input type="text" id="txtPaytabsEmailID" required="required" class="full-w" />
-                            <label class="control-label" for="input">Paytabs Email ID</label>
+                            <label class="control-label" for="input">Paytabs Merchant Username (E-mail ID)</label>
                             <i class="bar"></i>
                         </div>
 
@@ -210,7 +213,7 @@
 
                         <div class="form-group">
                             <input type="text" id="txtAPaytabsEmailID" required="required" class="full-w" />
-                            <label class="control-label" for="input">Paytabs Email ID</label>
+                            <label class="control-label" for="input">Paytabs Merchant Username (E-mail ID)</label>
                             <i class="bar"></i>
                         </div>
 
@@ -221,6 +224,7 @@
                         </div>
 
                         <div class="form-group text-center">
+                            <button type="button" class="btn btn-default" id="btnApproveCancel" style="display: none">Cancel</button>
                             <button type="button" class="btn btn-primary" id="btnActivate">Approve</button>
                         </div>
 
@@ -252,12 +256,11 @@
 
                     </div>
 
-                   <%-- <div class="text-center">
+                    <%-- <div class="text-center">
                         <h4 class="bold-6">Sorry it has been only 2 days you have blocked the account you can't delete the account before 30 days after blocking.</h4>
                         <br>
                         <button type="button" class="btn btn-primary">Ok</button>
                     </div>--%>
-
                 </div>
             </div>
         </div>
@@ -286,7 +289,8 @@
                     </div>--%>
 
                     <div class="text-center">
-                        <h4 class="bold-6" id="AccountDeleteContent"></h4> <%--Sorry it has been only 0 days you have blocked the account you can't delete the account before 30 days after blocking.--%>
+                        <h4 class="bold-6" id="AccountDeleteContent"></h4>
+                        <%--Sorry it has been only 0 days you have blocked the account you can't delete the account before 30 days after blocking.--%>
                         <br>
                         <button type="button" class="btn btn-primary" id="btnDeleteOk">Ok</button>
                     </div>
@@ -296,17 +300,20 @@
         </div>
     </div>
 
-    
+
     <input type="hidden" id="hdnInstituteID" value="<%=instituteId %>" />
-     <input type="hidden" id="hdnAdminUrl" value="<%=AdminUrl %>" />
+    <input type="hidden" id="hdnAdminUrl" value="<%=AdminUrl %>" />
     <input type="hidden" id="hdnWebUrl" value="<%=WebUrl %>" />
-    <script src="assets/global/plugins/jquery.min.js"></script>
-        <script src="Scripts/Custom/request.js?v=1"></script>
-    <script src="Scripts/Custom/school.js?v=1"></script>
+    <input type="hidden" id="hdnIsActivateOrUnblock" value="<%=IsActivateOrUnblock %>" />
+   
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ScriptPart" runat="server">
+     <script src="assets/global/plugins/jquery.min.js"></script>
+    <script src="Scripts/Plugins/paginationAdmin.js?v=1"></script>
+    <script src="Scripts/Custom/request.js?v=1"></script>
+    <script src="Scripts/Custom/school.js?v=1"></script>
     <script>
-       
+
         function toggleClick() {
             //debugger;
             document.getElementsByClassName('sidebar')[0].classList.toggle('collapsed');

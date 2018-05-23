@@ -109,7 +109,11 @@
                      
                       
                     </tbody>
+
                 </table>
+                <div class="col-md-12 text-center">
+                    <ul class="pagination pagination-lg pager" id="myPager"></ul>
+                </div>
             </div>
         </div>
     </div>
@@ -121,12 +125,13 @@
 <asp:Content ID="Content3" ContentPlaceHolderID="ScriptPart" runat="server">
     <script src="assets/global/plugins/jquery.min.js"></script>
     <script src="assets/global/scripts/metronic.js" type="text/javascript"></script> 
-        <script src="Scripts/Custom/request.js?v=1"></script>
+    <script src="Scripts/Plugins/paginationAdmin.js"></script>
+    <script src="Scripts/Custom/request.js?v=1"></script>
     <script src="Scripts/Custom/Transactions.js"></script>
 <script>
         $(document).ready(function () {
-            Metronic.init(); // init metronic core componets
-            Layout.init(); // init layout
+            //Metronic.init(); // init metronic core componets
+            //Layout.init(); // init layout
 
           
         });

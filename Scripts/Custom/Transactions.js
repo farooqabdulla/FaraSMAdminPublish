@@ -11,7 +11,7 @@ $(document).ready(function () {
     GetTransactionList();
     GetCountriesandcities();
     getInstituteAreas();
-
+    $('#filter').click();
     $("#txtSearch").on("keyup", function () {
         searchTerm = '';
         searchTerm = document.getElementById('txtSearch').value;
@@ -55,6 +55,8 @@ function GetTransactionList() {
             });
             //$('#tblTransactionDetails').append(html);
             $("#TRANSACTIONDATA").html(html);
+            var pageCount = parseInt(successResponseData.Transactionlist.length / 10);
+            $('#TRANSACTIONDATA').pageMe({ pagerSelector: '#myPager', showPrevNext: true, hidePageNumbers: false, Page: pageCount });
             //maxamount = successResponseData.maxAmount + ' ' + currencycode;
             //minamount = successResponseData.minamount + ' ' + currencycode;
             //Balanceslider();

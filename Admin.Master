@@ -279,7 +279,8 @@
 
         }
     </script>
-        <script src="Scripts/Custom/AdminMaster.js"></script>
+    <script src="Scripts/Custom/AdminMaster.js"></script>
+    <script src="Scripts/Plugins/paginationAdmin.js"></script>
         <!-- END Fee Discount CUSTOM SCRIPTS-->
     <script src="Scripts/Custom/Validation.js"></script>
     <!-- END Fee Discount CUSTOM SCRIPTS-->

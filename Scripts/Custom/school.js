@@ -11,19 +11,24 @@ var request; var instituteId = 0; var searchTerm = ''; var statusIDs = []; var c
 $(document).ready(function () {
     request = new Request();
     getAllSchoolsDetails();
+
   
     $("#tblBdySchoolDetails").on("click", ".blockAccount", blockAccount);
     $("#tblBdySchoolDetails").on("click", ".paytabsMarchantAccount", paytabsMarchantAccount);
     $("#tblBdySchoolDetails").on("click", ".viewProfile", viewProfile);
     $("#tblBdySchoolDetails").on("click", ".verifyAccount", verifyAccount);
-    $("#tblBdySchoolDetails").on("click", ".deleteAccount", deleteAccount);
-
+    $("#tblBdySchoolDetails").on("click", ".deleteAccount", unblockAccount);
+    //$("#tblBdySchoolDetails").on("click", ".deleteAccount", deleteAccount);
     $("#tblBdySchoolDetails").on("click", ".schoolClick", viewProfile);
     
     
     getInstituteCountries();
     getInstituteStatus();
     getInstituteAreas();
+
+    clearMarchantValues();
+   
+    $('#filter').click();
 }); 
 
 // end Page load
@@ -31,6 +36,46 @@ $(document).ready(function () {
 
 
 // Begin Custom Define Functions
+
+function clearMarchantValues()
+{
+    $('#txtSecretKey').val('');
+    $('#txtPaytabsEmailID').val('');
+    $('#txtBillingAddress').val('');
+
+    $('#txtASecretKey').val('');
+    $('#txtAPaytabsEmailID').val('');
+    $('#txtABillingAddress').val('');
+}
+
+function unblockAccount() {
+
+    document.getElementById('hdnIsActivateOrUnblock').value = "1";
+    clearMarchantValues();
+
+    $('#ActivateSchoolAccount').modal('show');
+
+    document.getElementById('hdnInstituteID').value = $(this).attr("id");
+
+    getPaytabsMarchantAccountDetails();
+
+    $('#btnApproveCancel').show();
+
+    $('#btnActivate').html('Un-block');
+    
+}
+
+$("#btnApproveCancel").on("click", function () {
+    $('#ActivateSchoolAccount').modal('hide');
+    $('#btnApproveCancel').hide();
+    clearMarchantValues();
+    $('#btnActivate').html('Approve');
+});
+
+
+
+
+
 
 
 
@@ -251,7 +296,7 @@ function bindAllSchools(response) {
                 + "<label class='dropdown dropdown-user pull-right margin-right-10 sch_stat'>"
                     + "<a class='dropdown-toggle' data-toggle='dropdown' data-hover='dropdown' data-close-others='true'><i class='fa fa-ellipsis-v'></i></a>"
                     + "<ul class='dropdown-menu dropdown-menu-default'>"
-                        + "<li><a id ='" + schoolDetails[i]["InstituteID"] + "' class ='deleteAccount' data-toggle='modal'><i class='icon-trash'></i> Delete Account </a></li>"
+                        + "<li><a id ='" + schoolDetails[i]["InstituteID"] + "' class ='deleteAccount' data-toggle='modal'><i class='icon-trash'></i> Un-block </a></li>" //Delete Account
                     + "</ul>"
                 + "</label>"
              + "</td>"
@@ -271,8 +316,10 @@ function bindAllSchools(response) {
 
         finalBody = (tblBody + tblBdy) + "</tr>";
         $(finalBody).appendTo($("#tblBdySchoolDetails"));
+       
     }
-
+    var pageCount = parseInt(response.AllSchoolsDetails.length / 10);
+    $('#tblBdySchoolDetails').pageMe({ pagerSelector: '#myPager', showPrevNext: true, hidePageNumbers: false, Page: pageCount });
    
 }
 
@@ -320,10 +367,9 @@ $("#btnBlockYes").on("click", function () {
 });
 
 function paytabsMarchantAccount() {
+    clearValues();
     $('#paytabs_merch').modal('show');
-
     document.getElementById('hdnInstituteID').value = $(this).attr("id");
-
     document.getElementById('txtSecretKey').value = "";
     document.getElementById('txtPaytabsEmailID').value = "";
     document.getElementById('txtBillingAddress').value = "";
@@ -343,6 +389,10 @@ function getPaytabsMarchantAccountDetails()
                 document.getElementById('txtSecretKey').value = response.ExistingPaytabsMerchantDetails[0]["SecreteKey"];
                 document.getElementById('txtPaytabsEmailID').value = response.ExistingPaytabsMerchantDetails[0]["MerchantEmail"];
                 document.getElementById('txtBillingAddress').value = response.ExistingPaytabsMerchantDetails[0]["ShippingAddress"];
+
+                document.getElementById('txtASecretKey').value = response.ExistingPaytabsMerchantDetails[0]["SecreteKey"];
+                document.getElementById('txtAPaytabsEmailID').value = response.ExistingPaytabsMerchantDetails[0]["MerchantEmail"];
+                document.getElementById('txtABillingAddress').value = response.ExistingPaytabsMerchantDetails[0]["ShippingAddress"];
             }
         }
         else {
@@ -412,6 +462,7 @@ function viewProfile() {
 }
 
 function verifyAccount() {
+    document.getElementById('hdnIsActivateOrUnblock').value = "0";
     document.getElementById('hdnInstituteID').value = $(this).attr("id");
     getSchoolsDetails();
 }
@@ -484,6 +535,7 @@ $("#btnActivate").on("click", function () {
     var secreteKey = document.getElementById('txtASecretKey').value;
     var merchantEmail = document.getElementById('txtAPaytabsEmailID').value;
     var shippingAddress = document.getElementById('txtABillingAddress').value;
+    var isActivateOrUnblock = document.getElementById('hdnIsActivateOrUnblock').value;
 
     if (secreteKey.trim().length == 0) {
         ErrorNotifier("Please enter secrete Key");
@@ -504,7 +556,7 @@ $("#btnActivate").on("click", function () {
         return false;
     }
 
-    var data = { type: 9, secreteKey: secreteKey, instituteId: instituteId, merchantEmail: merchantEmail, shippingAddress: shippingAddress };
+    var data = { type: 9, secreteKey: secreteKey, instituteId: instituteId, merchantEmail: merchantEmail, shippingAddress: shippingAddress, isActivateOrUnblock: isActivateOrUnblock };
     request.Initiate("/AjaxHandlers/AdminSchool.ashx", "JSON", false, data, function (response) {
         if (response.Success == true) {
             SuccessNotifier(response.Message);

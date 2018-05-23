@@ -16,7 +16,7 @@ $(document).ready(function () {
     getAllWithdrawlsDetails();
     GetCountriesandcities();
     getInstituteAreas();
-
+    $('#filter').click();
     $("#withdr_infor").on("change", "#ddlSchools", getinstituteBalance);
 
    
@@ -110,6 +110,16 @@ function getinstituteBalance() {
                 document.getElementById('hdnCurrencyCode').value = code;
 
             }
+            else {
+                document.getElementById('hdnInstituteID').value = "0";
+                document.getElementById('hdnWalletBalance').value = "0";
+                document.getElementById('txtAvailableWalletBalnce').value = "0";
+            }
+        }
+        else {
+            document.getElementById('hdnInstituteID').value = "0";
+            document.getElementById('hdnWalletBalance').value = "0";
+            document.getElementById('txtAvailableWalletBalnce').value = "0";
         }
     });
 }
@@ -237,6 +247,8 @@ function getAllWithdrawlsDetails()
                 $("#Withdrawlsdata").html(html);
                 $('#Withdrawlsdisplay').show();
                 $('.add_student').hide();
+                var pageCount = parseInt(successResponseData.withdrawlslist.length / 10);
+                $('#Withdrawlsdata').pageMe({ pagerSelector: '#myPager', showPrevNext: true, hidePageNumbers: false, Page: pageCount });
             }
             else {
                 //$('#Withdrawlsdisplay').hide();

@@ -103,7 +103,7 @@ $(document).ready(function () {
                 else if (res.InstituteDetails[0].StatusID == 5) // Block Account to delete
                 {
                     document.getElementById('hdnBlockOrDeleteSchoolAccount').value = "2"; // if 1 then
-                    $('#blockAccountText').html('Delete Account');
+                    $('#blockAccountText').html('Un-bolck Account');
                     document.getElementById("blockAccountOrDeleteAccount").style.visibility = "visible";
                 }
                 
@@ -369,8 +369,80 @@ $(document).ready(function () {
         }
         else if(document.getElementById('hdnBlockOrDeleteSchoolAccount').value == 2) // Delete Account
         {
-            $('#delete_sch').modal('show');
+            //$('#delete_sch').modal('show');
+            clearMarchantValues();
+            getPaytabsMarchantAccountDetails();
+            $('#ActivateSchoolAccount').modal('show');
+            
         }
+    });
+
+    function clearMarchantValues() {
+        $('#txtASecretKey').val('');
+        $('#txtAPaytabsEmailID').val('');
+        $('#txtABillingAddress').val('');
+    }
+
+
+    function getPaytabsMarchantAccountDetails() {
+
+        var data = { type: 7, instituteId: instituteId };
+        request.Initiate("/AjaxHandlers/AdminSchool.ashx", "JSON", false, data, function (response) {
+            if (response.Success == true) {
+                if (response.ExistingPaytabsMerchantDetails.length > 0) {
+                    document.getElementById('txtASecretKey').value = response.ExistingPaytabsMerchantDetails[0]["SecreteKey"];
+                    document.getElementById('txtAPaytabsEmailID').value = response.ExistingPaytabsMerchantDetails[0]["MerchantEmail"];
+                    document.getElementById('txtABillingAddress').value = response.ExistingPaytabsMerchantDetails[0]["ShippingAddress"];
+                }
+            }
+            else {
+            }
+        });
+    }
+
+
+    $("#btnActivate").on("click", function () {
+
+        var secreteKey = document.getElementById('txtASecretKey').value;
+        var merchantEmail = document.getElementById('txtAPaytabsEmailID').value;
+        var shippingAddress = document.getElementById('txtABillingAddress').value;
+        var isActivateOrUnblock = "1";
+
+        if (secreteKey.trim().length == 0) {
+            ErrorNotifier("Please enter secrete Key");
+            return false;
+        }
+        else if (merchantEmail.trim().length == 0) {
+            ErrorNotifier("Please enter Paytabs Email ID");
+            return false;
+        }
+        else if (shippingAddress.trim().length == 0) {
+            ErrorNotifier("Please enter Billing Address");
+            return false;
+        }
+
+        var reEmail = /^([\w\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
+        if (!merchantEmail.match(reEmail)) {
+            ErrorNotifier("Please enter valid email address.");
+            return false;
+        }
+
+        var data = { type: 9, secreteKey: secreteKey, instituteId: instituteId, merchantEmail: merchantEmail, shippingAddress: shippingAddress, isActivateOrUnblock: isActivateOrUnblock };
+        request.Initiate("/AjaxHandlers/AdminSchool.ashx", "JSON", false, data, function (response) {
+            if (response.Success == true) {
+                SuccessNotifier(response.Message);
+                $('#ActivateSchoolAccount').modal('hide');
+                timeRunner();
+
+            }
+            else {
+                ErrorNotifier(response.Message);
+            }
+        });
+    });
+
+    $("#btnApproveCancel").on("click", function () {
+        $('#ActivateSchoolAccount').modal('hide');
     });
 
     $("#btnBlockCancel").on("click", function () {
@@ -427,32 +499,38 @@ $(document).ready(function () {
     //});
 
     
-    $("#btnDeleteCancel").on("click", function () {
-        $('#delete_sch').modal('hide');
-    });
+    //$("#btnDeleteCancel").on("click", function () {
+    //    $('#delete_sch').modal('hide');
+    //});
 
-    $("#btnDeleteYes").on("click", function () {
-        var data = { type: 10, instituteId: instituteId };
-        request.Initiate("/AjaxHandlers/AdminSchool.ashx", "JSON", false, data, function (response) {
-            if (response.Success == true) {
-                SuccessNotifier(response.Message);
-                $('#delete_sch').modal('hide');
-                timeRunner();
-            }
-            else {
-                $("#AccountDeleteContent").text("");
-                var body = "Sorry it has been only " + response.Days + " days you have blocked the account you can't delete the account before 30 days after blocking."
-                $("#AccountDeleteContent").text(body);
+    //$("#btnDeleteYes").on("click", function () {
+    //    var data = { type: 10, instituteId: instituteId };
+    //    request.Initiate("/AjaxHandlers/AdminSchool.ashx", "JSON", false, data, function (response) {
+    //        if (response.Success == true) {
+    //            SuccessNotifier(response.Message);
+    //            $('#delete_sch').modal('hide');
+    //            timeRunner();
+    //        }
+    //        else {
+    //            $("#AccountDeleteContent").text("");
+    //            var body = "Sorry it has been only " + response.Days + " days you have blocked the account you can't delete the account before 30 days after blocking."
+    //            $("#AccountDeleteContent").text(body);
 
-                $('#delete_sch').modal('hide');
-                $('#delete_schConfirm').modal('show');
-            }
-        });
-    });
+    //            $('#delete_sch').modal('hide');
+    //            $('#delete_schConfirm').modal('show');
+    //        }
+    //    });
+    //});
 
-    $("#btnDeleteOk").on("click", function () {
-        $('#delete_schConfirm').modal('hide');
+    //$("#btnDeleteOk").on("click", function () {
+    //    $('#delete_schConfirm').modal('hide');
 
-    });
+    //});
+
+
+
+
+
+
 
 });

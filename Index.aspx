@@ -54,7 +54,7 @@
                     <div class="login_panel_body">
                         <div class="signIn material">
                             <div class="form-group">
-                                <input type="text" id="txtAdminId" required="required" placeholder="Enter Email or Phone Number" />
+                                <input type="text" id="txtAdminId" autofocus="autofocus" required="required" placeholder="Enter Email or Phone Number" />
                                <%-- <label class="control-label" for="input">Enter Email or Phone Number</label>--%>
                                 <i class="bar"></i>
                             </div>

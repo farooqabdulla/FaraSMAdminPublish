@@ -27,3 +27,9 @@ $("#btnAdminLogin").on("click", function () {
     })
 
 });
+$('body').on('keypress', '#txtAdminPassword,#txtAdminId', function (args) {
+    if (args.keyCode == 13) {
+        $('#btnAdminLogin').click();
+        return false;
+    }
+});

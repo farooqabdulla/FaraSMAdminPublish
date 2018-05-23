@@ -412,7 +412,44 @@
         </div>
     </div>
 
+    <div class="modal fade" id="ActivateSchoolAccount" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header clearfix">
+                    <h4 class="bold-6 mb-0">Paytabs Merchant Details</h4>
+                    <button type="button" class="close" data-dismiss="modal"><i class="fa fa-times"></i></button>
+                </div>
+                <div class="modal-body">
+                    <div class="material">
+                        <div class="form-group">
 
+                            <input type="text" id="txtASecretKey" required="required" />
+                            <label class="control-label" for="input">Secret Key (API KEY)</label>
+                            <i class="bar"></i>
+                        </div>
+
+                        <div class="form-group">
+                            <input type="text" id="txtAPaytabsEmailID" required="required" class="full-w" />
+                            <label class="control-label" for="input">Paytabs Merchant Username (E-mail ID)</label>
+                            <i class="bar"></i>
+                        </div>
+
+                        <div class="form-group">
+                            <input type="text" id="txtABillingAddress" required="required" />
+                            <label class="control-label" for="input">Billing Address</label>
+                            <i class="bar"></i>
+                        </div>
+
+                        <div class="form-group text-center">
+                             <button type="button" class="btn btn-default" id="btnApproveCancel" >Cancel</button>
+                            <button type="button" class="btn btn-primary" id="btnActivate">Un-block</button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <input type="hidden" id="hdnWebUrl" value="<%=webUrl %>" />
     <input type="hidden" id="hdnAdminInstituteID" value="<%=AdminInstituteId %>" />
