@@ -318,10 +318,13 @@ function bindAllSchools(response) {
         $(finalBody).appendTo($("#tblBdySchoolDetails"));
        
     }
-    var pageCount = parseInt(response.AllSchoolsDetails.length / 10);
-    $('#myPager').html('');
-    $('#tblBdySchoolDetails').pageMe({ pagerSelector: '#myPager', showPrevNext: true, hidePageNumbers: false, Page: pageCount });
-   
+    if (response.AllSchoolsDetails.length > 10) {
+        var pageCount = parseInt(response.AllSchoolsDetails.length / 10);
+        $('#myPager').html('');
+        $('#tblBdySchoolDetails').pageMe({ pagerSelector: '#myPager', showPrevNext: true, hidePageNumbers: false, Page: pageCount });
+    } else {
+        $('#myPager').html('');
+    }
 }
 
 function blockAccount()

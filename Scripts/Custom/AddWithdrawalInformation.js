@@ -247,8 +247,14 @@ function getAllWithdrawlsDetails()
                 $("#Withdrawlsdata").html(html);
                 $('#Withdrawlsdisplay').show();
                 $('.add_student').hide();
-                var pageCount = parseInt(successResponseData.withdrawlslist.length / 10);
-                $('#Withdrawlsdata').pageMe({ pagerSelector: '#myPager', showPrevNext: true, hidePageNumbers: false, Page: pageCount });
+                if (successResponseData.withdrawlslist.length > 10) {
+                    var pageCount = parseInt(successResponseData.withdrawlslist.length / 10);
+                    $('#myPager').html('');
+                    $('#Withdrawlsdata').pageMe({ pagerSelector: '#myPager', showPrevNext: true, hidePageNumbers: false, Page: pageCount });
+                } else {
+                    $('#myPager').html('');
+                }
+                
             }
             else {
                 //$('#Withdrawlsdisplay').hide();
