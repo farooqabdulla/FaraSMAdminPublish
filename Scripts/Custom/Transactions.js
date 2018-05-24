@@ -56,6 +56,7 @@ function GetTransactionList() {
             //$('#tblTransactionDetails').append(html);
             $("#TRANSACTIONDATA").html(html);
             var pageCount = parseInt(successResponseData.Transactionlist.length / 10);
+            $('#myPager').html('');
             $('#TRANSACTIONDATA').pageMe({ pagerSelector: '#myPager', showPrevNext: true, hidePageNumbers: false, Page: pageCount });
             //maxamount = successResponseData.maxAmount + ' ' + currencycode;
             //minamount = successResponseData.minamount + ' ' + currencycode;

@@ -319,6 +319,7 @@ function bindAllSchools(response) {
        
     }
     var pageCount = parseInt(response.AllSchoolsDetails.length / 10);
+    $('#myPager').html('');
     $('#tblBdySchoolDetails').pageMe({ pagerSelector: '#myPager', showPrevNext: true, hidePageNumbers: false, Page: pageCount });
    
 }
