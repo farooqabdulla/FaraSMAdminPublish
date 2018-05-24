@@ -137,17 +137,28 @@
                             </div>
                             <div class="col-sm-6">
                                 <div class="form-group">
-                                    <input type="text" id="inputPayTabsEmail" required="required" />
-                                    <label class="control-label" for="select">Paytabs Email ID *</label>
+                                    <input type="text" id="inputPayTabsUserName" required="required" />
+                                    <label class="control-label" for="select">PayTabs User Name*</label>
                                     <i class="bar"></i>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="form-group">
-                            <input type="text" id="inputAddress" required="required" />
-                            <label class="control-label" for="select">Address</label>
-                            <i class="bar"></i>
+                        <div class="row margin-bottom-15">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <input type="text" id="inputMerchantId" required="required" />
+                                    <label class="control-label" for="select">PayTabs MID*</label>
+                                    <i class="bar"></i>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <input type="text" id="inputAddress" required="required" />
+                                    <label class="control-label" for="select">Shipping Address</label>
+                                    <i class="bar"></i>
+                                </div>
+                            </div>
                         </div>
 
                         <div class="text-right">
@@ -226,7 +237,7 @@
                             </table>
                         </div>
                         <div id="noDataTr">
-                            <h5 style="color:darkgrey;align-content:center;">No Transaction Activity</h5>
+                            <h5 style="color: darkgrey; align-content: center;">No Transaction Activity</h5>
                         </div>
                     </div>
 
@@ -430,7 +441,7 @@
 
                         <div class="form-group">
                             <input type="text" id="txtAPaytabsEmailID" required="required" class="full-w" />
-                            <label class="control-label" for="input">Paytabs Merchant Username (E-mail ID)</label>
+                            <label class="control-label" for="input">PayTabs User Name</label>
                             <i class="bar"></i>
                         </div>
 
@@ -439,9 +450,14 @@
                             <label class="control-label" for="input">Billing Address</label>
                             <i class="bar"></i>
                         </div>
+                          <div class="form-group">
+                            <input type="text" id="txtAPayTabsMID" required="required" maxlength="10"/>
+                            <label class="control-label" for="input">PayTabs MID</label>
+                            <i class="bar"></i>
+                        </div>
 
                         <div class="form-group text-center">
-                             <button type="button" class="btn btn-default" id="btnApproveCancel" >Cancel</button>
+                            <button type="button" class="btn btn-default" id="btnApproveCancel">Cancel</button>
                             <button type="button" class="btn btn-primary" id="btnActivate">Un-block</button>
                         </div>
 

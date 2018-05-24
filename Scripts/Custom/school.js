@@ -42,10 +42,14 @@ function clearMarchantValues()
     $('#txtSecretKey').val('');
     $('#txtPaytabsEmailID').val('');
     $('#txtBillingAddress').val('');
+    $('#txtPayTabsMID').val('');
 
     $('#txtASecretKey').val('');
     $('#txtAPaytabsEmailID').val('');
     $('#txtABillingAddress').val('');
+    $('#txtAPayTabsMID').val('');
+    
+
 }
 
 function unblockAccount() {
@@ -373,11 +377,12 @@ $("#btnBlockYes").on("click", function () {
 function paytabsMarchantAccount() {
     clearValues();
     $('#paytabs_merch').modal('show');
+    clearMarchantValues();
     document.getElementById('hdnInstituteID').value = $(this).attr("id");
-    document.getElementById('txtSecretKey').value = "";
-    document.getElementById('txtPaytabsEmailID').value = "";
-    document.getElementById('txtBillingAddress').value = "";
-    
+    //document.getElementById('txtSecretKey').value = "";
+    //document.getElementById('txtPaytabsEmailID').value = "";
+    //document.getElementById('txtBillingAddress').value = "";
+    //document.getElementById('txtPayTabsMID').value = "";
     getPaytabsMarchantAccountDetails();
     
 }
@@ -391,12 +396,14 @@ function getPaytabsMarchantAccountDetails()
             if(response.ExistingPaytabsMerchantDetails.length > 0)
             {
                 document.getElementById('txtSecretKey').value = response.ExistingPaytabsMerchantDetails[0]["SecreteKey"];
-                document.getElementById('txtPaytabsEmailID').value = response.ExistingPaytabsMerchantDetails[0]["MerchantEmail"];
+                document.getElementById('txtPaytabsEmailID').value = response.ExistingPaytabsMerchantDetails[0]["PayTabsUserName"];
                 document.getElementById('txtBillingAddress').value = response.ExistingPaytabsMerchantDetails[0]["ShippingAddress"];
+                document.getElementById('txtAPayTabsMID').value = response.ExistingPaytabsMerchantDetails[0]["MerchantID"];
 
                 document.getElementById('txtASecretKey').value = response.ExistingPaytabsMerchantDetails[0]["SecreteKey"];
-                document.getElementById('txtAPaytabsEmailID').value = response.ExistingPaytabsMerchantDetails[0]["MerchantEmail"];
+                document.getElementById('txtAPaytabsEmailID').value = response.ExistingPaytabsMerchantDetails[0]["PayTabsUserName"];
                 document.getElementById('txtABillingAddress').value = response.ExistingPaytabsMerchantDetails[0]["ShippingAddress"];
+                document.getElementById('txtPayTabsMID').value = response.ExistingPaytabsMerchantDetails[0]["MerchantID"];
             }
         }
         else {
@@ -410,13 +417,15 @@ $("#btnUpdate").on("click", function () {
     var secreteKey = document.getElementById('txtSecretKey').value;
     var merchantEmail = document.getElementById('txtPaytabsEmailID').value;
     var shippingAddress = document.getElementById('txtBillingAddress').value;
+    var txtPayTabsMID = document.getElementById('txtPayTabsMID').value;
 
     if (secreteKey.trim().length == 0) {
         ErrorNotifier("Please enter secrete Key");
         return false;
     }
+   
     else if (merchantEmail.trim().length == 0) {
-        ErrorNotifier("Please enter Paytabs Email ID");
+        ErrorNotifier("Please enter paytabs user name");
         return false;
     }
     else if (shippingAddress.trim().length == 0) {
@@ -428,8 +437,12 @@ $("#btnUpdate").on("click", function () {
         ErrorNotifier("Please enter valid email address.");
         return false;
     }
+    if (txtPayTabsMID.trim().length == 0) {
+        ErrorNotifier("Please enter PayTabs MID");
+        return false;
+    }
 
-    var data = { type: 6, secreteKey: secreteKey, instituteId: instituteId, merchantEmail: merchantEmail, shippingAddress: shippingAddress };
+    var data = { type: 6, secreteKey: secreteKey, instituteId: instituteId, merchantEmail: merchantEmail, shippingAddress: shippingAddress, PayTabsMID: txtPayTabsMID };
     request.Initiate("/AjaxHandlers/AdminSchool.ashx", "JSON", false, data, function (response) {
         if (response.Success == true) {
             $('#paytabs_merch').hide();
@@ -540,13 +553,14 @@ $("#btnActivate").on("click", function () {
     var merchantEmail = document.getElementById('txtAPaytabsEmailID').value;
     var shippingAddress = document.getElementById('txtABillingAddress').value;
     var isActivateOrUnblock = document.getElementById('hdnIsActivateOrUnblock').value;
+    var txtAPayTabsMID = document.getElementById('txtAPayTabsMID').value;
 
     if (secreteKey.trim().length == 0) {
         ErrorNotifier("Please enter secrete Key");
         return false;
     }
     else if (merchantEmail.trim().length == 0) {
-        ErrorNotifier("Please enter Paytabs Email ID");
+        ErrorNotifier("Please enter paytabs user name");
         return false;
     }
     else if (shippingAddress.trim().length == 0) {
@@ -559,8 +573,11 @@ $("#btnActivate").on("click", function () {
         ErrorNotifier("Please enter valid email address.");
         return false;
     }
-
-    var data = { type: 9, secreteKey: secreteKey, instituteId: instituteId, merchantEmail: merchantEmail, shippingAddress: shippingAddress, isActivateOrUnblock: isActivateOrUnblock };
+    if (txtAPayTabsMID.trim().length == 0) {
+        ErrorNotifier("Please enter PayTabs MID");
+        return false;
+    }
+    var data = { type: 9, secreteKey: secreteKey, instituteId: instituteId, merchantEmail: merchantEmail, shippingAddress: shippingAddress, isActivateOrUnblock: isActivateOrUnblock, PayTabsMID: txtAPayTabsMID };
     request.Initiate("/AjaxHandlers/AdminSchool.ashx", "JSON", false, data, function (response) {
         if (response.Success == true) {
             SuccessNotifier(response.Message);

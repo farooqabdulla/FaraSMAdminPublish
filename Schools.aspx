@@ -152,7 +152,7 @@
 
                         <div class="form-group">
                             <input type="text" id="txtPaytabsEmailID" required="required" class="full-w" />
-                            <label class="control-label" for="input">Paytabs Merchant Username (E-mail ID)</label>
+                            <label class="control-label" for="input">PayTabs User Name</label>
                             <i class="bar"></i>
                         </div>
 
@@ -162,6 +162,11 @@
                             <i class="bar"></i>
                         </div>
 
+                         <div class="form-group">
+                            <input type="text" id="txtPayTabsMID" required="required" maxlength="10"/>
+                            <label class="control-label" for="input">PayTabs MID</label>
+                            <i class="bar"></i>
+                        </div>
                         <div class="form-group text-center">
                             <button type="button" class="btn btn-primary" id="btnUpdate">Update</button>
                         </div>
@@ -213,7 +218,7 @@
 
                         <div class="form-group">
                             <input type="text" id="txtAPaytabsEmailID" required="required" class="full-w" />
-                            <label class="control-label" for="input">Paytabs Merchant Username (E-mail ID)</label>
+                            <label class="control-label" for="input">PayTabs User Name</label>
                             <i class="bar"></i>
                         </div>
 
@@ -222,7 +227,11 @@
                             <label class="control-label" for="input">Billing Address</label>
                             <i class="bar"></i>
                         </div>
-
+                        <div class="form-group">
+                            <input type="text" id="txtAPayTabsMID" required="required" maxlength="10"/>
+                            <label class="control-label" for="input">PayTabs MID</label>
+                            <i class="bar"></i>
+                        </div>
                         <div class="form-group text-center">
                             <button type="button" class="btn btn-default" id="btnApproveCancel" style="display: none">Cancel</button>
                             <button type="button" class="btn btn-primary" id="btnActivate">Approve</button>

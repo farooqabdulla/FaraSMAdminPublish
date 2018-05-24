@@ -185,26 +185,32 @@ $(document).ready(function () {
         request.Initiate("/AjaxHandlers/AdminSchool.ashx", "JSON", true, data, function (res) {
             if (res.Success == true) {
                 $("#inputSecretKey").val(res.MerchantDetails[0].SecreteKey);
-                $("#inputPayTabsEmail").val(res.MerchantDetails[0].MerchantEmail);
+                $("#inputPayTabsUserName").val(res.MerchantDetails[0].PayTabsUserName);
+                $("#inputMerchantId").val(res.MerchantDetails[0].MerchantId);
                 $("#inputAddress").val(res.MerchantDetails[0].ShippingAddress);
             }
         })
     }
     $('#btnSave').on('click', function () {
         var secretKey = $("#inputSecretKey").val();
-        var email = $("#inputPayTabsEmail").val();
-        var address = $("#inputAddress").val();
+        var userName = $("#inputPayTabsUserName").val();
+        var merchantId = $("#inputMerchantId").val();
+        var shippingAddress = $("#inputAddress").val();
+        
         if (secretKey.trim().length == 0) {
             ErrorNotifier("Oops, you didn't enter secret key.");
             return false;
-        } else if (!checkEmail('inputPayTabsEmail')) {
-            ErrorNotifier("Oops, you didn't enter a valid email.");
+        } else if (userName.trim().length == 0) {
+            ErrorNotifier("Oops, you didn't User Name.");
             return false;
-        } else if (address.trim().length == 0) {
+        } else if (merchantId.trim().length == 0) {
+            ErrorNotifier("Oops, you didn't enter a Merchant Id.");
+            return false;
+        } else if (shippingAddress.trim().length == 0) {
             ErrorNotifier("Oops, you didn't enter address.");
             return false;
         } else {
-            var data = { type: 16, instituteId: instituteId, secretKey: secretKey, email: email, address: address };
+            var data = { type: 16, instituteId: instituteId, secretKey: secretKey, userName: userName, shippingAddress: shippingAddress, merchantId: merchantId};
             request.Initiate("/AjaxHandlers/AdminSchool.ashx", "JSON", true, data, function (res) {
                 if (res.Success == true) {
                     SuccessNotifier(res.Message);
@@ -394,8 +400,9 @@ $(document).ready(function () {
             if (response.Success == true) {
                 if (response.ExistingPaytabsMerchantDetails.length > 0) {
                     document.getElementById('txtASecretKey').value = response.ExistingPaytabsMerchantDetails[0]["SecreteKey"];
-                    document.getElementById('txtAPaytabsEmailID').value = response.ExistingPaytabsMerchantDetails[0]["MerchantEmail"];
+                    document.getElementById('txtAPaytabsEmailID').value = response.ExistingPaytabsMerchantDetails[0]["PayTabsUserName"];
                     document.getElementById('txtABillingAddress').value = response.ExistingPaytabsMerchantDetails[0]["ShippingAddress"];
+                    document.getElementById('txtAPayTabsMID').value = response.ExistingPaytabsMerchantDetails[0]["MerchantID"];
                 }
             }
             else {
@@ -409,6 +416,7 @@ $(document).ready(function () {
         var secreteKey = document.getElementById('txtASecretKey').value;
         var merchantEmail = document.getElementById('txtAPaytabsEmailID').value;
         var shippingAddress = document.getElementById('txtABillingAddress').value;
+        var txtAPayTabsMID = document.getElementById('txtAPayTabsMID').value;
         var isActivateOrUnblock = "1";
 
         if (secreteKey.trim().length == 0) {
@@ -416,7 +424,7 @@ $(document).ready(function () {
             return false;
         }
         else if (merchantEmail.trim().length == 0) {
-            ErrorNotifier("Please enter Paytabs Email ID");
+            ErrorNotifier("Please enter paytabs user name");
             return false;
         }
         else if (shippingAddress.trim().length == 0) {
@@ -429,8 +437,11 @@ $(document).ready(function () {
             ErrorNotifier("Please enter valid email address.");
             return false;
         }
-
-        var data = { type: 9, secreteKey: secreteKey, instituteId: instituteId, merchantEmail: merchantEmail, shippingAddress: shippingAddress, isActivateOrUnblock: isActivateOrUnblock };
+        if (txtAPayTabsMID.trim().length == 0) {
+            ErrorNotifier("Please enter paytabs MID");
+            return false;
+        }
+        var data = { type: 9, secreteKey: secreteKey, instituteId: instituteId, merchantEmail: merchantEmail, shippingAddress: shippingAddress, isActivateOrUnblock: isActivateOrUnblock, PayTabsMID: txtAPayTabsMID };
         request.Initiate("/AjaxHandlers/AdminSchool.ashx", "JSON", false, data, function (response) {
             if (response.Success == true) {
                 SuccessNotifier(response.Message);
