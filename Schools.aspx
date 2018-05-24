@@ -305,13 +305,13 @@
     <input type="hidden" id="hdnAdminUrl" value="<%=AdminUrl %>" />
     <input type="hidden" id="hdnWebUrl" value="<%=WebUrl %>" />
     <input type="hidden" id="hdnIsActivateOrUnblock" value="<%=IsActivateOrUnblock %>" />
-   
-</asp:Content>
-<asp:Content ID="Content3" ContentPlaceHolderID="ScriptPart" runat="server">
      <script src="assets/global/plugins/jquery.min.js"></script>
-    <script src="Scripts/Plugins/paginationAdmin.js?v=1"></script>
     <script src="Scripts/Custom/request.js?v=1"></script>
     <script src="Scripts/Custom/school.js?v=1"></script>
+</asp:Content>
+<asp:Content ID="Content3" ContentPlaceHolderID="ScriptPart" runat="server">
+    
+   <script src="Scripts/Plugins/paginationAdmin.js?v=1"></script>
     <script>
 
         function toggleClick() {
