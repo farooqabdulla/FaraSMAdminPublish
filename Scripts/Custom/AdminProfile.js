@@ -100,10 +100,24 @@ $("#txtUpdatePassword").click(function () {
     var encryptedoldpassword=CryptoJS.SHA1(document.getElementById('txtOldPassword').value).toString();
     var encryptedPassword1 = CryptoJS.SHA1(document.getElementById('txtNewPassword').value).toString();
     var encryptedPassword2 = CryptoJS.SHA1(document.getElementById('txtConfirmPassword').value).toString();
-    var oldPs = document.getElementById("txtOldPassword").value
+    var oldPs = document.getElementById("txtOldPassword").value;
     var ps1 = document.getElementById("txtNewPassword").value;
     var ps2 = document.getElementById('txtConfirmPassword').value;
   
+    if (oldPs.trim().length == 0 || oldPs.trim() == "")
+    {
+        ErrorNotifier("Please enter old password");
+        return false;
+    }
+    else if (ps1.trim().length == 0 || ps1.trim() == "") {
+        ErrorNotifier("Please enter new password");
+        return false;
+    }
+    else if (ps2.trim().length == 0 || ps2.trim() == "") {
+        ErrorNotifier("Please enter confirm password");
+        return false;
+    }
+
     if (ps1.length < 6 || ps2.length < 6) {
         ErrorNotifier("Password must be greater than 6 letters.");
         return false;

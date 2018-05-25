@@ -19,6 +19,17 @@ $(document).ready(function () {
             if (currentUrl == pageHREF) {
                 if (currentUrl.toUpperCase() == "AddWithdrawalInformation.aspx".toUpperCase() || currentUrl.toUpperCase() == "Transactions.aspx".toUpperCase() ) {
                     $('#finance').addClass("active")
+                    $('#AddWithdrawalInformation').removeAttr("class");
+                    $('#Transactions').removeAttr("class");
+                    if (currentUrl.toUpperCase() == "AddWithdrawalInformation.aspx".toUpperCase())
+                    {
+                        $('#AddWithdrawalInformation').attr("class", "start active ");
+                    }
+                    else if (currentUrl.toUpperCase() == "Transactions.aspx".toUpperCase())
+                    {
+                        $('#Transactions').attr("class", "start active ");
+                        
+                    }
                     break;
                 }
                 else {

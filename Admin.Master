@@ -180,8 +180,8 @@
                     <li><a href="/Schools.aspx"><span class="schools"></span><span class="title">Schools</span> </a></li>
                     <li id="finance"><a href="javascript:;"><span class="finance"></span><span class="title">Financial</span> <span class="arrow"></span></a>
                         <ul class="sub-menu">
-                            <li><a href="/AddWithdrawalInformation.aspx"> Withdrawal Information </a></li>
-                            <li><a href="/Transactions.aspx">Transactions</a></li>
+                            <li id="AddWithdrawalInformation"><a href="/AddWithdrawalInformation.aspx"> Withdrawal Information </a></li>
+                            <li id="Transactions"><a href="/Transactions.aspx">Transactions</a></li>
                            
                         </ul>
                     </li>

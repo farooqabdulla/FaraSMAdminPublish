@@ -176,14 +176,14 @@
     <input type="hidden" id="hdnCurrencyCode" value="<%=CurrencyCode %>" />
     <input type="hidden" id="hdnAvailableBalance" value="<%=AvailableBalance %>" />
 
-    
+     <script src="assets/global/plugins/jquery.min.js"></script>
+    <script src="Scripts/Custom/request.js?v=1"></script>
+    <script src="Scripts/Custom/AddWithdrawalInformation.js"></script>
 
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ScriptPart" runat="server">
-    <script src="assets/global/plugins/jquery.min.js"></script>
-    <script src="Scripts/Plugins/paginationAdmin.js"></script>
-    <script src="Scripts/Custom/request.js?v=1"></script>
-    <script src="Scripts/Custom/AddWithdrawalInformation.js"></script>
+   
+     <script src="Scripts/Plugins/paginationAdmin.js"></script>
     <script>
 
         function toggleClick() {
