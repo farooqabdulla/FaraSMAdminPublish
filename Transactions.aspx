@@ -32,7 +32,7 @@
             <div class="sidebar bord-right" id="sidebar">
                 <div class="clearfix padBox bord-b text-blue">
                     <label class="pull-left mb-0">Refine Your Search</label>
-                    <label class="pull-right mb-0"><i class="fa fa-repeat"></i></label>
+                    <label class="pull-right mb-0"><i class="fa fa-repeat" id="RefineSearch"></i></label>
                 </div>
                 <div class="clearfix padBox bord-b">
                     <label class="pull-left f_15">Country</label>

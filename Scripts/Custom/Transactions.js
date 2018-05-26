@@ -34,6 +34,11 @@ $(document).ready(function () {
 
 
 })
+$('#RefineSearch').on("click", function () {
+    window.location.href = "/Transactions.aspx";
+
+});
+
 
 function GetTransactionList() {
     debugger;
