@@ -120,7 +120,7 @@ $(document).ready(function () {
         var data = { type: 12, instituteId: instituteId };
         request.Initiate("/AjaxHandlers/AdminSchool.ashx", "JSON", true, data, function (res) {
             if (res.Success == true) {
-                $("#labelTotalTrnsToday").html(res.TransactionsToday);
+                $("#labelTotalTrnsToday").html(res.TransactionsToday + " " + currency);
                 $("#labelAvailableBalance").html(res.AvailableWalletBalance + " " + currency);
                 $("#noOfTrns").html(res.NumberOfTransactions);
                 $("#h3TotalAcademicYear").html(res.NumberOfAcademicYears);

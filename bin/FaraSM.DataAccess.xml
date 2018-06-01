@@ -4,6 +4,13 @@
         <name>FaraSM.DataAccess</name>
     </assembly>
     <members>
+        <member name="M:FaraSM.DataAccess.Index.#ctor(FaraSM.Utilities.Helper)">
+            <summary>
+            Initializes a new instance of the <see cref="T:FaraSM.DataAccess.School"/> class.
+            </summary>
+            <param name="helper">The helper.</param>
+            <exception cref="T:System.ArgumentNullException">Helper parameter should not be empty</exception>
+        </member>
         <member name="M:FaraSM.DataAccess.FaraAdminTransactions.Dispose">
             <summary>
             Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.

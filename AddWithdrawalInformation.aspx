@@ -22,7 +22,8 @@
             </div>--%>
 
             <div class="col-sm-3 col-md-3 right-srch">
-                <a class="text-blue" id="addnewdetailstbl" data-toggle="modal" data-target="#withdr_infor"><i class="fa fa-plus-circle margin-right-10 margin-top-10"></i>Add Withdrawal Info</a>
+                <a class="text-blue" id="addnewdetailstbl" data-toggle="modal" data-target="#withdr_infor"><i class="fa fa-plus-circle margin-right-10 margin-top-1"></i>Add Withdrawal Info</a><br />
+                <a class="text-blue" id="excelDownload"><i class="fa fa-file-excel-o margin-left-5 margin-top-1 margin-right-5 fa-spin"></i>Download To Excel</a>
             </div>
         </div>
         <div class="sbContainer">
@@ -92,17 +93,20 @@
                             </div>--%>
             </div>
             <div id="sbContent" class="sbContent table-responsive">
-                <table class="table table-borderd tblStudent">
+                <table class="table table-borderd tblStudent" id="tableWithdrawal">
                     <thead>
                         <tr>
                             <%-- <th><input type="checkbox" /></th>--%>
-                            <th>School Name <i class="fa fa-sort margin-left-5"></i></th>
-                            <th>Email ID <i class="fa fa-sort margin-left-5"></i></th>
-                            <th>Phone Number <i class="fa fa-sort margin-left-5"></i></th>
-                            <th>Time/Date <i class="fa fa-sort margin-left-5"></i></th>
-                            <th>Withdrawal Amount <i class="fa fa-sort margin-left-5"></i></th>
-                            <th>Available Amount <i class="fa fa-sort margin-left-5"></i></th>
-                            <th>Comments <i class="fa fa-sort margin-left-5"></i></th>
+                            <th class="noShow"><strong>School Name</strong></th>
+                            <th class="noShow"><strong>Institute Code</strong></th>
+                            <th class="noShow"><strong>Email Id</strong></th>
+                            <th class='noExl'><strong>School Name</strong> <i class="fa fa-sort margin-left-5"></i></th>
+                            <th class='noExl'>Email ID <i class="fa fa-sort margin-left-5"></i></th>
+                            <th><strong> Number </strong> <i class="fa fa-sort margin-left-5"></i></th>
+                            <th><strong>Time/Date</strong><i class="fa fa-sort margin-left-5"></i></th>
+                            <th><strong>Withdrawal Amount</strong> <i class="fa fa-sort margin-left-5"></i></th>
+                            <th><strong>Amount </strong> <i class="fa fa-sort margin-left-5"></i></th>
+                            <th><strong>Comments</strong> <i class="fa fa-sort margin-left-5"></i></th>
                             <%-- <th>Status <i class="fa fa-sort margin-left-5"></i></th>--%>
                         </tr>
                     </thead>
@@ -170,6 +174,7 @@
 
         </div>
     </div>
+    <input type="hidden" id="hdnWebUrl" value="<%= ConfigurationManager.AppSettings["WebUrl"].ToString() %>" />
 
     <input type="hidden" id="hdnInstituteID" value="<%=instituteId %>" />
     <input type="hidden" id="hdnWalletBalance" value="<%=WalletBalance %>" />
@@ -182,7 +187,7 @@
 
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ScriptPart" runat="server">
-   
+    <script src="Scripts/Plugins/jquery.table2excel.js"></script>
      <script src="Scripts/Plugins/paginationAdmin.js"></script>
     <script>
 

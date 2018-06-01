@@ -1,5 +1,5 @@
 ﻿// Begin Global Variables
-var request; var instituteId = 0; var searchTerm = ''; var statusIDs = []; var countryIDs = []; var areaID = [] ;
+var request; var instituteId = 0; var searchTerm = ''; var statusIDs = []; var countryIDs = []; var areaID = [];
 
 
 // End Global Variables
@@ -11,14 +11,13 @@ var request; var instituteId = 0; var searchTerm = ''; var statusIDs = []; var c
 $(document).ready(function () {
     request = new Request();
     getAllSchoolsDetails();
+    getDiscountTypes();
 
-  
     $("#tblBdySchoolDetails").on("click", ".blockAccount", blockAccount);
     $("#tblBdySchoolDetails").on("click", ".paytabsMarchantAccount", paytabsMarchantAccount);
     $("#tblBdySchoolDetails").on("click", ".viewProfile", viewProfile);
     $("#tblBdySchoolDetails").on("click", ".verifyAccount", verifyAccount);
     $("#tblBdySchoolDetails").on("click", ".deleteAccount", unblockAccount);
-    //$("#tblBdySchoolDetails").on("click", ".deleteAccount", deleteAccount);
     $("#tblBdySchoolDetails").on("click", ".schoolClick", viewProfile);
     
     
@@ -37,8 +36,7 @@ $(document).ready(function () {
 
 // Begin Custom Define Functions
 
-function clearMarchantValues()
-{
+function clearMarchantValues() {
     $('#txtSecretKey').val('');
     $('#txtPaytabsEmailID').val('');
     $('#txtBillingAddress').val('');
@@ -87,13 +85,11 @@ $("#btnRefresh").on("click", function () {
     redirectionToPage();
 });
 
-function clearValues()
-{
+function clearValues() {
     instituteId = 0; searchTerm = ''; statusIDs = []; countryIDs = []; areaID = [];
 }
 
-function redirectionToPage()
-{
+function redirectionToPage() {
     window.location.href = "/Schools.aspx";
 }
 
@@ -103,8 +99,7 @@ $("#txtSearch").on("keyup", function () {
     getAllSchoolsDetails();
 });
 
-function getInstituteCountries()
-{
+function getInstituteCountries() {
     var data = { type: 2 };
     request.Initiate("/AjaxHandlers/AdminSchool.ashx", "JSON", false, data, function (response) {
         if (response.Success == true) {
@@ -118,8 +113,7 @@ function getInstituteCountries()
     });
 }
 
-function bindInstituteCountry(response)
-{
+function bindInstituteCountry(response) {
     var CountryDetails = response.CountriesDetails;
     var i = 0; var ulBody = '';
 
@@ -215,8 +209,7 @@ function bindAllSchools(response) {
         var tblBody; var tblEnd; var tblBdy; var finalBody;
         var imageFileName = (schoolDetails[i]["logopath"]).trim() == "" ? '/assets/admin/img/defaultSchool.png' : webUrl + (schoolDetails[i]["logopath"]).trim();
         var instituteName = "";
-        if (schoolDetails[i]["SchoolName"].length > 9)
-        {
+        if (schoolDetails[i]["SchoolName"].length > 9) {
             instituteName = schoolDetails[i]["SchoolName"].substring(0, 6) + "...";
         }
         else {
@@ -229,22 +222,14 @@ function bindAllSchools(response) {
         else {
             instituteEmail = schoolDetails[i]["Email"];
         }
-        tblBody = " <tr><td>"
+        tblBody = " <tr><td class=\"noShow\">" + schoolDetails[i]["SchoolName"] + "</td><td class=\"noShow\">" + schoolDetails[i]["InstituteCode"] + "</td><td class=\"noShow\">" + schoolDetails[i]["Email"] + "</td><td class=\"noShow\">" + schoolDetails[i]["Status"] + "</td><td class=\"noShow\">" + schoolDetails[i]["CountryName"] + "</td><td class='noExl'>"
                       + "<div class='pull-left dp'> <img src='" + imageFileName + "' class='img-responsive' alt='profile pic'></div>"
                         + "<div class='pull-left'> <h4 class='text-blue f_15 text-bold mb-0'><a  id ='" + schoolDetails[i]["InstituteID"] + "_" + schoolDetails[i]["StatusID"] + "' href='#' style='text-overflow: ellipsis;'  title='" + schoolDetails[i]["SchoolName"] + "' class='text-blue schoolClick' data-toggle='modal' data-target=''>"
-
-                    //if (schoolDetails[i]["StatusID"] == 3 || schoolDetails[i]["StatusID"] == 5)
-                    //{
-                    //     + "<div class='pull-left'> <h4 class='text-blue f_15 text-bold mb-0'><a  id ='" + schoolDetails[i]["InstituteID"] + "_" + schoolDetails[i]["StatusID"] + "' href='#' style='text-overflow: ellipsis;'  title='" + schoolDetails[i]["SchoolName"] + "' class='text-blue schoolClick' data-toggle='modal' data-target=''>"
-                    //}
-                    //else{
-                    //    + "<div class='pull-left'> <h4 class='text-blue f_15 text-bold mb-0'>"
-                    //    }
 
                        + instituteName + " <a/></h4>"
                         + "<span class='f_12 margin-top-5 inlineBlock text-grey'>" + schoolDetails[i]["InstituteCode"] + "</span> </div> "
                         + "</td>"
-                        + "<td><span title=" + schoolDetails[i]["Email"] + ">" + instituteEmail + "</span></td>"
+            + "<td class='noExl'><span title=" + schoolDetails[i]["Email"] + ">" + instituteEmail + "</span></td>"
                         + "<td>" + schoolDetails[i]["PhoneNo"] + "</td>"
                         + "<td>" + schoolDetails[i]["CreatedDate"] + "</td>"
                         + "<td>" + schoolDetails[i]["Transactions"] + "</td>"
@@ -253,14 +238,14 @@ function bindAllSchools(response) {
 
         if (schoolDetails[i]["StatusID"] == 3) {  // School status as Approved
 
-            tblBdy = "<td>"
+            tblBdy = "<td class='noExl'>"
                 + "<label class='font-green pull-left'>" + schoolDetails[i]["Status"] + "</label>"
                 + "<label class='dropdown dropdown-user pull-right margin-right-10 sch_stat'>"
                     + "<a href='#' class='dropdown-toggle' data-toggle='dropdown' data-hover='dropdown' data-close-others='true'><i class='fa fa-ellipsis-v'></i></a>"
                     + "<ul class='dropdown-menu dropdown-menu-default'>"
-                        + "<li><a  id ='"+ schoolDetails[i]["InstituteID"] + "' class ='blockAccount'  data-toggle='modal' data-target=''><i class='icon-ban'></i> Block Account </a></li>"
+                + "<li><a  id ='" + schoolDetails[i]["InstituteID"] + "' class ='blockAccount'  data-toggle='modal' data-target=''><i class='icon-ban'></i> Block Account </a></li>"
                         + "<li><a id ='" + schoolDetails[i]["InstituteID"] + "' class ='paytabsMarchantAccount'  data-toggle='modal' data-target='paytabs_merch'><i class='fa fa-credit-card'></i> Paytabs Merchant Details </a></li>"
-                        + "<li><a id ='" + schoolDetails[i]["InstituteID"] + "_"+ schoolDetails[i]["StatusID"] +"' class ='viewProfile' ><i class='fa fa-eye'></i> View Profile </a></li>"
+                + "<li><a id ='" + schoolDetails[i]["InstituteID"] + "_" + schoolDetails[i]["StatusID"] + "' class ='viewProfile' ><i class='fa fa-eye'></i> View Profile </a></li>"
                     + "</ul>"
                 + "</label>"
              + "</td>"
@@ -268,7 +253,7 @@ function bindAllSchools(response) {
 
         else if (schoolDetails[i]["StatusID"] == 4) { // School status as Rejected
 
-            tblBdy = "<td>"
+            tblBdy = "<td class='noExl'>"
                 + "<label class='font-red pull-left'>" + schoolDetails[i]["Status"] + "</label>"
                 + "<label class='dropdown dropdown-user pull-right margin-right-10 sch_stat'>"
                     + "<a  class='dropdown-toggle' data-toggle='dropdown' data-hover='dropdown' data-close-others='true'><i class='fa fa-ellipsis-v'></i></a>"
@@ -283,7 +268,7 @@ function bindAllSchools(response) {
 
         else if (schoolDetails[i]["StatusID"] == 2) { // School status as Pending
 
-            tblBdy = "<td>"
+            tblBdy = "<td class='noExl'>"
                 + "<label class='font-yellow-gold pull-left'>" + schoolDetails[i]["Status"] + "</label>"
                 + "<label class='dropdown dropdown-user pull-right margin-right-10 sch_stat'>"
                     + "<a  class='dropdown-toggle' data-toggle='dropdown' data-hover='dropdown' data-close-others='true'><i class='fa fa-ellipsis-v'></i></a>"
@@ -295,7 +280,7 @@ function bindAllSchools(response) {
         }
         else if (schoolDetails[i]["StatusID"] == 5) { // School status as Blockd
 
-            tblBdy = "<td>"
+            tblBdy = "<td class='noExl'>"
                 + "<label class='pull-left font-maroon'>" + schoolDetails[i]["Status"] + "</label>"
                 + "<label class='dropdown dropdown-user pull-right margin-right-10 sch_stat'>"
                     + "<a class='dropdown-toggle' data-toggle='dropdown' data-hover='dropdown' data-close-others='true'><i class='fa fa-ellipsis-v'></i></a>"
@@ -305,9 +290,8 @@ function bindAllSchools(response) {
                 + "</label>"
              + "</td>"
         }
-        else
-        {
-            tblBdy = "<td>"
+        else {
+            tblBdy = "<td class='noExl'>"
                + "<label class='pull-left font-maroon'>" + schoolDetails[i]["Status"] + "</label>"
                + "<label class='dropdown dropdown-user pull-right margin-right-10 sch_stat'>"
                    + "<a class='dropdown-toggle' data-toggle='dropdown' data-hover='dropdown' data-close-others='true'><i class='fa fa-ellipsis-v'></i></a>"
@@ -320,6 +304,7 @@ function bindAllSchools(response) {
 
         finalBody = (tblBody + tblBdy) + "</tr>";
         $(finalBody).appendTo($("#tblBdySchoolDetails"));
+        $('.noShow').hide();
        
     }
     if (response.AllSchoolsDetails.length > 10) {
@@ -331,8 +316,7 @@ function bindAllSchools(response) {
     }
 }
 
-function blockAccount()
-{
+function blockAccount() {
     document.getElementById('hdnInstituteID').value = $(this).attr("id");
     document.getElementById('txtBlockReason').value = "";
     $('#block_sch').modal('show');
@@ -351,8 +335,7 @@ $("#btnBlockYes").on("click", function () {
         return false;
     }
 
-    else if (reason.trim().length > 120)
-    {
+    else if (reason.trim().length > 120) {
         ErrorNotifier("Reason should be maximum 120 characters");
         return false;
     }
@@ -387,14 +370,12 @@ function paytabsMarchantAccount() {
     
 }
 
-function getPaytabsMarchantAccountDetails()
-{
+function getPaytabsMarchantAccountDetails() {
     instituteId = document.getElementById('hdnInstituteID').value;
     var data = { type: 7, instituteId: instituteId };
     request.Initiate("/AjaxHandlers/AdminSchool.ashx", "JSON", false, data, function (response) {
         if (response.Success == true) {
-            if(response.ExistingPaytabsMerchantDetails.length > 0)
-            {
+            if (response.ExistingPaytabsMerchantDetails.length > 0) {
                 document.getElementById('txtSecretKey').value = response.ExistingPaytabsMerchantDetails[0]["SecreteKey"];
                 document.getElementById('txtPaytabsEmailID').value = response.ExistingPaytabsMerchantDetails[0]["PayTabsUserName"];
                 document.getElementById('txtBillingAddress').value = response.ExistingPaytabsMerchantDetails[0]["ShippingAddress"];
@@ -405,9 +386,42 @@ function getPaytabsMarchantAccountDetails()
                 document.getElementById('txtABillingAddress').value = response.ExistingPaytabsMerchantDetails[0]["ShippingAddress"];
                 document.getElementById('txtPayTabsMID').value = response.ExistingPaytabsMerchantDetails[0]["MerchantID"];
             }
+            if(response.ProcessingFeeDetails.length > 0)
+            {
+                for(var i=0; i< response.ProcessingFeeDetails.length;i++)
+                {
+                    if(response.ProcessingFeeDetails[i].CardId == 1){
+                        $("#txtCreditCardConvenience").val(response.ProcessingFeeDetails[i]["Value"]);
+                        $("#ddlCreditCardConvenienceType").val(response.ProcessingFeeDetails[i]["FeeTypeId"]);
+                    }
+                    else if (response.ProcessingFeeDetails[i].CardId == 2) {
+                        $("#ddlDebitCardConvenienceType").val(response.ProcessingFeeDetails[i]["FeeTypeId"]);
+                        $("#txtDebitCardConvenience").val(response.ProcessingFeeDetails[i]["Value"]);
+                    }
+                }
+            }
         }
         else {
         }
+    });
+}
+
+function getDiscountTypes() {
+    
+    var data = { type: 2 };
+    var discountTypes = "<option value='0'> Select </option>"
+    request.Initiate("/AjaxHandlers/Finance1.ashx", "JSON", false, data, function (response) {
+        if (response.Success == true) {
+            for (var i = 0; i < response.DiscountTypes.length > 0; i++)
+            {
+                discountTypes += "<option value='" + response.DiscountTypes[i].Id + "'>" + response.DiscountTypes[i].Type + "</option>";
+            }
+            
+        }
+        else {
+
+        }
+        $("#ddlDebitCardConvenienceType,#ddlCreditCardConvenienceType").html(discountTypes);
     });
 }
 
@@ -418,6 +432,14 @@ $("#btnUpdate").on("click", function () {
     var merchantEmail = document.getElementById('txtPaytabsEmailID').value;
     var shippingAddress = document.getElementById('txtBillingAddress').value;
     var txtPayTabsMID = document.getElementById('txtPayTabsMID').value;
+    var debitCardConvinienceFeeTypeId = "0"
+    debitCardConvinienceFeeTypeId = document.getElementById('ddlDebitCardConvenienceType').value;
+    var creditCardConvinienceFeeTypeId = "0";
+    creditCardConvinienceFeeTypeId = document.getElementById('ddlCreditCardConvenienceType').value;
+    var debitCardConvinienceFeeValue = 0;
+    debitCardConvinienceFeeValue = document.getElementById('txtDebitCardConvenience').value = "" ? 0 : document.getElementById('txtDebitCardConvenience').value;
+    var creditCardConvinienceFeeValue = 0;
+    creditCardConvinienceFeeValue = document.getElementById('txtCreditCardConvenience').value = "" ? 0 : document.getElementById('txtCreditCardConvenience').value;
 
     if (secreteKey.trim().length == 0) {
         ErrorNotifier("Please enter secrete Key");
@@ -441,8 +463,29 @@ $("#btnUpdate").on("click", function () {
         ErrorNotifier("Please enter PayTabs MID");
         return false;
     }
+    //if (debitCardConvinienceFeeTypeId == "0") {
+    //    ErrorNotifier("Please select debit card convinience fee type");
+    //    return false;
+    //}
+    if (debitCardConvinienceFeeTypeId !="0" && debitCardConvinienceFeeValue.trim().length == 0) {
+        ErrorNotifier("Please enter debit card convinience fee value");
+        return false;
+    }
+    //if (creditCardConvinienceFeeTypeId == "0") {
+    //    ErrorNotifier("Please select credit card convinience fee type");
+    //    return false;
+    //}
+    if (creditCardConvinienceFeeTypeId != "0" && creditCardConvinienceFeeValue.trim().length == 0) {
+        ErrorNotifier("Please enter credit card convinience fee value");
+        return false;
+    }
 
-    var data = { type: 6, secreteKey: secreteKey, instituteId: instituteId, merchantEmail: merchantEmail, shippingAddress: shippingAddress, PayTabsMID: txtPayTabsMID };
+    var data = {
+        type: 6, secreteKey: secreteKey, instituteId: instituteId, merchantEmail: merchantEmail,
+        shippingAddress: shippingAddress, PayTabsMID: txtPayTabsMID, CreditCardProcessingFeeTypeId: creditCardConvinienceFeeTypeId,
+        DebitCardProcessingFeeTypeId: debitCardConvinienceFeeTypeId, CreditCardProcessingFeeValue: creditCardConvinienceFeeValue,
+        DebitCardProcessingFeeValue: debitCardConvinienceFeeValue
+    };
     request.Initiate("/AjaxHandlers/AdminSchool.ashx", "JSON", false, data, function (response) {
         if (response.Success == true) {
             $('#paytabs_merch').hide();
@@ -504,16 +547,15 @@ function getSchoolsDetails() {
     });
 }
 
-function bindSchoolDetails(response)
-{
+function bindSchoolDetails(response) {
     document.getElementById('tblSchoolDetails').innerText = "";
-    var tblBody = "<tr> <td>School Code</td> <td>" + response.AllSchoolsDetails[0]["InsCode"] +"</td> </tr>"
-                  + "<tr> <td>School Name</td> <td>" + response.AllSchoolsDetails[0]["SchoolName"] +"</td> </tr>"
+    var tblBody = "<tr> <td>School Code</td> <td>" + response.AllSchoolsDetails[0]["InsCode"] + "</td> </tr>"
+        + "<tr> <td>School Name</td> <td>" + response.AllSchoolsDetails[0]["SchoolName"] + "</td> </tr>"
                  // + "<tr> <td>Principal's Name</td> <td>" + response.AllSchoolsDetails[0]["Institutecode"]; +"</td> </tr>"
-                  + "<tr> <td>School Landline Number</td> <td>" + response.AllSchoolsDetails[0]["LandLineNumber"] +"</td> </tr>"
-                  + "<tr> <td>School Mobile Number</td> <td>" + response.AllSchoolsDetails[0]["PhoneNo"] +"</td> </tr>"
-                  + "<tr> <td>School Fax Number</td> <td>" + response.AllSchoolsDetails[0]["FaxNumber"] +"</td> </tr>"
-                  + "<tr> <td>School Address</td> <td>" + response.AllSchoolsDetails[0]["Address"] +"</td> </tr>";
+        + "<tr> <td>School Landline Number</td> <td>" + response.AllSchoolsDetails[0]["LandLineNumber"] + "</td> </tr>"
+        + "<tr> <td>School Mobile Number</td> <td>" + response.AllSchoolsDetails[0]["PhoneNo"] + "</td> </tr>"
+        + "<tr> <td>School Fax Number</td> <td>" + response.AllSchoolsDetails[0]["FaxNumber"] + "</td> </tr>"
+        + "<tr> <td>School Address</td> <td>" + response.AllSchoolsDetails[0]["Address"] + "</td> </tr>";
 
                   $(tblBody).appendTo($("#tblSchoolDetails"));
 
@@ -606,7 +648,7 @@ $("#btnDeleteYes").on("click", function () {
     instituteId = document.getElementById('hdnInstituteID').value;
    
 
-    var data = { type: 10, instituteId: instituteId};
+    var data = { type: 10, instituteId: instituteId };
     request.Initiate("/AjaxHandlers/AdminSchool.ashx", "JSON", false, data, function (response) {
         if (response.Success == true) {
             SuccessNotifier(response.Message);
@@ -631,8 +673,7 @@ $("#btnDeleteOk").on("click", function () {
    
 });
 
-function onlickFunction()
-{
+function onlickFunction() {
     clearValues();
     statusIDs = [];
     countryIDs = []; areaID = [];
@@ -686,6 +727,19 @@ function timeRunner() {
     }, 1000);
     return 1;
 }
+$('#excelDownload').on('click', function () {
 
+
+    $("#tableSchools").table2excel({
+        exclude: ".noExl",
+        name: "Excel Document Name",
+        filename: "Reports_",
+        fileext: ".xlsx",
+        exclude_img: true,
+        exclude_links: true,
+        exclude_inputs: true
+    });
+
+})
 
 // End Custom Define Functions

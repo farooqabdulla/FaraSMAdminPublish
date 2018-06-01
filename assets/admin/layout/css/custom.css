@@ -370,6 +370,10 @@ border-left: 12px solid #e6f9ff;
 .db_box .number{font-size: 25px; color: #0084FE;}
 .db_box .text{font-size: 14px; color: #0084FE; margin-left: 5px; text-transform: uppercase}
 
+.db_box2{border-radius: 4px !important; background: #fff; background-image: url(../../img/db_bg.png); background-repeat: no-repeat; background-position: right center; padding: 15px;}
+.db_box2 .name{color: #4f647b; text-transform: uppercase; margin-top: 20px;}
+
+.portlet.box{padding: 15px !important; border-radius: 4px !important; background: #fff;}
 
 .sch_stat > .dropdown-menu::before{right: 9px;left: auto;}
 .sch_stat > .dropdown-menu::after{right: 10px;left: auto;}
@@ -393,9 +397,9 @@ border-left: 12px solid #e6f9ff;
 
 .sch_details td:first-child{font-weight: 600; font-size: 14px}
 
+.no-graph{border: 2px dashed #e8e8e8; padding: 30px; text-align: center; color: #BFBFBF; font-size: 20px; font-weight: 600}
 
-
-
+.num_circle{background: #0084fe; border-radius: 100px !important; padding: 15px; color: #fff; font-weight: 600;}
 
 
 

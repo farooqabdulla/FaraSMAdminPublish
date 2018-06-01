@@ -5,6 +5,7 @@ var currencycode = '';
 var maxamount = '';
 var minamount = '';
 var Searchtext = '';
+var websiteUrl = $("#hdnWebUrl").val();
 $(document).ready(function () {
     //request = new Request();
     var request = new Request();
@@ -54,12 +55,15 @@ function GetTransactionList() {
             $.each(successResponseData.Transactionlist, function (item, index) {
                 var Id = btoa(index.Id);
                 currencycode = index.code;
-                html += '<tr><td><div class="pull-left dp"><img src="' + (index.logopath == "" ? "/assets/admin/img/defaultSchool.png" : ('/' + index.logopath)) + '" class="img-responsive" alt="profile pic"></div>'
-                html += '<div class="pull-left"><h4 class="text-blue f_15 text-bold mb-0">' + index.name + '</h4> <span class="f_12 margin-top-5 inlineBlock text-grey">' + index.institutecode +'</span>'
-                html += '</div></td><td>' + index.email + '</td><td>' + index.ContactNumber + '</td><td>' + index.transactions + '</td><td>' + index.Balance + '  ' + index.code + '</td><td><a href="/SchoolDetails.aspx?InstituteID=' + Id + '"><i id=' + index.Id + ' class="pointer pull-right text-blue margin-right-10 fa fa-eye"></i></a></td></tr>'
+                
+                html += '<tr><td class=\"noShow\">' + index.name + '</td><td class=\"noShow\">' + index.institutecode + '</td><td class=\"noShow\">' + index.email + '</td><td  class="noExl"><div class="pull-left dp"><img src="' + (index.logopath == "" ? "/assets/admin/img/defaultSchool.png" : websiteUrl + (index.logopath)) + '" class="img-responsive" alt="profile pic"></div>'
+                html += '<div class="pull-left"><h4 class="text-blue f_15 text-bold mb-0" style="cursor:pointer" Title="' + index.name + '">' + (index.name.length > 10 ? (index.name.substring(0, 10) + '..') : (index.name)) + '</h4> <span style="cursor:pointer" class="f_12 margin-top-5 inlineBlock text-grey" Title="' + index.institutecode + '">' + (index.institutecode.length > 10 ? (index.institutecode.substring(0, 10) + '..') : (index.institutecode)) + '</span>'
+                html += '</div></td><td Title="' + index.email + '" style="cursor:pointer"  class="noExl"> ' + (index.email.length > 22 ? (index.email.substring(0, 20) + '..') : (index.email)) + '</td><td>' + index.ContactNumber + '</td><td>' + index.transactions + '</td><td>' + index.Balance + '  ' + index.code + '</td><td class="noExl"><a href="/SchoolDetails.aspx?InstituteID=' + Id + '"><i id=' + index.Id + ' class="pointer pull-right text-blue margin-right-10 fa fa-eye"></i></a></td></tr>'
             });
             //$('#tblTransactionDetails').append(html);
-            $("#TRANSACTIONDATA").html(html);
+              $('.noShow').hide();
+              $("#TRANSACTIONDATA").html(html);
+              $('.noShow').hide();
             if (successResponseData.Transactionlist.length > 10) {
                 var pageCount = parseInt(successResponseData.Transactionlist.length / 10);
                 $('#myPager').html('');
@@ -81,6 +85,7 @@ function GetTransactionList() {
         }
     });
 }
+
 
 //function Balanceslider()
 
@@ -161,3 +166,16 @@ function getInstituteAreas() {
         }
     });
 }
+
+$('#excelDownload').on('click', function () {
+    $("#tblTransactionDetails").table2excel({
+        exclude: ".noExl",
+        name: "Excel Document Name",
+        filename: "Reports_",
+        fileext: ".xlsx",
+        exclude_img: true,
+        exclude_links: true,
+        exclude_inputs: true
+    });
+
+})

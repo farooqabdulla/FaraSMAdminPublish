@@ -84,7 +84,7 @@
             <div class="col-lg-4 col-md-4 col-sm-2"></div>
         </div>
 
-        <div class="login_foot">Copyright  &copy; PayTabs-QuickPay. All Rights Reserved.</div>
+        <div class="login_foot">Copyright  &copy; FaraPay. All Rights Reserved.</div>
 
     </div>
     <script src="assets/global/plugins/jquery.min.js" type="text/javascript"></script>

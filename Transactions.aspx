@@ -1,22 +1,24 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin.Master" AutoEventWireup="true" CodeBehind="Transactions.aspx.cs" Inherits="FaraSM.AdminUI.Transactions" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-     
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-     <div class="text-center text-grey" id="DivNoDataFound" style="display:none">
-        
-         <label class="blocked f_18" style="padding-top:20%">No Transaction Records Found</label>
+    <div class="text-center text-grey" id="DivNoDataFound" style="display: none">
+
+        <label class="blocked f_18" style="padding-top: 20%">No Transaction Records Found</label>
     </div>
 
     <!--show below when data present in the grid-->
-    <div class="stu_srch_box" style="display:none" id="DivDataFound">
+    <div class="stu_srch_box" style="display: none" id="DivDataFound">
         <div class="clearfix srch_top">
             <div class="col-sm-2 col-md-2 col-xs-2 left-srch">
                 <label id="filter" class="filt_btn mb-0 select" onclick="toggleClick();"><i class="fa fa-sliders margin-right-10"></i><span class="hidden-xs">Filters</span> </label>
             </div>
-            <div class="col-sm-10 col-md-10 col-xs-10 mid-srch">
-                <input type="text" class="form-control"   id="txtSearch" placeholder="Search by School Name">
+            <div class="col-sm-7 col-md-7 col-xs-7 mid-srch">
+                <input type="text" class="form-control" id="txtSearch" placeholder="Search by School Name">
+            </div>
+            <div class="col-sm-3 col-md-3 col-xs-3 right-srch">
+                <a class="text-blue" id="excelDownload"><i class="fa fa-file-excel-o fa-2x margin-left-5 margin-top-10 margin-right-5 fa-spin"></i>Download To Excel</a>
             </div>
         </div>
         <div class="sbContainer">
@@ -39,7 +41,6 @@
                     <label class="pull-right indicator" data-toggle="collapse" data-target="#country"><i class="fa fa-plus-square-o"></i></label>
                     <div class="clear"></div>
                     <ul id="country" class="collapse  margin-top-10">
-                        
                     </ul>
                 </div>
                 <div class="clearfix padBox bord-b">
@@ -47,10 +48,9 @@
                     <label class="pull-right indicator" data-toggle="collapse" data-target="#location"><i class="fa fa-plus-square-o"></i></label>
                     <div class="clear"></div>
                     <ul id="location" class="collapse margin-top-10">
-                        
                     </ul>
                 </div>
-             <%--   <div class="clearfix padBox bord-b">
+                <%--   <div class="clearfix padBox bord-b">
                     <label class="pull-left f_15">Status</label>
                     <label class="pull-right indicator" data-toggle="collapse" data-target="#status"><i class="fa fa-minus-square-o"></i></label>
                     <div class="clear"></div>
@@ -70,7 +70,7 @@
 
                     </ul>
                 </div>--%>
-              <%-- <div class="clearfix padBox bord-b">
+                <%-- <div class="clearfix padBox bord-b">
                     <label class="pull-left f_15"> Amount</label>
                     <label class="pull-right indicator" data-toggle="collapse" data-target="#FeeAmt">
                         <i class="fa fa-minus-square-o"></i>
@@ -89,15 +89,16 @@
                 <table class="table table-borderd" id="tblTransactionDetails">
                     <thead>
                         <tr>
-                            
-                            <th>School Name <i class="fa fa-sort margin-left-5"></i></th>
-                            <th>Email ID <i class="fa fa-sort margin-left-5"></i></th>
-                            <th>Phone Number <i class="fa fa-sort margin-left-5"></i></th>
-                            <th>Transactions <i class="fa fa-sort margin-left-5"></i></th>
-                            <th>Amount <i class="fa fa-sort margin-left-5"></i></th>
-                            <th>Action <i class="fa fa-sort margin-left-5"></i></th>
-                           <%-- <th>Time/Date <i class="fa fa-sort margin-left-5"></i></th>--%>
-                          
+                            <th class="noShow"><strong>School Name</strong></th>
+                            <th class="noShow"><strong>Institute Code</strong></th>
+                            <th class="noShow"><strong>Email Id</strong></th>
+                            <th class="noExl">School Name <i class="fa fa-sort margin-left-5"></i></th>
+                            <th class="noExl">Email ID <i class="fa fa-sort margin-left-5"></i></th>
+                            <th><strong>Number</strong> <i class="fa fa-sort margin-left-5"></i></th>
+                            <th><strong>Transactions </strong><i class="fa fa-sort margin-left-5"></i></th>
+                            <th><strong>Amount</strong> <i class="fa fa-sort margin-left-5"></i></th>
+                            <th class="noExl">Action <i class="fa fa-sort margin-left-5"></i></th>
+                            <%-- <th>Time/Date <i class="fa fa-sort margin-left-5"></i></th>--%>
                         </tr>
                     </thead>
                     <tbody id="TRANSACTIONDATA">
@@ -105,9 +106,9 @@
                   <td colspan="8" bgcolor="#f9f9f9" class="text-right"><label class="text-blue margin-right-15 margin-left-15 mb-0" title="Delete"><i class="fa fa-trash"></i> Delete</label>
                     <label class="text-blue margin-right-15 mb-0" title="Promote"><i class="fa fa-arrow-up"></i> Promote</label></td>
                 </tr>-->
-                       
-                     
-                      
+
+
+
                     </tbody>
 
                 </table>
@@ -117,23 +118,25 @@
             </div>
         </div>
     </div>
-
-
+    <input type="hidden" id="hdnWebUrl" value="<%= ConfigurationManager.AppSettings["WebUrl"].ToString() %>" />
 
 
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ScriptPart" runat="server">
+    
+    
     <script src="assets/global/plugins/jquery.min.js"></script>
-    <script src="assets/global/scripts/metronic.js" type="text/javascript"></script> 
+    <script src="assets/global/scripts/metronic.js" type="text/javascript"></script>
     <script src="Scripts/Plugins/paginationAdmin.js"></script>
     <script src="Scripts/Custom/request.js?v=1"></script>
+    <script src="Scripts/Plugins/jquery.table2excel.js"></script>
     <script src="Scripts/Custom/Transactions.js"></script>
-<script>
+    <script>
         $(document).ready(function () {
             //Metronic.init(); // init metronic core componets
             //Layout.init(); // init layout
 
-          
+
         });
 
         function toggleClick() {
@@ -150,7 +153,7 @@
                 $(this).prev().prev().find('i').toggleClass('fa-plus-square-o fa-minus-square-o');
             })
         })
-       
+
         //if ($("#existing").is(":Checked")) {
         //    $("#plus").hide();
         //}
@@ -161,7 +164,7 @@
         //    $("#minus").hide();
         //});
 
-        
-    </script> 
-    
+
+    </script>
+
 </asp:Content>

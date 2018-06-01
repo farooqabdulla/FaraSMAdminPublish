@@ -9,6 +9,7 @@ var request;
 // Begin Page load
 var glbcountry = '';
 var glblocations = '';
+var websiteUrl = $("#hdnWebUrl").val();
 $(document).ready(function () {
     $('#Withdrawlsdisplay').hide();
     request = new Request();
@@ -239,14 +240,15 @@ function getAllWithdrawlsDetails()
             var html = '';
             if (successResponseData.withdrawlslist.length > 0) {
                 $.each(successResponseData.withdrawlslist, function (item, index) {
-                    html += '<tr><td><div class="pull-left dp"><img src="' + (index.logopath == "" ? "/assets/admin/img/defaultSchool.png" : ('/' + index.logopath)) + '" class="img-responsive" alt="profile pic"></div><div class="pull-left">'
-                    html += '<h4 class="text-blue f_15 text-bold mb-0">' + index.Name + '</h4><span class="f_12 margin-top-5 inlineBlock text-grey">' + index.institutecode + '</span>'
-                    html += '</div></td><td>' + index.email + '</td><td>' + index.ContactNumber + '</td><td>' + index.CreatedTime + '</td><td>' + index.WithDrawAmount + ' ' + index.Code + '</td>'
+                    html += '<tr><td class="noShow">' + index.Name + '</td><td class="noShow">' + index.institutecode + '</td><td class="noShow">' + index.email + '</td><td class="noExl"><div class="pull-left dp"><img src="' + (index.logopath == "" ? "/assets/admin/img/defaultSchool.png" : (websiteUrl + index.logopath)) + '" class="img-responsive" alt="profile pic"></div><div class="pull-left">'
+                    html += '<h4 class="text-blue f_15 text-bold mb-0" style="cursor:pointer" Title="' + index.Name + '">' + (index.Name.length > 10 ? (index.Name.substring(0, 8) + '..') : (index.Name)) + '</h4><span style="cursor:pointer" class="f_12 margin-top-5 inlineBlock text-grey" Title="' + index.institutecode + '">' + (index.institutecode.length > 10 ? (index.institutecode.substring(0, 10) + '..') : (index.institutecode)) + '</span>'
+                    html += '</div></td><td  class="noExl" Title="' + index.email + '" style="cursor:pointer">' + (index.email.length > 22 ? (index.email.substring(0, 20) + '..') : (index.email)) + '</td><td>' + index.ContactNumber + '</td><td>' + index.CreatedTime + '</td><td>' + index.WithDrawAmount + ' ' + index.Code + '</td>'
                     html += '<td>' + index.Balance + ' ' + index.Code + '</td><td>' + index.comments + '</td></tr>'
                 });
                 $("#Withdrawlsdata").html(html);
                 $('#Withdrawlsdisplay').show();
                 $('.add_student').hide();
+                $('.noShow').hide();
                 if (successResponseData.withdrawlslist.length > 10) {
                     var pageCount = parseInt(successResponseData.withdrawlslist.length / 10);
                     $('#myPager').html('');
@@ -312,3 +314,17 @@ function getInstituteAreas() {
         }
     });
 }
+$('#excelDownload').on('click', function () {
+
+
+    $("#tableWithdrawal").table2excel({
+        exclude: ".noExl",
+        name: "Excel Document Name",
+        filename: "Reports_",
+        fileext: ".xlsx",
+        exclude_img: true,
+        exclude_links: true,
+        exclude_inputs: true
+    });
+
+})

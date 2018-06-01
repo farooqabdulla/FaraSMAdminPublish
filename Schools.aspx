@@ -13,9 +13,14 @@
             <div class="col-sm-2 col-md-2 col-xs-2 left-srch">
                 <label id="filter" class="filt_btn mb-0 select" onclick="toggleClick();"><i class="fa fa-sliders margin-right-10"></i><span class="hidden-xs">Filters</span> </label>
             </div>
-            <div class="col-sm-10 col-md-10 col-xs-10 mid-srch">
+            <div class="col-sm-3 col-md-7 col-xs-10 mid-srch">
                 <input type="text" class="form-control" placeholder="Search by Name, Email, Status" id="txtSearch">
             </div>
+            <div class="col-sm-3 col-md-3 col-xs-3 right-srch">
+                <a class="text-blue" id="excelDownload"><i class="fa fa-file-excel-o fa-2x margin-left-5 margin-top-10 margin-right-5 fa-spin"></i>Download To Excel</a>
+        </div>
+            
+            
         </div>
         <div class="sbContainer">
 
@@ -48,7 +53,7 @@
             </div>
             <div id="sbContent" class="sbContent" style="min-height: 500px;">
                 <div class="table-responsive">
-                    <table class="table table-borderd tblStudent">
+                    <table id="tableSchools" class="table table-borderd tblStudent">
                         <thead>
                             <tr>
                                 <%--<th>School Name </th>--%>
@@ -65,14 +70,19 @@
                                 <%--<i class="fa fa-sort margin-left-5"></i>--%>
                                 <%-- <th>Status </th>--%>
                                 <%--<i class="fa fa-sort margin-left-5"></i>--%>
-                                <th>School Name <i class="fa fa-sort margin-left-5"></i></th>
-                                <th>Email ID <i class="fa fa-sort margin-left-5"></i></th>
-                                <th>Phone Number <i class="fa fa-sort margin-left-5"></i></th>
-                                <th>Created Date <i class="fa fa-sort margin-left-5"></i></th>
-                                <th>Transactions <i class="fa fa-sort margin-left-5"></i></th>
-                                <th>Revenue <i class="fa fa-sort margin-left-5"></i></th>
-                                <th>Comments <i class="fa fa-sort margin-left-5"></i></th>
-                                <th>Status <i class="fa fa-sort margin-left-5"></i></th>
+                                <th class="noShow"><strong>School Name</strong><i class="fa fa-sort margin-left-5"></i></th>
+                                <th class="noShow"><strong>Institute Code</strong><i class="fa fa-sort margin-left-5"></i></th>
+                                <th class="noShow"><strong>Email</strong><i class="fa fa-sort margin-left-5"></i></th>
+                                <th class="noShow"><strong>Status</strong><i class="fa fa-sort margin-left-5"></i></th>
+                                <th class="noShow"><strong>Country Name</strong><i class="fa fa-sort margin-left-5"></i></th>
+                                <th class='noExl'><strong>School Name</strong><i class="fa fa-sort margin-left-5"></i></th>
+                                <th class='noExl'><strong>Email ID</strong><i class="fa fa-sort margin-left-5"></i></th>
+                                <th><strong>Phone Number</strong> <i class="fa fa-sort margin-left-5"></i></th>
+                                <th><strong>Created Date</strong><i class="fa fa-sort margin-left-5"></i></th>
+                                <th><strong>Transactions</strong> <i class="fa fa-sort margin-left-5"></i></th>
+                                <th><strong>Revenue</strong> <i class="fa fa-sort margin-left-5"></i></th>
+                                <th><strong>Comments</strong><i class="fa fa-sort margin-left-5"></i></th>
+                                <th class='noExl'>Status <i class="fa fa-sort margin-left-5"></i></th>
                             </tr>
                         </thead>
                         <tbody id="tblBdySchoolDetails">
@@ -132,19 +142,6 @@
                 <div class="modal-body">
                     <div class="material">
                         <div class="form-group">
-                            <%--<div class="row">
-                                <div class="col-sm-6">
-                                    <input type="text" id="" required="required" />
-                                    <label class="control-label" for="input">Merchant ID</label>
-                                    <i class="bar"></i>
-                                </div>
-
-                                <div class="col-sm-6">
-                                    <input type="text" id="" required="required" />
-                                    <label class="control-label" for="input">Secret Key (API KEY)</label>
-                                    <i class="bar"></i>
-                                </div>
-                            </div>--%>
                             <input type="text" id="txtSecretKey" required="required" />
                             <label class="control-label" for="input">Secret Key (API KEY)</label>
                             <i class="bar"></i>
@@ -163,9 +160,43 @@
                         </div>
 
                          <div class="form-group">
-                            <input type="text" id="txtPayTabsMID" required="required" maxlength="10"/>
+                            <input type="text" id="txtPayTabsMID" required="required" maxlength="10" />
                             <label class="control-label" for="input">PayTabs MID</label>
                             <i class="bar"></i>
+                        </div>
+                        <h4 class="bold-6 mb-0">Convenience Fee</h4>
+                        <i class="bar"></i>
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <span style="margin-top: 16px; display: inline-block;">Debit Card : </span>
+                        </div>
+                                <div class="col-sm-5">
+                                    <Select  id="ddlDebitCardConvenienceType" >
+                                        <option value="0">Select</option>
+                                    </Select>
+                                </div>
+                                <div class="col-sm-4">
+                                    <input type="text" id="txtDebitCardConvenience" />
+                                    <i class="bar"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <span style="margin-top: 16px; display: inline-block;">Credit Card : </span>
+                                </div>
+                                <div class="col-sm-5">
+                                    <Select  id="ddlCreditCardConvenienceType" >
+                                        <option value="0">Select</option>
+                                    </Select>
+                                </div>
+                                <div class="col-sm-4">
+                                    <input type="text" id="txtCreditCardConvenience" />
+                                    <i class="bar"></i>
+                                </div>
+                            </div>
                         </div>
                         <div class="form-group text-center">
                             <button type="button" class="btn btn-primary" id="btnUpdate">Update</button>
@@ -228,7 +259,7 @@
                             <i class="bar"></i>
                         </div>
                         <div class="form-group">
-                            <input type="text" id="txtAPayTabsMID" required="required" maxlength="10"/>
+                            <input type="text" id="txtAPayTabsMID" required="required" maxlength="10" />
                             <label class="control-label" for="input">PayTabs MID</label>
                             <i class="bar"></i>
                         </div>
@@ -319,7 +350,7 @@
     <script src="Scripts/Custom/school.js?v=1"></script>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ScriptPart" runat="server">
-    
+   <script src="Scripts/Plugins/jquery.table2excel.js"></script>
    <script src="Scripts/Plugins/paginationAdmin.js?v=1"></script>
     <script>
 

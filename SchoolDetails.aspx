@@ -181,7 +181,7 @@
                             </div>
                             <div class="col-sm-4">
                                 <div class="db_box">
-                                    <h5 class="head">NO. Of Transactions</h5>
+                                    <h5 class="head">Total NO. Of Transactions</h5>
                                     <label id="noOfTrns" class="number">0 </label>
                                 </div>
                             </div>
