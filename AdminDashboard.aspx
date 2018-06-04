@@ -7,8 +7,8 @@
         <label class="blocked f_18"><h1>COMING SOON !</h1></label>
          <label class="blocked f_18">We are currently working on this , will get back to you soon.</label>
     </div>--%>
-    <div class="page-content" align="center"><h3>Coming Soon</h3></div>
-    <div class="page-content" style="display:none;">
+    <%--<div class="page-content" align="center"><h3>Coming Soon</h3></div>--%>
+    <div class="page-content" >
     <div class="row margin-top-15 margin-bottom-20">
         <div class="col-sm-6">
             <div class="db_box clearfix">
