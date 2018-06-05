@@ -593,6 +593,7 @@ $("#btnProceed").on("click", function () {
     document.getElementById('txtASecretKey').value = "";
     document.getElementById('txtAPaytabsEmailID').value = "";
     document.getElementById('txtABillingAddress').value = "";
+    clearMarchantValues();
     $('#Sch_det').modal('hide');
     $('#ActivateSchoolAccount').modal('show');
    
