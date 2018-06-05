@@ -398,6 +398,15 @@ function getPaytabsMarchantAccountDetails() {
                         $("#ddlDebitCardConvenienceType").val(response.ProcessingFeeDetails[i]["FeeTypeId"]);
                         $("#txtDebitCardConvenience").val(response.ProcessingFeeDetails[i]["Value"]);
                     }
+
+                    if (response.ProcessingFeeDetails[i].CardId == 1) {
+                        $("#txtCreditCardConvenience1").val(response.ProcessingFeeDetails[i]["Value"]);
+                        $("#ddlCreditCardConvenienceType1").val(response.ProcessingFeeDetails[i]["FeeTypeId"]);
+                    }
+                    else if (response.ProcessingFeeDetails[i].CardId == 2) {
+                        $("#ddlDebitCardConvenienceType1").val(response.ProcessingFeeDetails[i]["FeeTypeId"]);
+                        $("#txtDebitCardConvenience1").val(response.ProcessingFeeDetails[i]["Value"]);
+                    }
                 }
             }
         }
@@ -422,6 +431,7 @@ function getDiscountTypes() {
 
         }
         $("#ddlDebitCardConvenienceType,#ddlCreditCardConvenienceType").html(discountTypes);
+        $("#ddlDebitCardConvenienceType1,#ddlCreditCardConvenienceType1").html(discountTypes);
     });
 }
 
@@ -597,6 +607,18 @@ $("#btnActivate").on("click", function () {
     var isActivateOrUnblock = document.getElementById('hdnIsActivateOrUnblock').value;
     var txtAPayTabsMID = document.getElementById('txtAPayTabsMID').value;
 
+    var debitCardConvinienceFeeTypeId = "0"
+    debitCardConvinienceFeeTypeId = document.getElementById('ddlDebitCardConvenienceType1').value;
+    var creditCardConvinienceFeeTypeId = "0";
+    creditCardConvinienceFeeTypeId = document.getElementById('ddlCreditCardConvenienceType1').value;
+    var debitCardConvinienceFeeValue = 0;
+    debitCardConvinienceFeeValue = document.getElementById('txtDebitCardConvenience1').value = "" ? 0 : document.getElementById('txtDebitCardConvenience1').value;
+    var creditCardConvinienceFeeValue = 0;
+    creditCardConvinienceFeeValue = document.getElementById('txtCreditCardConvenience1').value = "" ? 0 : document.getElementById('txtCreditCardConvenience1').value;
+
+
+
+
     if (secreteKey.trim().length == 0) {
         ErrorNotifier("Please enter secrete Key");
         return false;
@@ -619,7 +641,23 @@ $("#btnActivate").on("click", function () {
         ErrorNotifier("Please enter PayTabs MID");
         return false;
     }
-    var data = { type: 9, secreteKey: secreteKey, instituteId: instituteId, merchantEmail: merchantEmail, shippingAddress: shippingAddress, isActivateOrUnblock: isActivateOrUnblock, PayTabsMID: txtAPayTabsMID };
+
+    if (debitCardConvinienceFeeTypeId != "0" && debitCardConvinienceFeeValue.trim().length == 0) {
+        ErrorNotifier("Please enter debit card convinience fee value");
+        return false;
+    }
+
+    if (creditCardConvinienceFeeTypeId != "0" && creditCardConvinienceFeeValue.trim().length == 0) {
+        ErrorNotifier("Please enter credit card convinience fee value");
+        return false;
+    }
+
+    var data = {
+        type: 9, secreteKey: secreteKey, instituteId: instituteId, merchantEmail: merchantEmail, shippingAddress: shippingAddress,
+        isActivateOrUnblock: isActivateOrUnblock, PayTabsMID: txtAPayTabsMID, CreditCardProcessingFeeTypeId: creditCardConvinienceFeeTypeId,
+        DebitCardProcessingFeeTypeId: debitCardConvinienceFeeTypeId, CreditCardProcessingFeeValue: creditCardConvinienceFeeValue,
+        DebitCardProcessingFeeValue: debitCardConvinienceFeeValue
+    };
     request.Initiate("/AjaxHandlers/AdminSchool.ashx", "JSON", false, data, function (response) {
         if (response.Success == true) {
             SuccessNotifier(response.Message);

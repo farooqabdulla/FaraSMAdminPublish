@@ -17,7 +17,7 @@
                 <input type="text" class="form-control" placeholder="Search by Name, Email, Status" id="txtSearch">
             </div>
             <div class="col-sm-3 col-md-3 col-xs-3 right-srch">
-                <a class="text-blue" id="excelDownload"><i class="fa fa-file-excel-o fa-2x margin-left-5 margin-top-10 margin-right-5 fa-spin"></i>Download To Excel</a>
+                <a class="text-blue" id="excelDownload"><i class="fa fa-file-excel-o  margin-left-5 margin-top-10 margin-right-5 "></i>Download To Excel</a>
         </div>
             
             
@@ -262,6 +262,40 @@
                             <input type="text" id="txtAPayTabsMID" required="required" maxlength="10" />
                             <label class="control-label" for="input">PayTabs MID</label>
                             <i class="bar"></i>
+                        </div>
+                        <h4 class="bold-6 mb-0">Convenience Fee</h4>
+                        <i class="bar"></i>
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <span style="margin-top: 16px; display: inline-block;">Debit Card : </span>
+                        </div>
+                                <div class="col-sm-5">
+                                    <Select  id="ddlDebitCardConvenienceType1" >
+                                        <option value="0">Select</option>
+                                    </Select>
+                                </div>
+                                <div class="col-sm-4">
+                                    <input type="text" id="txtDebitCardConvenience1" />
+                                    <i class="bar"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <span style="margin-top: 16px; display: inline-block;">Credit Card : </span>
+                                </div>
+                                <div class="col-sm-5">
+                                    <Select  id="ddlCreditCardConvenienceType1" >
+                                        <option value="0">Select</option>
+                                    </Select>
+                                </div>
+                                <div class="col-sm-4">
+                                    <input type="text" id="txtCreditCardConvenience1" />
+                                    <i class="bar"></i>
+                                </div>
+                            </div>
                         </div>
                         <div class="form-group text-center">
                             <button type="button" class="btn btn-default" id="btnApproveCancel" style="display: none">Cancel</button>

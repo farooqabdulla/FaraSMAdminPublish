@@ -15,10 +15,10 @@
                 <label id="filter" class="filt_btn mb-0 select" onclick="toggleClick();"><i class="fa fa-sliders margin-right-10"></i><span class="hidden-xs">Filters</span> </label>
             </div>
             <div class="col-sm-7 col-md-7 col-xs-7 mid-srch">
-                <input type="text" class="form-control" id="txtSearch" placeholder="Search by School Name">
+                <input type="text" class="form-control" id="txtSearch" placeholder="Search by School Name" style="width:100%">
             </div>
             <div class="col-sm-3 col-md-3 col-xs-3 right-srch">
-                <a class="text-blue" id="excelDownload"><i class="fa fa-file-excel-o fa-2x margin-left-5 margin-top-10 margin-right-5 fa-spin"></i>Download To Excel</a>
+                <a class="text-blue" id="excelDownload"><i class="fa fa-file-excel-o  margin-left-5 margin-top-10 margin-right-5 "></i>Download To Excel</a>
             </div>
         </div>
         <div class="sbContainer">

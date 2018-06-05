@@ -14,16 +14,25 @@
             <div class="col-sm-2 col-md-2 col-xs-2 left-srch">
                 <label id="filter" class="filt_btn mb-0 select" onclick="toggleClick();"><i class="fa fa-sliders margin-right-10"></i><span class="hidden-xs">Filters</span> </label>
             </div>
-            <div class="col-sm-7 col-md-7 col-xs-7 mid-srch">
-                <input type="text" id="txtSearch" class="form-control" placeholder="Search by School Name">
+            <div class="col-sm-6 col-md-6 col-xs-6 mid-srch">
+                <input type="text" id="txtSearch" style="width:100%" class="form-control" placeholder="Search by School Name">
             </div>
             <%--<div class="col-sm-3 col-md-3 right-srch">
                 <a class="text-blue" data-toggle="modal" data-target="#withdr_infor"  id="addnewdetailstbl"><i class="fa fa-plus-circle margin-right-10 margin-top-10"></i>Add Withdrawal Info</a>
             </div>--%>
 
-            <div class="col-sm-3 col-md-3 right-srch">
-                <a class="text-blue" id="addnewdetailstbl" data-toggle="modal" data-target="#withdr_infor"><i class="fa fa-plus-circle margin-right-10 margin-top-1"></i>Add Withdrawal Info</a><br />
-                <a class="text-blue" id="excelDownload"><i class="fa fa-file-excel-o margin-left-5 margin-top-1 margin-right-5 fa-spin"></i>Download To Excel</a>
+            <div class="col-sm-4 col-md-4 right-srch">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <a class="text-blue" id="addnewdetailstbl" data-toggle="modal" data-target="#withdr_infor"><i class="fa fa-plus-circle margin-right-10 margin-top-1"></i>Add Withdrawal Info</a><br />
+                    </div>
+                    <div class="col-sm-6"> 
+                        <a class="text-blue" id="excelDownload"><i class="fa fa-file-excel-o margin-left-5 margin-top-1 margin-right-5 "></i>Download To Excel</a>
+                    </div>
+
+                </div>
+                
+               
             </div>
         </div>
         <div class="sbContainer">

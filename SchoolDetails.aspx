@@ -160,6 +160,40 @@
                                 </div>
                             </div>
                         </div>
+                        <h4 class="bold-6 mb-0">Convenience Fee</h4>
+                        <i class="bar"></i>
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <span style="margin-top: 16px; display: inline-block;">Debit Card : </span>
+                        </div>
+                                <div class="col-sm-5">
+                                    <Select  id="ddlDebitCardConvenienceType1" >
+                                        <option value="0">Select</option>
+                                    </Select>
+                                </div>
+                                <div class="col-sm-4">
+                                    <input type="text" id="txtDebitCardConvenience1" />
+                                    <i class="bar"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <span style="margin-top: 16px; display: inline-block;">Credit Card : </span>
+                                </div>
+                                <div class="col-sm-5">
+                                    <Select  id="ddlCreditCardConvenienceType1" >
+                                        <option value="0">Select</option>
+                                    </Select>
+                                </div>
+                                <div class="col-sm-4">
+                                    <input type="text" id="txtCreditCardConvenience1" />
+                                    <i class="bar"></i>
+                                </div>
+                            </div>
+                        </div>
 
                         <div class="text-right">
                             <button id="btnSave" type="button" class="btn btn-primary">Save Changes</button>
@@ -455,7 +489,40 @@
                             <label class="control-label" for="input">PayTabs MID</label>
                             <i class="bar"></i>
                         </div>
-
+                        <h4 class="bold-6 mb-0">Convenience Fee</h4>
+                        <i class="bar"></i>
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <span style="margin-top: 16px; display: inline-block;">Debit Card : </span>
+                        </div>
+                                <div class="col-sm-5">
+                                    <Select  id="ddlDebitCardConvenienceType" >
+                                        <option value="0">Select</option>
+                                    </Select>
+                                </div>
+                                <div class="col-sm-4">
+                                    <input type="text" id="txtDebitCardConvenience" />
+                                    <i class="bar"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <span style="margin-top: 16px; display: inline-block;">Credit Card : </span>
+                                </div>
+                                <div class="col-sm-5">
+                                    <Select  id="ddlCreditCardConvenienceType" >
+                                        <option value="0">Select</option>
+                                    </Select>
+                                </div>
+                                <div class="col-sm-4">
+                                    <input type="text" id="txtCreditCardConvenience" />
+                                    <i class="bar"></i>
+                                </div>
+                            </div>
+                        </div>
                         <div class="form-group text-center">
                             <button type="button" class="btn btn-default" id="btnApproveCancel">Cancel</button>
                             <button type="button" class="btn btn-primary" id="btnActivate">Un-block</button>
