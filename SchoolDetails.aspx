@@ -6,7 +6,7 @@
     <div class="row">
         <div class="col-md-3">
             <div class="stu_srch_box text-center pad-10 profileDetails">
-                <img id="imgSchoolLogo" src="assets/admin/img/School.png" alt="SchoolLogo" />
+                <img id="imgSchoolLogo" src="" alt="SchoolLogo" />
                 <h3 id="h3SchoolName"></h3>
                 <label id="labelSchoolEmail" class="text-center f_13 margin-top-5 blocked margin-bottom-10"></label>
                 <label id="labelSchoolContactNo" class="text-center blocked f_13"></label>
@@ -65,7 +65,7 @@
                         <div class="row margin-bottom-50">
                             <div class="col-md-4 col-sm-4 col-xs-6 col-lg-2">
                                 <div class="stats">
-                                    <h4 id="h3TotalAcademicYear" class="num">3</h4>
+                                    <h4 id="h3TotalAcademicYear" class="num"></h4>
                                     <label class="name">Academic Year</label>
                                 </div>
                             </div>
