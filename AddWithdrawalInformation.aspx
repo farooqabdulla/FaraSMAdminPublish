@@ -15,7 +15,7 @@
                 <label id="filter" class="filt_btn mb-0 select" onclick="toggleClick();"><i class="fa fa-sliders margin-right-10"></i><span class="hidden-xs">Filters</span> </label>
             </div>
             <div class="col-sm-6 col-md-6 col-xs-6 mid-srch">
-                <input type="text" id="txtSearch" style="width:100%" class="form-control" placeholder="Search by School Name">
+                <input type="text" id="txtSearch" style="width:100%" class="forearm-control" placeholder="Search by School Name">
             </div>
             <%--<div class="col-sm-3 col-md-3 right-srch">
                 <a class="text-blue" data-toggle="modal" data-target="#withdr_infor"  id="addnewdetailstbl"><i class="fa fa-plus-circle margin-right-10 margin-top-10"></i>Add Withdrawal Info</a>
@@ -109,13 +109,13 @@
                             <th class="noShow"><strong>School Name</strong></th>
                             <th class="noShow"><strong>Institute Code</strong></th>
                             <th class="noShow"><strong>Email Id</strong></th>
-                            <th class='noExl'><strong>School Name</strong> <i class="fa fa-sort margin-left-5"></i></th>
-                            <th class='noExl'>Email ID <i class="fa fa-sort margin-left-5"></i></th>
-                            <th><strong> Number </strong> <i class="fa fa-sort margin-left-5"></i></th>
-                            <th><strong>Time/Date</strong><i class="fa fa-sort margin-left-5"></i></th>
-                            <th><strong>Withdrawal Amount</strong> <i class="fa fa-sort margin-left-5"></i></th>
-                            <th><strong>Amount </strong> <i class="fa fa-sort margin-left-5"></i></th>
-                            <th><strong>Comments</strong> <i class="fa fa-sort margin-left-5"></i></th>
+                            <th class='noExl'><strong>School Name</strong> </th>
+                            <th class='noExl'>Email ID </th>
+                            <th><strong> Number </strong> </th>
+                            <th><strong>Time/Date</strong></th>
+                            <th><strong>Withdrawal Amount</strong> </th>
+                            <th><strong>Amount </strong></th>
+                            <th><strong>Comments</strong></th>
                             <%-- <th>Status <i class="fa fa-sort margin-left-5"></i></th>--%>
                         </tr>
                     </thead>
@@ -152,9 +152,9 @@
                     </div>
                     <div class="form-group">
                         <div class="input-group full-w">
-                            <div class="input-icon right">
+                            <div class="input-icon right r-readonly">
                                 <i class="fa fa-calendar" id="clrStartDate"></i>
-                                <input type="text" class="form-control" placeholder="withdrawal Date" readonly="readonly" id="txtDate">
+                                <input type="text" class="form-control" placeholder="withdrawal Date" disable="true" id="txtDate">
                             </div>
                         </div>
                     </div>
@@ -167,11 +167,11 @@
                         <input type="text" class="form-control" placeholder="comments" id="txtcomments">
                     </div>
 
-                    <div class="form-group">
+                    <div class="form-group r-readonly">
                         <input type="text" class="form-control" placeholder="Available Amount" readonly="readonly" id="txtAvailableWalletBalnce">
                         <%--<span class="font-green f_11">Display left out amount available for school after subtracting withdrawal amount</span>--%>
                     </div>
-
+                      
                 </div>
 
                 <div class="modal-footer">

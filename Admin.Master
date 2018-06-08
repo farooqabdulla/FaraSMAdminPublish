@@ -19,7 +19,7 @@
     <!-- <link href="assets/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css" rel="stylesheet" type="text/css" />-->
     <link href="/assets/global/css/bootstrap-datepicker.min.css" rel="stylesheet" type="text/css" />
     <link href="/assets/admin/layout/css/bootstrap-switch.min.css" rel="stylesheet" />
-    <link href="/assets/admin/layout/css/materialForm.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/admin/layout/css/materialForm.css" rel="stylesheet" type="text/css" /> 
     <link href="/assets/global/css/toastr.min.css" rel="stylesheet" />
     <link href="/assets/global/css/bootstrap-datepicker.min.css" rel="stylesheet" />
     <%--<link href="assets/global/css/bootstrap-datepicker.min.css" rel="stylesheet" type="text/css" />--%>
@@ -63,6 +63,43 @@
                 background: #dfefff !important;
     color: #414042;
         }
+
+.page-sidebar-menu.page-sidebar-menu-hover-submenu > li:hover > .sub-menu {
+margin-left: 100px;
+margin-top: -149px;
+}  
+.page-sidebar .page-sidebar-menu .sub-menu li > a {
+    padding: 8px 15px 7px 43px !important;
+} 
+.page-sidebar-menu-hover-submenu li:hover > .sub-menu > li > a.active {
+    background: #0067c6 !important;
+}
+.page-sidebar-menu-hover-submenu li:hover > .sub-menu > li:hover > a {
+    background: #0067c6 !important;
+    color: #fff !important;  
+}
+#ulAdminLeftMenus li .sub-menu li, #ulAdminLeftMenus li .sub-menu li a {
+    min-height: 40px; 
+}
+ 
+        @media (min-width: 992px) {
+            .page-sidebar-menu-hover-submenu li:hover > .sub-menu {
+                background: #0084fe  !important;;
+            }
+        .page-sidebar-menu-hover-submenu li:hover > .sub-menu > li > a {
+        color: #fff  !important;;
+        }  
+        .page-sidebar-menu.page-sidebar-menu-hover-submenu > li:hover > .sub-menu {
+    border-radius: 0px 0px 25px 0px !important;
+}   
+        .page-sidebar-menu.page-sidebar-menu-hover-submenu > li:hover > .sub-menu > li > a {
+    padding-left: 15px !important;
+}  
+        .page-sidebar-menu.page-sidebar-menu-hover-submenu li .sub-menu > li > a {
+    margin: 0px;
+}  
+
+         }
     </style>
 </head>
 <!-- END HEAD -->
@@ -170,17 +207,17 @@
     </div>
 
     <div class="page-container">
-        <!-- BEGIN SIDEBAR -->
+        <!-- BEGIN SIDEBAR --> 
         <div class="page-sidebar-wrapper">
             <div class="page-sidebar navbar-collapse collapse">
-                <ul id="ulAdminLeftMenus" class="page-sidebar-menu" data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200">
+                <ul id="ulAdminLeftMenus" class="page-sidebar-menu page-sidebar-menu-hover-submenu side-menualign" data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200">
                     <!-- DOC: To remove the sidebar toggler from the sidebar you just need to completely remove the below "sidebar-toggler-wrapper" LI element -->
 
                     <li class="start active "><a href="/AdminDashboard.aspx"><span class="dashboard"></span><span class="title">Dashboard</span> </a></li>
                     <li><a href="/Schools.aspx"><span class="schools"></span><span class="title">Schools</span> </a></li>
-                    <li id="finance"><a href="javascript:;"><span class="finance"></span><span class="title">Financial</span> <span class="arrow"></span></a>
+                    <li id="finance"><a href="javascript:;"><span class="finance"></span><span class="title">Financial</span> <!--<span class="arrow"></span>--></a>
                         <ul class="sub-menu">
-                            <li id="AddWithdrawalInformation"><a href="/AddWithdrawalInformation.aspx"> Withdrawal Information </a></li>
+                            <li id="AddWithdrawalInformation"><a href="/AddWithdrawalInformation.aspx"> Withdrawal Information </a></li>  
                             <li id="Transactions"><a href="/Transactions.aspx">Transactions</a></li>
                            
                         </ul>

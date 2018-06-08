@@ -1019,4 +1019,8 @@ p.error-stnd{
     width: 90%;
     margin: 0px auto;
 }
+.r-readonly input {
+    background: #fff !important;
+    cursor: text !important;
+}    
 /*Srikanth css end*/

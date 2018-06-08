@@ -1,7 +1,38 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin.Master" AutoEventWireup="true" CodeBehind="SchoolDetails.aspx.cs" Inherits="FaraSM.AdminUI.SchoolDetails" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <style>
+        scrl::-webkit-scrollbar {
+    overflow: scroll;
+}
+.scrl::-webkit-scrollbar {
+    width: 5px;
+    color: #d8d8d8;
+}
+
+.scrl::-webkit-scrollbar-track {
+    background: #d8d8d8;
+}
+
+.scrl::-webkit-scrollbar-thumb {
+    background: #0585fc;
+}
+
+    .scrl ::-webkit-scrollbar-thumb:hover {
+        background:blue;
+    }
+.tbl-aligns {
+    min-height: 493px !important;
+}
+.scrl {
+    overflow-y: scroll;
+    overflow-x:none;
+    min-height: 280px;
+    height: 425px;
+}
+    </style>
 </asp:Content>
+
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="row">
         <div class="col-md-3">
@@ -16,8 +47,13 @@
                     <span id="spanSchoolAddress"></span>
                     <br>
                     <span id="spanSchoolCityName"></span>
+                     <br>
+                    <span id="spanSchoolStateName"></span>
+                    <br>
+                    <span id="spanSchoolStateName"></span>
                     <br>
                     <span id="spanSchoolCountryName"></span>
+                   
                 </label>
                 <button type="button" class="btn btn-primary" id="blockAccountOrDeleteAccount" hidden><i class="fa fa-ban margin-right-10"></i><span id="blockAccountText">Block Account</span></button>
             </div>
@@ -114,7 +150,8 @@
 
                         <div class="act-panel">
                             <div class="act-panel-head">Recent Activities</div>
-                            <div class="act-panel-body">
+                            <div class="act-panel-body"> 
+                                <div class="scrl">
                                 <ul id="ulRecentActs">
                                     <li id="noDataRecent">
                                         <div class="clearfix">
@@ -122,6 +159,7 @@
                                         </div>
                                     </li>
                                 </ul>
+                                    </div>
                             </div>
                         </div>
 
@@ -317,7 +355,8 @@
                                 </div>
                                 <div class="clearfix margin-bottom-15">
                                     <label class="pull-left margin-right-10">Result :</label>
-                                    <label id="modalPaymntStatus" class="pull-left font-red bold"></label>
+                                    <div id="modalPaymntStatus"></div>
+                                    
                                 </div>
                                 <div class="clearfix margin-bottom-15">
                                     <label class="pull-left margin-right-10">Reason :</label>
@@ -546,7 +585,7 @@
 
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ScriptPart" runat="server">
-
+    <script src="Scripts/Custom/Transactions.js"></script>
     <script src="Scripts/Plugins/jquery.canvasjs.min.js"></script>
     <script src="Scripts/Custom/request.js?v=1"></script>
     <script src="Scripts/Custom/SchoolDetails.js"></script>

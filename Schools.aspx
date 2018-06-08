@@ -70,19 +70,19 @@
                                 <%--<i class="fa fa-sort margin-left-5"></i>--%>
                                 <%-- <th>Status </th>--%>
                                 <%--<i class="fa fa-sort margin-left-5"></i>--%>
-                                <th class="noShow"><strong>School Name</strong><i class="fa fa-sort margin-left-5"></i></th>
-                                <th class="noShow"><strong>Institute Code</strong><i class="fa fa-sort margin-left-5"></i></th>
-                                <th class="noShow"><strong>Email</strong><i class="fa fa-sort margin-left-5"></i></th>
-                                <th class="noShow"><strong>Status</strong><i class="fa fa-sort margin-left-5"></i></th>
-                                <th class="noShow"><strong>Country Name</strong><i class="fa fa-sort margin-left-5"></i></th>
-                                <th class='noExl'><strong>School Name</strong><i class="fa fa-sort margin-left-5"></i></th>
-                                <th class='noExl'><strong>Email ID</strong><i class="fa fa-sort margin-left-5"></i></th>
-                                <th><strong>Phone Number</strong> <i class="fa fa-sort margin-left-5"></i></th>
-                                <th><strong>Created Date</strong><i class="fa fa-sort margin-left-5"></i></th>
-                                <th><strong>Transactions</strong> <i class="fa fa-sort margin-left-5"></i></th>
-                                <th><strong>Revenue</strong> <i class="fa fa-sort margin-left-5"></i></th>
-                                <th><strong>Comments</strong><i class="fa fa-sort margin-left-5"></i></th>
-                                <th class='noExl'>Status <i class="fa fa-sort margin-left-5"></i></th>
+                                <th class="noShow"><strong>School Name</strong></th>
+                                <th class="noShow"><strong>Institute Code</strong></th>
+                                <th class="noShow"><strong>Email</strong></th>
+                                <th class="noShow"><strong>Status</strong></th>
+                                <th class="noShow"><strong>Country Name</strong></th>
+                                <th class='noExl'><strong>School Name</strong></th>
+                                <th class='noExl'><strong>Email ID</strong></th>
+                                <th><strong>Phone Number</strong> </th>
+                                <th><strong>Created Date</strong></th>
+                                <th><strong>Transactions</strong> </th>
+                                <th><strong>Revenue</strong></th>
+                                <th><strong>Comments</strong></th>
+                                <th class='noExl'>Status</th>
                             </tr>
                         </thead>
                         <tbody id="tblBdySchoolDetails">
@@ -278,7 +278,7 @@
                                 <div class="col-sm-4">
                                     <input type="text" id="txtDebitCardConvenience1" />
                                     <i class="bar"></i>
-                                </div>
+                        </div>
                             </div>
                         </div>
                         <div class="form-group">
@@ -374,6 +374,42 @@
         </div>
     </div>
 
+
+     <div class="modal fade" id="Reject_sch" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header clearfix">
+                    <h4 class="bold-6 mb-0">Reject School Alert</h4>
+                    <button type="button" class="close" data-dismiss="modal"><i class="fa fa-times"></i></button>
+                </div>
+                <div class="modal-body">
+                    <div class="material">
+
+                        <h4 class="bold-6 mb-0">Are you sure you want to Reject the school</h4>
+
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-sm-2">
+                                    <h4 class="bold-6">Reason</h4>
+                                </div>
+                                <div class="col-sm-10">
+                                    <input type="text" id="txtRejectReason" required="required" />
+                                    <label class="control-label" for="input">Max 120 characters</label>
+                                    <i class="bar"></i>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group text-center">
+                            <button type="button" class="btn btn-default margin-right-10" id="btnRejectPopupCancel">Cancel</button>
+                            <button type="button" class="btn btn-primary" id="btnRejectPopupYes">Yes</button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <input type="hidden" id="hdnInstituteID" value="<%=instituteId %>" />
     <input type="hidden" id="hdnAdminUrl" value="<%=AdminUrl %>" />

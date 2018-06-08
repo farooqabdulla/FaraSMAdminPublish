@@ -58,7 +58,7 @@ $(document).ready(function () {
             lineThickness: 1
         },
         data: [{
-            type: "splineArea",
+            type: "stepArea",
             color: "rgba(0, 132, 254, 0.62)",
             markerSize: 5,
             xValueFormatString: "D MMM YYYY",
@@ -88,7 +88,9 @@ $(document).ready(function () {
                 $("#labelInstituteCode").html(res.InstituteDetails[0].institutecode);
                 $("#spanSchoolAddress").html(res.InstituteDetails[0].Address);
                 $("#spanSchoolCityName").html(res.InstituteDetails[0].CityName);
+                $("#spanSchoolStateName").html(res.InstituteDetails[0].StateName);
                 $('#spanSchoolCountryName').html(res.InstituteDetails[0].CountryName);
+                $('#spanSchoolStateName').html(res.InstituteDetails[0].StateName);
                 currency = res.InstituteDetails[0].Currency;
 
                 //// Begin Delete account block account
@@ -306,7 +308,7 @@ $(document).ready(function () {
                             "<tr><td>" + this.OrderId + "</td><td>" + this.PaymentMode + "</td><td>" + this.Amount + "</td><td>" + this.DateNTime
                             + "</td><td>" + this.PayeeName + "</td><td>" + this.PayeeEmail + "</td><td>" + this.PayeeMobile +
                             "</td><td><label class=\"" + colorClassArray[(this.PaymentStatusId) - 1] + "\">" + this.Status
-                            + "</label></td><td><a data-toggle=\"modal\" data-target=\"#trans_det\"><i  paymentId=\"" + this.PaymentId + "\" class=\"fa fa-eye text-blue\"></i></a></td></tr>");
+                            + "</label></td><td class=\"text-center\"><a data-toggle=\"modal\" data-target=\"#trans_det\"><i  paymentId=\"" + this.PaymentId + "\" class=\"fa fa-eye text-blue\"></i></a></td></tr>");
                     });
                 }
                 
@@ -388,7 +390,21 @@ $(document).ready(function () {
         var status = $(this).closest('tr').find('td:eq(7)').text();
         $('#modalTrAmount').html(amount);
         $('#modalTrTime').html(time);
-        $('#modalPaymntStatus').html(status);
+        
+        if (status == "PAID")
+        {
+            $('#modalPaymntStatus').html('<label class="pull-left font-green bold">' + status + '</label>');
+        }
+        else if (status == "INITIATED") {
+            $('#modalPaymntStatus').html('<label class="pull-left font-blue bold">' + status + '</label>');
+        }
+        else if (status == "NOT_PAID") {
+            $('#modalPaymntStatus').html('<label class="pull-left text-warning bold">' + status + '</label>');
+        }
+        else
+        {
+            $('#modalPaymntStatus').html('<label class="pull-left font-red bold">' + status + '</label>');
+        }
         $('#PayDet').trigger('click');
         GetTransactionDetailsForAdmin(paymentId);
 

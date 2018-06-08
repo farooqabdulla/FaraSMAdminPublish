@@ -75,15 +75,14 @@ $("#btnApproveCancel").on("click", function () {
 });
 
 
-
-
-
-
-
-
 $("#btnRefresh").on("click", function () {
-    redirectionToPage();
+    $("input[name*='chk']").removeAttr('checked');
+    clearValues();
+    document.getElementById('txtSearch').value = '';
+    getAllSchoolsDetails();
 });
+
+
 
 function clearValues() {
     instituteId = 0; searchTerm = ''; statusIDs = []; countryIDs = []; areaID = [];
@@ -118,7 +117,7 @@ function bindInstituteCountry(response) {
     var i = 0; var ulBody = '';
 
     for (i = 0; i < response.CountriesDetails.length; i++) {
-        ulBody = "<li> <input type='checkbox' id='" + CountryDetails[i]["ID"] + "'  class='margin-right-5 countries'  onclick='onlickFunction()'/> " + CountryDetails[i]["Name"] + " </li>";
+        ulBody = "<li> <input type='checkbox' name='countrieschk'  id='" + CountryDetails[i]["ID"] + "'  class='margin-right-5 countries'  onclick='onlickFunction()'/> " + CountryDetails[i]["Name"] + " </li>";
         $(ulBody).appendTo($("#country"));      
     }
 }
@@ -142,7 +141,7 @@ function bindInstituteStatus(response) {
     var i = 0; var ulBody = '';
 
     for (i = 0; i < response.StatusDetails.length; i++) {
-        ulBody = "<li> <input type='checkbox' id='" + StatusDetail[i]["ID"] + "' class='margin-right-5 statuses' onclick='onlickFunction()'/> " + StatusDetail[i]["Name"] + " </li>";
+        ulBody = "<li> <input type='checkbox' name='ststuschk'  id='" + StatusDetail[i]["ID"] + "' class='margin-right-5 statuses' onclick='onlickFunction()'/> " + StatusDetail[i]["Name"] + " </li>";
         $(ulBody).appendTo($("#status"));
     }
 }
@@ -165,7 +164,7 @@ function bindInstituteAreas(response) {
     var AreaDetail = response.AreaDetails;
     var i = 0; var ulBody = '';
     for (i = 0; i < response.AreaDetails.length; i++) {
-        ulBody = "<li> <input type='checkbox' id='" + AreaDetail[i]["ID"] + "' class='margin-right-5 location' onclick='onlickFunction()' /> " + AreaDetail[i]["Name"] + " </li>";
+        ulBody = "<li> <input type='checkbox' name='areachk' id='" + AreaDetail[i]["ID"] + "' class='margin-right-5 location' onclick='onlickFunction()' /> " + AreaDetail[i]["Name"] + " </li>";
         $(ulBody).appendTo($("#location"));
     }
 }
@@ -181,6 +180,13 @@ function getAllSchoolsDetails() {
 
     request.InitiateFormRequest("/AjaxHandlers/AdminSchool.ashx", "JSON", false, formData, function (response) {
         if (response.Success == true) {
+            $('#excelDownload').show();
+            $('#myPager').show();
+            if (response.AllSchoolsDetails.length == 0) {
+                $('#excelDownload').hide();
+                $('#myPager').hide();
+            }
+
             if (response.AllSchoolsDetails.length > 0) {
                 bindAllSchools(response);
                 $('#DivNoDataFound').hide();
@@ -205,6 +211,7 @@ function bindAllSchools(response) {
     var schoolDetails = response.AllSchoolsDetails;
     var i = 0; 
     var schoolName; var reasons;
+
     for (i = 0; i < response.AllSchoolsDetails.length; i++) {
         var tblBody; var tblEnd; var tblBdy; var finalBody;
         var imageFileName = (schoolDetails[i]["logopath"]).trim() == "" ? '/assets/admin/img/defaultSchool.png' : webUrl + (schoolDetails[i]["logopath"]).trim();
@@ -305,7 +312,7 @@ function bindAllSchools(response) {
         finalBody = (tblBody + tblBdy) + "</tr>";
         $(finalBody).appendTo($("#tblBdySchoolDetails"));
         $('.noShow').hide();
-       
+      
     }
     if (response.AllSchoolsDetails.length > 10) {
         var pageCount = parseInt(response.AllSchoolsDetails.length / 10);
@@ -573,21 +580,42 @@ function bindSchoolDetails(response) {
 }
 
 $("#btnReject").on("click", function () {
+    $('#Sch_det').modal('hide');
+    $('#Reject_sch').modal('show');
+});
+
+function rejectAccount()
+{
     instituteId = document.getElementById('hdnInstituteID').value;
-    var data = { type: 8, instituteId: instituteId };
+    var rejectReason = document.getElementById('txtRejectReason').value;
+    var data = { type: 8, instituteId: instituteId, RejectReason: rejectReason };
     request.Initiate("/AjaxHandlers/AdminSchool.ashx", "JSON", false, data, function (response) {
         if (response.Success == true) {
             SuccessNotifier(response.Message);
-            $('#Sch_det').modal('hide');
-            //clearValues();
-            //getAllSchoolsDetails();
+            
             timeRunner();
         }
         else {
             ErrorNotifier(response.Message);
         }
     });
+}
+
+$("#btnRejectPopupCancel").on("click", function () {
+    document.getElementById('txtRejectReason').value = "";
+    $('#Sch_det').modal('show');
+    $('#Reject_sch').modal('hide');
 });
+
+$("#btnRejectPopupYes").on("click", function () {
+    var rejectReason = document.getElementById('txtRejectReason').value;
+    if (rejectReason.trim().length > 120) {
+        ErrorNotifier("Reason should be maximum 120 characters");
+        return false;
+    }
+    rejectAccount();
+});
+
 
 $("#btnProceed").on("click", function () {
     document.getElementById('txtASecretKey').value = "";
@@ -598,6 +626,8 @@ $("#btnProceed").on("click", function () {
     $('#ActivateSchoolAccount').modal('show');
    
 });
+
+
 
 $("#btnActivate").on("click", function () {
     
@@ -772,7 +802,7 @@ $('#excelDownload').on('click', function () {
     $("#tableSchools").table2excel({
         exclude: ".noExl",
         name: "Excel Document Name",
-        filename: "Reports_",
+        filename: "Schools",
         fileext: ".xlsx",
         exclude_img: true,
         exclude_links: true,

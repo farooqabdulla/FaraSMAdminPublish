@@ -1,6 +1,11 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin.Master" AutoEventWireup="true" CodeBehind="Transactions.aspx.cs" Inherits="FaraSM.AdminUI.Transactions" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <style>
+        .padl48{
+            padding-left:48px !important;
+        }
+    </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="text-center text-grey" id="DivNoDataFound" style="display: none">
@@ -92,12 +97,12 @@
                             <th class="noShow"><strong>School Name</strong></th>
                             <th class="noShow"><strong>Institute Code</strong></th>
                             <th class="noShow"><strong>Email Id</strong></th>
-                            <th class="noExl">School Name <i class="fa fa-sort margin-left-5"></i></th>
-                            <th class="noExl">Email ID <i class="fa fa-sort margin-left-5"></i></th>
-                            <th><strong>Number</strong> <i class="fa fa-sort margin-left-5"></i></th>
-                            <th><strong>Transactions </strong><i class="fa fa-sort margin-left-5"></i></th>
-                            <th><strong>Amount</strong> <i class="fa fa-sort margin-left-5"></i></th>
-                            <th class="noExl">Action <i class="fa fa-sort margin-left-5"></i></th>
+                            <th class="noExl">School Name </th>
+                            <th class="noExl">Email ID </th>
+                            <th><strong>Number</strong> </th>
+                            <th><strong>Transactions </strong></th>
+                            <th><strong>Amount</strong> </th>
+                            <th class="noExl text-right">Action</th>
                             <%-- <th>Time/Date <i class="fa fa-sort margin-left-5"></i></th>--%>
                         </tr>
                     </thead>

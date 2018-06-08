@@ -75,7 +75,7 @@
                                             </label>
                             </div>--%>
                             <div class="form-group text-center">
-                                <button type="button" id="btnAdminLogin" class="btn btn-primary">Login <i class="fa fa-arrow-right margin-left-10"></i></button>
+                                <button type="button" id="btnAdminLogin" class="btn btn-primary">Login <img src="assets/admin/img/Arror.png" class="margin-left-10" height="16"></button>
                             </div>
                         </div>
                     </div>

@@ -2609,3 +2609,14 @@ Page Loading
   display: none;
   transition: all 2s;
 }
+.form-group.pass i {
+    color: #8c8c8c;
+}
+
+.form-group.pass i {
+    color: #8c8c8c;
+}
+
+    .form-group.pass i:hover {
+        color: #8c8c8c;
+    }

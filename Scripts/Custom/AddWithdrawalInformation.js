@@ -11,6 +11,9 @@ var glbcountry = '';
 var glblocations = '';
 var websiteUrl = $("#hdnWebUrl").val();
 $(document).ready(function () {
+   
+    document.getElementById("txtAvailableWalletBalnce").readOnly = true;
+
     $('#Withdrawlsdisplay').hide();
     request = new Request();
     getAllSchoolsDetails();
@@ -31,7 +34,12 @@ $(document).ready(function () {
         startDate: new Date(),
     });
     $('#refreshtable').click(function () {
-        window.location.href = "/AddWithdrawalInformation.aspx";
+        $("input[type=checkbox]").removeAttr('checked');
+        searchTerm = '';
+        glbcountry = '';
+        glblocations = '';
+        document.getElementById('txtSearch').value = '';
+        getAllWithdrawlsDetails();
     })
 
     $("#txtSearch").on("keyup", function () {
@@ -90,11 +98,15 @@ function getAllSchoolsDetails() {
 function getinstituteBalance() {
     var instituteId = document.getElementById('ddlSchools').value;
     document.getElementById('txtWithdrawalAmount').value = "";
-
+    document.getElementById('txtcomments').value = "";
+    document.getElementById('txtDate').value = "";
+    
+    document.getElementById('txtDate').value = " ";
     if (instituteId == 0) {
         document.getElementById('hdnInstituteID').value = "0";
         document.getElementById('hdnWalletBalance').value = "0";
         document.getElementById('hdnCurrencyCode').value = "";
+        document.getElementById('txtAvailableWalletBalnce').value = " ";
         return false;
     }
 
@@ -236,6 +248,10 @@ function getAllWithdrawlsDetails()
 
         console.log(successResponseData.withdrawlslist);
         if (successResponseData.Success == true) {
+            $("#excelDownload").show();
+            if (successResponseData.withdrawlslist.length == 0) {
+                $("#excelDownload").hide();
+            }
 
             var html = '';
             if (successResponseData.withdrawlslist.length > 0) {
@@ -283,7 +299,7 @@ function GetCountriesandcities() {
                 if (response.CountriesDetails.length > 0) {
                     var ICHTML = '';
                     $.each(response.CountriesDetails, function (item, index) {
-                        ICHTML += ' <li><input  type="checkbox"  value=' + index.ID + '  name="chkCountries"   id=' + index.Name + ' class="chkfilterTransactions"/>' + index.Name + '</li>'
+                        ICHTML += ' <li><input type="checkbox" value=' + index.ID + '  name="chkCountries"   id=' + index.Name + ' class="chkfilterTransactions"/>' + index.Name + '</li>'
                     });
                     $('#country').append(ICHTML);
                 }
@@ -303,7 +319,7 @@ function getInstituteAreas() {
             if (response.AreaDetails.length > 0) {
                 var ILHTML = '';
                 $.each(response.AreaDetails, function (item, index) {
-                    ILHTML += ' <li><input  type="checkbox"  value=' + index.ID + '  name="chkLocations"   id=' + index.Name + ' class="chkfilterTransactions"/>' + index.Name + '</li>'
+                    ILHTML += ' <li><input type="checkbox" value=' + index.ID + '  name="chkLocations"   id=' + index.Name + ' class="chkfilterTransactions"/>' + index.Name + '</li>'
                 });
                 $('#location').append(ILHTML);
             }
@@ -320,7 +336,7 @@ $('#excelDownload').on('click', function () {
     $("#tableWithdrawal").table2excel({
         exclude: ".noExl",
         name: "Excel Document Name",
-        filename: "Reports_",
+        filename: "Widthdrawal",
         fileext: ".xlsx",
         exclude_img: true,
         exclude_links: true,
