@@ -50,8 +50,6 @@
                      <br>
                     <span id="spanSchoolStateName"></span>
                     <br>
-                    <span id="spanSchoolStateName"></span>
-                    <br>
                     <span id="spanSchoolCountryName"></span>
                    
                 </label>
