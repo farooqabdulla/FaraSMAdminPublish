@@ -299,7 +299,7 @@ function GetCountriesandcities() {
                 if (response.CountriesDetails.length > 0) {
                     var ICHTML = '';
                     $.each(response.CountriesDetails, function (item, index) {
-                        ICHTML += ' <li><input type="checkbox" value=' + index.ID + '  name="chkCountries"   id=' + index.Name + ' class="chkfilterTransactions"/>' + index.Name + '</li>'
+                        ICHTML += ' <li><input type="checkbox" value=' + index.ID + '  name="chkCountries"   id=' + index.Name + ' class="margin-right-5 chkfilterTransactions"/>' + index.Name + '</li>'
                     });
                     $('#country').append(ICHTML);
                 }
@@ -319,7 +319,7 @@ function getInstituteAreas() {
             if (response.AreaDetails.length > 0) {
                 var ILHTML = '';
                 $.each(response.AreaDetails, function (item, index) {
-                    ILHTML += ' <li><input type="checkbox" value=' + index.ID + '  name="chkLocations"   id=' + index.Name + ' class="chkfilterTransactions"/>' + index.Name + '</li>'
+                    ILHTML += ' <li><input type="checkbox" value=' + index.ID + '  name="chkLocations"   id=' + index.Name + ' class="margin-right-5 chkfilterTransactions"/>' + index.Name + '</li>'
                 });
                 $('#location').append(ILHTML);
             }
