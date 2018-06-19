@@ -1,6 +1,15 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin.Master" AutoEventWireup="true" CodeBehind="AddWithdrawalInformation.aspx.cs" Inherits="FaraSM.AdminUI.AddWithdrawalInformation" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <style>
+        .avail-amnt #txtAvailableWalletBalnce{
+            float:right;
+        }
+        
+        .avail-amnt span{
+            font-size:13px;
+        }
+    </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="text-center text-grey add_student">
@@ -114,7 +123,7 @@
                             <th><strong> Number </strong> </th>
                             <th><strong>Time/Date</strong></th>
                             <th><strong>Withdrawal Amount</strong> </th>
-                            <th><strong>Amount </strong></th>
+                            <th><strong> AvailableAmount </strong></th>
                             <th><strong>Comments</strong></th>
                             <%-- <th>Status <i class="fa fa-sort margin-left-5"></i></th>--%>
                         </tr>
@@ -167,9 +176,9 @@
                         <input type="text" class="form-control" placeholder="comments" id="txtcomments">
                     </div>
 
-                    <div class="form-group r-readonly">
-                        <input type="text" class="form-control" placeholder="Available Amount" readonly="readonly" id="txtAvailableWalletBalnce">
-                        <%--<span class="font-green f_11">Display left out amount available for school after subtracting withdrawal amount</span>--%>
+                    <div class="form-group r-readonly avail-amnt">
+                       <%-- <input type="text" class="form-control" placeholder="Available Amount" readonly="readonly" id="txtAvailableWalletBalnce">--%>
+                    <span class="text-left">Availabale Amount : </span>   <span class="font-green f_11" id="txtAvailableWalletBalnce"></span>
                     </div>
                       
                 </div>

@@ -106,7 +106,8 @@ function getinstituteBalance() {
         document.getElementById('hdnInstituteID').value = "0";
         document.getElementById('hdnWalletBalance').value = "0";
         document.getElementById('hdnCurrencyCode').value = "";
-        document.getElementById('txtAvailableWalletBalnce').value = " ";
+        //document.getElementById('txtAvailableWalletBalnce').value = " ";
+        $('#txtAvailableWalletBalnce').text('');
         return false;
     }
 
@@ -119,20 +120,23 @@ function getinstituteBalance() {
                 var code = response.WalletBalance[0]["Code"];
                 document.getElementById('hdnInstituteID').value = WalletInstituteId;
                 document.getElementById('hdnWalletBalance').value = WalletBalance;
-                document.getElementById('txtAvailableWalletBalnce').value = WalletBalance + "  " + code;
+                //document.getElementById('txtAvailableWalletBalnce').value = WalletBalance + "  " + code;
+                $('#txtAvailableWalletBalnce').text(WalletBalance + "  " + code)
                 document.getElementById('hdnCurrencyCode').value = code;
 
             }
             else {
                 document.getElementById('hdnInstituteID').value = "0";
                 document.getElementById('hdnWalletBalance').value = "0";
-                document.getElementById('txtAvailableWalletBalnce').value = "0";
+                //document.getElementById('txtAvailableWalletBalnce').value = "0";
+                $('#txtAvailableWalletBalnce').text("0");
             }
         }
         else {
             document.getElementById('hdnInstituteID').value = "0";
             document.getElementById('hdnWalletBalance').value = "0";
-            document.getElementById('txtAvailableWalletBalnce').value = "0";
+            //document.getElementById('txtAvailableWalletBalnce').value = "0";
+            $('#txtAvailableWalletBalnce').text("0");
         }
     });
 }
@@ -172,7 +176,8 @@ function withdralCalculation() {
 
     if (availableWalletBalance < 0) { ErrorNotifier("Please enter withdrawal amount should be less than are equal to Available Amount"); resetWithdralCalculation(); return; }
 
-    document.getElementById('txtAvailableWalletBalnce').value = availableWalletBalance + " " + code;
+    //document.getElementById('txtAvailableWalletBalnce').value = availableWalletBalance + " " + code;
+    $('#txtAvailableWalletBalnce').text(availableWalletBalance + " " + code);
     document.getElementById('hdnAvailableBalance').value = availableWalletBalance;
 }
 
@@ -180,7 +185,8 @@ function resetWithdralCalculation() {
     var code = document.getElementById('hdnCurrencyCode').value;
     var WalletBalance = document.getElementById('hdnWalletBalance').value;
     document.getElementById('txtWithdrawalAmount').value = "";
-    document.getElementById('txtAvailableWalletBalnce').value = WalletBalance + "  " + code;
+    //document.getElementById('txtAvailableWalletBalnce').value = WalletBalance + "  " + code;
+    $('#txtAvailableWalletBalnce').text(WalletBalance + "  " + code) ;
     document.getElementById('hdnAvailableBalance').value = "0";
 }
 

@@ -79,8 +79,8 @@
                                 <th class='noExl'><strong>Email ID</strong></th>
                                 <th><strong>Phone Number</strong> </th>
                                 <th><strong>Created Date</strong></th>
-                                <th><strong>Transactions</strong> </th>
-                                <th><strong>Revenue</strong></th>
+                                <th style="display:none"><strong>Transactions</strong> </th>
+                                <th style="display:none"><strong>Revenue</strong></th>
                                 <th><strong>Comments</strong></th>
                                 <th class='noExl'>Status</th>
                             </tr>
@@ -171,32 +171,97 @@
                                 <div class="col-sm-3">
                                     <span style="margin-top: 16px; display: inline-block;">Debit Card : </span>
                         </div>
+                                </div>
+                                <div class="row">
+                                   <div class="col-sm-3">
+                                    <span style="margin-top: 16px; display: inline-block;">Fraud Charges : </span>
+                        </div>
                                 <div class="col-sm-5">
                                     <Select  id="ddlDebitCardConvenienceType" >
                                         <option value="0">Select</option>
                                     </Select>
                                 </div>
-                                <div class="col-sm-4">
+                                <div class="col-sm-2">
                                     <input type="text" id="txtDebitCardConvenience" />
                                     <i class="bar"></i>
                                 </div>
-                            </div>
+                                    <div class="col-sm-2 margin-top-25">
+                                   <%-- <label id="lbltxtDebitCardConvenience"></label>--%>
+                                             <span id="lbltxtDebitCardConvenience"></span>
+                                        </div>
+                                    </div>
+                                 <div class="row">
+                                   <div class="col-sm-3">
+                                    <span style="margin-top: 16px; display: inline-block;">Transaction Charges : </span>
+                        </div>
+                                <div class="col-sm-5">
+                                    <Select  id="ddlDebitCardConvenienceTypetc" >
+                                        <option value="0">Select</option>
+                                    </Select>
+                                </div>
+                                <div class="col-sm-2">
+                                    <input type="text" id="txtDebitCardConveniencetc" />
+                                    <i class="bar"></i>
+                                </div>
+                                     <div class="col-sm-2  margin-top-25">
+                                  <%--  <label id="lbltxtDebitCardConveniencetc"></label>--%>
+                                         <span id="lbltxtDebitCardConveniencetc"></span>
+                                        </div>
+                                    </div>
+                            <%--</div>--%>
                         </div>
                         <div class="form-group">
                             <div class="row">
                                 <div class="col-sm-3">
                                     <span style="margin-top: 16px; display: inline-block;">Credit Card : </span>
                                 </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-3">
+                                    <span style="margin-top: 16px; display: inline-block;">Fraud Handler charges: </span>
+                                </div>
+
                                 <div class="col-sm-5">
                                     <Select  id="ddlCreditCardConvenienceType" >
                                         <option value="0">Select</option>
                                     </Select>
                                 </div>
-                                <div class="col-sm-4">
-                                    <input type="text" id="txtCreditCardConvenience" />
+                                <div class="col-sm-2">
+                                   <input type="text" id="txtCreditCardConvenience" />
+                                    <%-- <span id="txtCreditCardConvenience"></span>--%>
                                     <i class="bar"></i>
                                 </div>
+                                    <div class="col-sm-2  margin-top-25">
+                                   <%-- <label id="lbltxtCreditCardConvenience"></label>--%>
+                                         <span id="lbltxtCreditCardConvenience"></span>
+                                        </div>
+                                    </div>
+
+                             <div class="row">
+                                    <div class="col-sm-3">
+                                    <span style="margin-top: 16px; display: inline-block;">Transaction Charges: </span>
+                                </div>
+
+                                <div class="col-sm-5">
+                                    <Select  id="ddlCreditCardConvenienceTypetc" >
+                                        <option value="0">Select</option>
+                                    </Select>
+                                </div>
+                                <div class="col-sm-2">
+                                    <input type="text" id="txtCreditCardConveniencetc" />
+                                    <i class="bar"></i>
+                                </div>
+                                 <div class="col-sm-2  margin-top-25">
+                                  <%--  <label id="lbltxtCreditCardConveniencetc"></label>--%>
+                                      <span id="lbltxtCreditCardConveniencetc"></span>
+                                        </div>
+                                    </div>
+
+
+                                    </div>
+
                             </div>
+
                         </div>
                         <div class="form-group text-center">
                             <button type="button" class="btn btn-primary" id="btnUpdate">Update</button>
@@ -205,8 +270,8 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
+       <%-- </div>
+    </div>--%>
 
     <div class="modal fade" id="Sch_det" role="dialog">
         <div class="modal-dialog modal-lg">
@@ -267,18 +332,44 @@
                         <i class="bar"></i>
                         <div class="form-group">
                             <div class="row">
+
                                 <div class="col-sm-3">
-                                    <span style="margin-top: 16px; display: inline-block;">Debit Card : </span>
+                                    <span style="margin-top: 16px; display: inline-block;">Debit Card </span>
+                        </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <span style="margin-top: 16px; display: inline-block;">Fraud Handler Charges: </span>
                         </div>
                                 <div class="col-sm-5">
                                     <Select  id="ddlDebitCardConvenienceType1" >
                                         <option value="0">Select</option>
                                     </Select>
                                 </div>
-                                <div class="col-sm-4">
+                                <div class="col-sm-2">
                                     <input type="text" id="txtDebitCardConvenience1" />
                                     <i class="bar"></i>
                         </div>
+                                <div class="col-sm-2 margin-top-25">
+                                    <span id="lbltxtDebitCardConvenience1"></span>
+                                    </div>
+                            </div>
+                             <div class="row">
+                                <div class="col-sm-3">
+                                    <span style="margin-top: 16px; display: inline-block;">Transaction Charges: </span>
+                        </div>
+                                <div class="col-sm-5">
+                                    <Select  id="ddlDebitCardConvenienceType1tc" >
+                                        <option value="0">Select</option>
+                                    </Select>
+                                </div>
+                                <div class="col-sm-2">
+                                    <input type="text" id="txtDebitCardConvenience1tc" />
+                                    <i class="bar"></i>
+                        </div>
+                                 <div class="col-sm-2 margin-top-25">
+                                    <span id="lbltxtDebitCardConvenience1tc"></span>
+                                    </div>
                             </div>
                         </div>
                         <div class="form-group">
@@ -286,15 +377,42 @@
                                 <div class="col-sm-3">
                                     <span style="margin-top: 16px; display: inline-block;">Credit Card : </span>
                                 </div>
+                                </div>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <span style="margin-top: 16px; display: inline-block;"> Fraud Handler Charges: </span>
+                                </div>
                                 <div class="col-sm-5">
                                     <Select  id="ddlCreditCardConvenienceType1" >
                                         <option value="0">Select</option>
                                     </Select>
                                 </div>
-                                <div class="col-sm-4">
+                                <div class="col-sm-2">
                                     <input type="text" id="txtCreditCardConvenience1" />
                                     <i class="bar"></i>
                                 </div>
+                                <div class="col-sm-2 margin-top-25">
+                                    <span id="lbltxtCreditCardConvenience1"></span>
+                                    </div>
+                                </div>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <span style="margin-top: 16px; display: inline-block;">Transaction Charges: </span>
+                        </div>
+                                <div class="col-sm-5">
+                                    <Select  id="ddlCreditCardConvenienceType1tc" >
+                                        <option value="0">Select</option>
+                                    </Select>
+                                </div>
+                                <div class="col-sm-2">
+                                    <input type="text" id="txtCreditCardConvenience1tc" />
+                                    <i class="bar"></i>
+                        </div>
+                                <div class="col-sm-2 margin-top-25">
+                                    <span id="lbltxtCreditCardConvenience1tc"></span>
+                                    </div>
+                            </div>
+
                             </div>
                         </div>
                         <div class="form-group text-center">

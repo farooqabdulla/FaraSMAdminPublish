@@ -193,22 +193,151 @@ $(document).ready(function () {
                 $("#inputAddress").val(res.MerchantDetails[0].ShippingAddress);
                 if(res.ProcessingFeeDetails.length > 0)
                 {
+                    var currencytype = '';
                     for(var i=0; i< res.ProcessingFeeDetails.length;i++)
                     {
-                        if (res.ProcessingFeeDetails[i].CardId == 1) {
-                            $("#txtCreditCardConvenience1").val(res.ProcessingFeeDetails[i]["Value"]);
+                        if (res.ProcessingFeeDetails[i].CardId == 1 && res.ProcessingFeeDetails[i].processingfeechargeId == 1) {
                             $("#ddlCreditCardConvenienceType1").val(res.ProcessingFeeDetails[i]["FeeTypeId"]);
+                            if ($('#ddlCreditCardConvenienceType1').val() == 1) {
+                                currencytype = currency;
+                            }
+                            if ($('#ddlCreditCardConvenienceType1').val() == 2) {
+                                currencytype = '%'
+                            }
+
+                            $('#lbltxtCreditCardConvenience1').text(currencytype);
+                            $("#txtCreditCardConvenience1").val(res.ProcessingFeeDetails[i]["Value"]);
+                      
                         }
-                        else if (res.ProcessingFeeDetails[i].CardId == 2) {
+                        else if (res.ProcessingFeeDetails[i].CardId == 1 && res.ProcessingFeeDetails[i].processingfeechargeId == 2) {
+
+                            $("#ddlCreditCardConvenienceType1tc").val(res.ProcessingFeeDetails[i]["FeeTypeId"]);
+
+
+                             if ($('#ddlCreditCardConvenienceType1tc').val() == 1) {
+                                 currencytype = currency;
+                             }
+                             if ($('#ddlCreditCardConvenienceType1tc').val() == 2) {
+                                 currencytype = '%'
+                             }
+                             $('#lbltxtCreditCardConvenience1tc').text(currencytype);
+                             $("#txtCreditCardConvenience1tc").val(res.ProcessingFeeDetails[i]["Value"]);
+
+                         }
+
+                        else if (res.ProcessingFeeDetails[i].CardId == 2 && res.ProcessingFeeDetails[i].processingfeechargeId == 1) {
                             $("#ddlDebitCardConvenienceType1").val(res.ProcessingFeeDetails[i]["FeeTypeId"]);
-                            $("#txtDebitCardConvenience1").val(res.ProcessingFeeDetails[i]["Value"]);
-                        }
+                             if ($('#ddlCreditCardConvenienceType1').val() == 1) {
+                                 currencytype = currency;
+                             }
+                             if ($('#ddlCreditCardConvenienceType1').val() == 2) {
+                                 currencytype = '%'
+                             }
+
+                             $('#lbltxtDebitCardConvenience1').text(currencytype);
+                             $("#txtDebitCardConvenience1").val(res.ProcessingFeeDetails[i]["Value"]);
+                         }
+
+
+                        else if (res.ProcessingFeeDetails[i].CardId == 2 && res.ProcessingFeeDetails[i].processingfeechargeId == 2) {
+
+
+                            $("#ddlDebitCardConvenienceType1tc").val(res.ProcessingFeeDetails[i]["FeeTypeId"]);
+                             if ($('#ddlDebitCardConvenienceType1tc').val() == 1) {
+                                 currencytype = currency;
+                             }
+                             if ($('#ddlDebitCardConvenienceType1tc').val() == 2) {
+                                 currencytype = '%'
+                             }
+
+                             $('#lbltxtDebitCardConvenience1tc').text(currencytype);
+                             $("#txtDebitCardConvenience1tc").val(res.ProcessingFeeDetails[i]["Value"]);
+                         }
                     }
                     
                 }
             }
         })
     }
+
+
+
+    $('#ddlDebitCardConvenienceType').change(function () {
+        if ($('#ddlDebitCardConvenienceType').val() == "2") {
+            $("#lbltxtDebitCardConvenience").text("%");
+        }
+        if ($('#ddlDebitCardConvenienceType').val() == "1") {
+            $("#lbltxtDebitCardConvenience").text(currency);
+        }
+    });
+
+
+    //$('#ddlDebitCardConvenienceTypetc').on("change", function () {
+    $('#ddlDebitCardConvenienceTypetc').change(function () {
+        if ($('#ddlDebitCardConvenienceTypetc').val() == "2") {
+            $("#lbltxtDebitCardConveniencetc").text("%");
+        }
+        if ($('#ddlDebitCardConvenienceTypetc').val() == "1") {
+            $("#lbltxtDebitCardConveniencetc").text(currency);
+        }
+    });
+
+    //$('#ddlCreditCardConvenienceType').on("change", function () {
+    $('#ddlCreditCardConvenienceType').change(function () {
+        if ($('#ddlCreditCardConvenienceType').val() == "2") {
+            $("#lbltxtCreditCardConvenience").text("%");
+        }
+        if ($('#ddlCreditCardConvenienceType').val() == "1") {
+            $("#lbltxtCreditCardConvenience").text(currency);
+        }
+    });
+    //$('#ddlCreditCardConvenienceTypetc').on("change", function () {
+    $('#ddlCreditCardConvenienceTypetc').on("change", function () {
+        if ($('#ddlCreditCardConvenienceTypetc').val() == "2") {
+            $("#lbltxtCreditCardConveniencetc").text("%");
+        }
+        if ($('#ddlCreditCardConvenienceTypetc').val() == "1") {
+            $("#lbltxtCreditCardConveniencetc").text(currency);
+        }
+    });
+    $('#ddlCreditCardConvenienceType1').change(function () {
+        if ($('#ddlCreditCardConvenienceType1').val() == "2") {
+            $("#lbltxtCreditCardConvenience1").text("%");
+        }
+        if ($('#ddlCreditCardConvenienceType1').val() == "1") {
+            $("#lbltxtCreditCardConvenience1").text(currency);
+        }
+    });
+
+
+    //$('#ddlDebitCardConvenienceTypetc').on("change", function () {
+    $('#ddlDebitCardConvenienceType1').change(function () {
+        if ($('#ddlDebitCardConvenienceType1').val() == "2") {
+            $("#lbltxtDebitCardConvenience1").text("%");
+        }
+        if ($('#ddlDebitCardConvenienceType1').val() == "1") {
+            $("#lbltxtDebitCardConvenience1").text(currency);
+        }
+    });
+
+    //$('#ddlCreditCardConvenienceType').on("change", function () {
+    $('#ddlDebitCardConvenienceType1tc').change(function () {
+        if ($('#ddlDebitCardConvenienceType1tc').val() == "2") {
+            $("#lbltxtDebitCardConvenience1tc").text("%");
+        }
+        if ($('#ddlDebitCardConvenienceType1tc').val() == "1") {
+            $("#lbltxtDebitCardConvenience1tc").text(currency);
+        }
+    });
+    //$('#ddlCreditCardConvenienceTypetc').on("change", function () {
+    $('#ddlCreditCardConvenienceType1tc').on("change", function () {
+        if ($('#ddlCreditCardConvenienceType1tc').val() == "2") {
+            $("#lbltxtCreditCardConvenience1tc").text("%");
+        }
+        if ($('#ddlCreditCardConvenienceType1tc').val() == "1") {
+            $("#lbltxtCreditCardConvenience1tc").text(currency);
+        }
+    });
     $('#btnSave').on('click', function () {
         var secretKey = $("#inputSecretKey").val();
         var userName = $("#inputPayTabsUserName").val();
@@ -217,13 +346,22 @@ $(document).ready(function () {
 
         var debitCardConvinienceFeeTypeId = "0"
         debitCardConvinienceFeeTypeId = document.getElementById('ddlDebitCardConvenienceType1').value;
+       
+        var debitCardConvinienceFeeTypeIdtc = "0"
+        debitCardConvinienceFeeTypeIdtc = document.getElementById('ddlDebitCardConvenienceType1tc').value;
         var creditCardConvinienceFeeTypeId = "0";
         creditCardConvinienceFeeTypeId = document.getElementById('ddlCreditCardConvenienceType1').value;
+        var creditCardConvinienceFeeTypeIdtc = "0";
+        creditCardConvinienceFeeTypeIdtc = document.getElementById('ddlCreditCardConvenienceType1tc').value;
+
         var debitCardConvinienceFeeValue = 0;
         debitCardConvinienceFeeValue = document.getElementById('txtDebitCardConvenience1').value = "" ? 0 : document.getElementById('txtDebitCardConvenience1').value;
+        var debitCardConvinienceFeeValuetc = 0;
+        debitCardConvinienceFeeValuetc = document.getElementById('txtDebitCardConvenience1tc').value = "" ? 0 : document.getElementById('txtDebitCardConvenience1tc').value;
         var creditCardConvinienceFeeValue = 0;
         creditCardConvinienceFeeValue = document.getElementById('txtCreditCardConvenience1').value = "" ? 0 : document.getElementById('txtCreditCardConvenience1').value;
-
+        var creditCardConvinienceFeeValuetc = 0;
+        creditCardConvinienceFeeValuetc = document.getElementById('txtCreditCardConvenience1tc').value = "" ? 0 : document.getElementById('txtCreditCardConvenience1tc').value;
         
         if (secretKey.trim().length == 0) {
             ErrorNotifier("Oops, you didn't enter secret key.");
@@ -243,15 +381,28 @@ $(document).ready(function () {
             ErrorNotifier("Please enter debit card convinience fee value");
             return false;
         }
+       else if (debitCardConvinienceFeeTypeIdtc != "0" && debitCardConvinienceFeeValuetc.trim().length == 0) {
+            ErrorNotifier("Please enter debit card convinience  transaction fee value");
+            return false;
 
+        }
        else if (creditCardConvinienceFeeTypeId != "0" && creditCardConvinienceFeeValue.trim().length == 0) {
             ErrorNotifier("Please enter credit card convinience fee value");
             return false;
-        } else {
+       }
+
+       else if (creditCardConvinienceFeeTypeIdtc != "0" && creditCardConvinienceFeeValuetc.trim().length == 0) {
+            ErrorNotifier("Please enter credit card  transaction convinience fee value");
+            return false;
+
+        }
+
+
+       else {
            var data = {
                type: 16, instituteId: instituteId, secretKey: secretKey, userName: userName, shippingAddress: shippingAddress, merchantId: merchantId
-               ,CreditCardProcessingFeeTypeId: creditCardConvinienceFeeTypeId,DebitCardProcessingFeeTypeId: debitCardConvinienceFeeTypeId, CreditCardProcessingFeeValue: creditCardConvinienceFeeValue,
-                DebitCardProcessingFeeValue: debitCardConvinienceFeeValue
+               , CreditCardProcessingFeeTypeId: creditCardConvinienceFeeTypeId, creditCardConvinienceFeeTypeIdtc: creditCardConvinienceFeeTypeIdtc, DebitCardProcessingFeeTypeId: debitCardConvinienceFeeTypeId, debitCardConvinienceFeeTypeIdtc: debitCardConvinienceFeeTypeIdtc, CreditCardProcessingFeeValue: parseFloat(creditCardConvinienceFeeValue),
+               DebitCardProcessingFeeValue: parseFloat(debitCardConvinienceFeeValue), debitCardConvinienceFeeValuetc: parseFloat(debitCardConvinienceFeeValuetc), creditCardConvinienceFeeValuetc: parseFloat(creditCardConvinienceFeeValuetc)
            };
             request.Initiate("/AjaxHandlers/AdminSchool.ashx", "JSON", true, data, function (res) {
                 if (res.Success == true) {
@@ -462,14 +613,70 @@ $(document).ready(function () {
                 }
                 if (response.ProcessingFeeDetails.length > 0) {
                     for (var i = 0; i < response.ProcessingFeeDetails.length; i++) {
-                        if (response.ProcessingFeeDetails[i].CardId == 1) {
-                            $("#txtCreditCardConvenience").val(response.ProcessingFeeDetails[i]["Value"]);
+                        //if (response.ProcessingFeeDetails[i].CardId == 1) {
+                        //    $("#txtCreditCardConvenience").val(response.ProcessingFeeDetails[i]["Value"]);
+                        //    $("#ddlCreditCardConvenienceType").val(response.ProcessingFeeDetails[i]["FeeTypeId"]);
+                        //}
+                        //else if (response.ProcessingFeeDetails[i].CardId == 2) {
+                        //    $("#ddlDebitCardConvenienceType").val(response.ProcessingFeeDetails[i]["FeeTypeId"]);
+                        //    $("#txtDebitCardConvenience").val(response.ProcessingFeeDetails[i]["Value"]);
+                        //}
+                        if (response.ProcessingFeeDetails[i].CardId == 1 && response.ProcessingFeeDetails[i].processingfeechargeId == 1) {
                             $("#ddlCreditCardConvenienceType").val(response.ProcessingFeeDetails[i]["FeeTypeId"]);
+
+
+                            if ($('#ddlCreditCardConvenienceType').val() == 1) {
+                                currencytype = currency;
+                            }
+                            if ($('#ddlCreditCardConvenienceType').val() == 2) {
+                                currencytype = '%'
+                            }
+                            $('#lbltxtCreditCardConvenience').text(currencytype);
+                            $("#txtCreditCardConvenience").val(response.ProcessingFeeDetails[i]["Value"] );
+
                         }
-                        else if (response.ProcessingFeeDetails[i].CardId == 2) {
+                        else if (response.ProcessingFeeDetails[i].CardId == 1 && response.ProcessingFeeDetails[i].processingfeechargeId == 2) {
+
+                            $("#ddlCreditCardConvenienceTypetc").val(response.ProcessingFeeDetails[i]["FeeTypeId"]);
+
+
+                            if ($('#ddlCreditCardConvenienceTypetc').val() == 1) {
+                                currencytype = currency;
+                            }
+                            if ($('#ddlCreditCardConvenienceTypetc').val() == 2) {
+                                currencytype = '%'
+                            }
+                            $('#lbltxtCreditCardConveniencetc').text(currencytype);
+                            $("#txtCreditCardConveniencetc").val(response.ProcessingFeeDetails[i]["Value"] );
+
+                        }
+
+                        else if (response.ProcessingFeeDetails[i].CardId == 2 && response.ProcessingFeeDetails[i].processingfeechargeId == 2) {
+
+                            $("#ddlDebitCardConvenienceTypetc").val(response.ProcessingFeeDetails[i]["FeeTypeId"]);
+                            if ($('#ddlDebitCardConvenienceTypetc').val() == 1) {
+                                currencytype = currency;
+                            }
+                            if ($('#ddlDebitCardConvenienceTypetc').val() == 2) {
+                                currencytype = '%'
+                            }
+                            $('#lbltxtDebitCardConveniencetc').text(currencytype);
+                            $("#txtDebitCardConveniencetc").val(response.ProcessingFeeDetails[i]["Value"] );
+                        }
+
+                        else if (response.ProcessingFeeDetails[i].CardId == 2 && response.ProcessingFeeDetails[i].processingfeechargeId == 1) {
                             $("#ddlDebitCardConvenienceType").val(response.ProcessingFeeDetails[i]["FeeTypeId"]);
-                            $("#txtDebitCardConvenience").val(response.ProcessingFeeDetails[i]["Value"]);
+                            if ($('#ddlDebitCardConvenienceType').val() == 1) {
+                                currencytype = currency;
+                            }
+                            if ($('#ddlDebitCardConvenienceType').val() == 2) {
+                                currencytype = '%'
+                            }
+                            $('#lbltxtDebitCardConvenience').text(currencytype);
+                            $("#txtDebitCardConvenience").val(response.ProcessingFeeDetails[i]["Value"] );
                         }
+
+
                     }
                 }
 
@@ -492,10 +699,20 @@ $(document).ready(function () {
         debitCardConvinienceFeeTypeId = document.getElementById('ddlDebitCardConvenienceType').value;
         var creditCardConvinienceFeeTypeId = "0";
         creditCardConvinienceFeeTypeId = document.getElementById('ddlCreditCardConvenienceType').value;
+        var debitCardConvinienceFeeTypeIdtc = "0"
+        debitCardConvinienceFeeTypeIdtc = document.getElementById('ddlDebitCardConvenienceTypetc').value;
+        var creditCardConvinienceFeeTypeIdtc = "0";
+        creditCardConvinienceFeeTypeIdtc = document.getElementById('ddlCreditCardConvenienceTypetc').value;
+        //var creditCardConvinienceFeeTypeId = "0";
+        //creditCardConvinienceFeeTypeId = document.getElementById('ddlCreditCardConvenienceType').value;
         var debitCardConvinienceFeeValue = 0;
         debitCardConvinienceFeeValue = document.getElementById('txtDebitCardConvenience').value = "" ? 0 : document.getElementById('txtDebitCardConvenience').value;
+        var debitCardConvinienceFeeValuetc = 0;
+        debitCardConvinienceFeeValuetc = document.getElementById('txtDebitCardConveniencetc').value = "" ? 0 : document.getElementById('txtDebitCardConveniencetc').value;
         var creditCardConvinienceFeeValue = 0;
         creditCardConvinienceFeeValue = document.getElementById('txtCreditCardConvenience').value = "" ? 0 : document.getElementById('txtCreditCardConvenience').value;
+        var creditCardConvinienceFeeValuetc = 0;
+        creditCardConvinienceFeeValuetc = document.getElementById('txtCreditCardConveniencetc').value = "" ? 0 : document.getElementById('txtCreditCardConveniencetc').value;
 
 
         if (secreteKey.trim().length == 0) {
@@ -525,15 +742,25 @@ $(document).ready(function () {
             ErrorNotifier("Please enter debit card convinience fee value");
             return false;
         }
+        if (debitCardConvinienceFeeTypeIdtc != "0" && debitCardConvinienceFeeValuetc.trim().length == 0) {
+            ErrorNotifier("Please enter debit card convinience  transaction fee value");
+            return false;
+
+        }
         if (creditCardConvinienceFeeTypeId != "0" && creditCardConvinienceFeeValue.trim().length == 0) {
             ErrorNotifier("Please enter credit card convinience fee value");
             return false;
         }
+        if (creditCardConvinienceFeeTypeIdtc != "0" && creditCardConvinienceFeeValuetc.trim().length == 0) {
+            ErrorNotifier("Please enter credit card  transaction convinience fee value");
+            return false;
+
+        }
         var data = {
             type: 9, secreteKey: secreteKey, instituteId: instituteId, merchantEmail: merchantEmail, shippingAddress: shippingAddress,
-            isActivateOrUnblock: isActivateOrUnblock, PayTabsMID: txtAPayTabsMID,CreditCardProcessingFeeTypeId: creditCardConvinienceFeeTypeId,
-            DebitCardProcessingFeeTypeId: debitCardConvinienceFeeTypeId, CreditCardProcessingFeeValue: creditCardConvinienceFeeValue,
-        DebitCardProcessingFeeValue: debitCardConvinienceFeeValue
+            isActivateOrUnblock: isActivateOrUnblock, PayTabsMID: txtAPayTabsMID,CreditCardProcessingFeeTypeId: creditCardConvinienceFeeTypeId,creditCardConvinienceFeeTypeIdtc:creditCardConvinienceFeeTypeIdtc,
+            DebitCardProcessingFeeTypeId: debitCardConvinienceFeeTypeId, debitCardConvinienceFeeTypeIdtc: debitCardConvinienceFeeTypeIdtc, CreditCardProcessingFeeValue: parseFloat(creditCardConvinienceFeeValue),
+            DebitCardProcessingFeeValue: parseFloat(debitCardConvinienceFeeValue), debitCardConvinienceFeeValuetc: parseFloat(debitCardConvinienceFeeValuetc), creditCardConvinienceFeeValuetc: parseFloat(creditCardConvinienceFeeValuetc),
         };
         request.Initiate("/AjaxHandlers/AdminSchool.ashx", "JSON", false, data, function (response) {
             if (response.Success == true) {
@@ -615,8 +842,8 @@ $(document).ready(function () {
             else {
 
             }
-            $("#ddlDebitCardConvenienceType,#ddlCreditCardConvenienceType").html(discountTypes);
-            $("#ddlDebitCardConvenienceType1,#ddlCreditCardConvenienceType1").html(discountTypes);
+            $("#ddlDebitCardConvenienceType,#ddlCreditCardConvenienceType, #ddlDebitCardConvenienceTypetc, #ddlCreditCardConvenienceTypetc").html(discountTypes);
+            $("#ddlDebitCardConvenienceType1,#ddlCreditCardConvenienceType1,#ddlDebitCardConvenienceType1tc,#ddlCreditCardConvenienceType1tc").html(discountTypes);
         });
     }
 
