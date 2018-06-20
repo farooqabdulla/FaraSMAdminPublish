@@ -9,12 +9,15 @@ $(document).ready(function () {
  var data=   { type: 5};
     request.Initiate("/AjaxHandlers/Admin.ashx", "JSON", true, data, function (res) {
         if (res.Success == true) {
-
+            var trhtml = '';
+            var trhtmlc = '';
+            var trhtmlcs = '';
             console.log(res);
             if (res.TrasactionsToday.length > 0) {
                 $('#lbltodayamount').text(res.TrasactionsToday[0].TOTALAMOUNT+' '+'BHD');
                 $('#lblTodatTransactionCount').text(res.TrasactionsToday[0].countoftransactions);
             }
+            
             if (res.AvalableBalance.length > 0) {
                 $('#lbltotalbalance').text(res.AvalableBalance[0].totalbalance+' '+'BHD');
             }
@@ -28,7 +31,7 @@ $(document).ready(function () {
                 $('#countofblockedschools').text(res.blockedschools[0].blockedcount);
             }
             if (res.RegionalStatus.length > 0) {
-                var trhtml = '';
+               
                 $.each(res.RegionalStatus, function (item, index) {
 
                     trhtml += '<tr><td><label class="text-blue">' + index.Name + '</label></td><td>' + index.count + '</td><td>' + index.totalamount + ' ' + index.Code + '</td></tr>'
@@ -37,8 +40,12 @@ $(document).ready(function () {
                 $("#tblreginalstatus").append(trhtml);
 
             }
+            else {
+                trhtml += "<tr> <td  colspan='3'>No Records Found</td></tr>";
+                $("#tblreginalstatus").html(trhtml);
+            }
             if (res.HighestFeeCollectionSchools.length > 0) {
-                var trhtmlc = '';
+              
 
                 $.each(res.HighestFeeCollectionSchools, function (item, index) {
 
@@ -48,8 +55,13 @@ $(document).ready(function () {
                 $("#tblhighestcollection").append(trhtmlc);
 
             }
+
+            else {
+                trhtmlc += "<tr> <td  colspan='3'>No Records Found</td></tr>";
+                $("#tblhighestcollection").html(trhtmlc);
+            }
             if (res.RecentTransactions.length > 0) {
-                var trhtmlcs = '';
+            
 
                 $.each(res.RecentTransactions, function (item, index) {
 
@@ -59,6 +71,13 @@ $(document).ready(function () {
 
                 });
                 $("#tblResentTransactions").append(trhtmlcs);
+
+            }
+
+            else {
+
+                trhtmlcs += "<tr> <td  colspan='5'>No Records Found</td></tr>";
+                $("#tblResentTransactions").html(trhtmlcs);
 
             }
             if(res.last30daytransaction.length>0)

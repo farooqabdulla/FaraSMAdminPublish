@@ -174,7 +174,7 @@ function withdralCalculation() {
     var totalWalletBalance = parseFloat(document.getElementById('hdnWalletBalance').value);
     var availableWalletBalance = (parseFloat((parseFloat(totalWalletBalance)) - (parseFloat(widralAmount)))).toFixed(2);
 
-    if (availableWalletBalance < 0) { ErrorNotifier("Please enter withdrawal amount should be less than are equal to Available Amount"); resetWithdralCalculation(); return; }
+    if (availableWalletBalance < 0) { ErrorNotifier("Withdrawal amount should be less than or equal to available amount"); resetWithdralCalculation(); return; }
 
     //document.getElementById('txtAvailableWalletBalnce').value = availableWalletBalance + " " + code;
     $('#txtAvailableWalletBalnce').text(availableWalletBalance + " " + code);

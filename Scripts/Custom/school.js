@@ -265,7 +265,7 @@ function bindAllSchools(response) {
                 + "<label class='dropdown dropdown-user pull-right margin-right-10 sch_stat'>"
                     + "<a  class='dropdown-toggle' data-toggle='dropdown' data-hover='dropdown' data-close-others='true'><i class='fa fa-ellipsis-v'></i></a>"
                     + "<ul class='dropdown-menu dropdown-menu-default'>"
-                        + "<li><a id ='" + schoolDetails[i]["InstituteID"] + "' class ='verifyAccount' ><i class='icon-refresh'></i> Re-Verify Account </a></li>"
+                        + "<li><a id ='" + schoolDetails[i]["InstituteID"] + "' class ='verifyAccount'  currencycode='" + schoolDetails[i]["Code"] + "'    ><i class='icon-refresh'></i> Re-Verify Account </a></li>"
                         + "<li><a id ='" + schoolDetails[i]["InstituteID"] + "' class ='blockAccount'   ><i class='icon-ban'></i> Block Account </a></li>"
                         + "<li><a id ='" + schoolDetails[i]["InstituteID"] + "_" + schoolDetails[i]["StatusID"] + "' class ='viewProfile' ><i class='fa fa-eye'></i> View Profile </a></li>"
                     + "</ul>"
@@ -280,7 +280,7 @@ function bindAllSchools(response) {
                 + "<label class='dropdown dropdown-user pull-right margin-right-10 sch_stat'>"
                     + "<a  class='dropdown-toggle' data-toggle='dropdown' data-hover='dropdown' data-close-others='true'><i class='fa fa-ellipsis-v'></i></a>"
                     + "<ul class='dropdown-menu dropdown-menu-default'>"
-                        + "<li><a id ='" + schoolDetails[i]["InstituteID"] + "' class ='verifyAccount' ><i class='icon-check'></i> Verify Account </a></li>"
+                        + "<li><a id ='" + schoolDetails[i]["InstituteID"] + "'  currencycode='" + schoolDetails[i]["Code"] + "'   class ='verifyAccount' ><i class='icon-check'></i> Verify Account </a></li>"
                     + "</ul>"
                 + "</label>"
              + "</td>"
@@ -368,8 +368,11 @@ function paytabsMarchantAccount() {
     clearValues();
     $('#paytabs_merch').modal('show');
     clearMarchantValues();
+    refreshpaytabsmerchantdetails();
+    refreshpaytabmerchantdetails1();
     document.getElementById('hdnInstituteID').value = $(this).attr("id");
     currencycodeformerchantdetails = $(this).attr("currencycode");
+
     //alert(currencycodeformerchantdetails);
     //document.getElementById('txtSecretKey').value = "";
     //document.getElementById('txtPaytabsEmailID').value = "";
@@ -677,6 +680,8 @@ function viewProfile() {
 function verifyAccount() {
     document.getElementById('hdnIsActivateOrUnblock').value = "0";
     document.getElementById('hdnInstituteID').value = $(this).attr("id");
+    currencycodeformerchantdetails = $(this).attr("currencycode");
+    //alert()
     getSchoolsDetails();
 }
 
@@ -1051,3 +1056,90 @@ $('#excelDownload').on('click', function () {
 })
 
 // End Custom Define Functions
+
+
+
+function refreshpaytabmerchantdetails1()
+{
+    $('#txtDebitCardConvenience1').val('');
+
+    $('#txtDebitCardConvenience1tc').val('');
+    $('#txtCreditCardConvenience1').val('');
+
+    $('#txtCreditCardConvenience1tc').val('');
+    $('#lbltxtDebitCardConvenience1').text('');
+    $('#lbltxtDebitCardConvenience1tc').text('');
+    $('#lbltxtCreditCardConvenience1').text('');
+    $('#lbltxtCreditCardConvenience1tc').text('');
+    
+
+    for (var i = 0; i < $("#ddlDebitCardConvenienceType1 option").length; i++) {     // to show the dropdown capacity selected one
+        if ($($("#ddlDebitCardConvenienceType1 option")[i]).val() == 0) {
+            $($("#ddlDebitCardConvenienceType1 option")[i]).text();
+            $($("#ddlDebitCardConvenienceType1 option")[i]).prop("selected", true);
+        }
+    }
+    for (var i = 0; i < $("#ddlDebitCardConvenienceType1tc option").length; i++) {     // to show the dropdown capacity selected one
+        if ($($("#ddlDebitCardConvenienceType1tc option")[i]).val() == 0) {
+            $($("#ddlDebitCardConvenienceType1tc option")[i]).text();
+            $($("#ddlDebitCardConvenienceType1tc option")[i]).prop("selected", true);
+        }
+    }
+    for (var i = 0; i < $("#ddlCreditCardConvenienceType1 option").length; i++) {     // to show the dropdown capacity selected one
+        if ($($("#ddlCreditCardConvenienceType1 option")[i]).val() == 0) {
+            $($("#ddlCreditCardConvenienceType1 option")[i]).text();
+            $($("#ddlCreditCardConvenienceType1 option")[i]).prop("selected", true);
+        }
+    }
+
+
+    for (var i = 0; i < $("#ddlCreditCardConvenienceType1tc option").length; i++) {     // to show the dropdown capacity selected one
+        if ($($("#ddlCreditCardConvenienceType1tc option")[i]).val() == 0) {
+            $($("#ddlCreditCardConvenienceType1tc option")[i]).text();
+            $($("#ddlCreditCardConvenienceType1tc option")[i]).prop("selected", true);
+        }
+    }
+}
+
+
+function refreshpaytabsmerchantdetails()
+{
+    $('#txtDebitCardConvenience').val('');
+
+    $('#txtDebitCardConveniencetc').val('');
+    $('#txtCreditCardConvenience').val('');
+
+    $('#txtCreditCardConveniencetc').val('');
+
+    $('#lbltxtDebitCardConvenience').text('');
+    $('#lbltxtDebitCardConveniencetc').text('');
+    $('#lbltxtCreditCardConvenience').text('');
+    $('#lbltxtCreditCardConveniencetc').text('');
+
+    for (var i = 0; i < $("#ddlDebitCardConvenienceType option").length; i++) {     // to show the dropdown capacity selected one
+        if ($($("#ddlDebitCardConvenienceType option")[i]).val() == 0) {
+            $($("#ddlDebitCardConvenienceType option")[i]).text();
+            $($("#ddlDebitCardConvenienceType option")[i]).prop("selected", true);
+        }
+    }
+    for (var i = 0; i < $("#ddlDebitCardConvenienceTypetc option").length; i++) {     // to show the dropdown capacity selected one
+        if ($($("#ddlDebitCardConvenienceTypetc option")[i]).val() == 0) {
+            $($("#ddlDebitCardConvenienceTypetc option")[i]).text();
+            $($("#ddlDebitCardConvenienceTypetc option")[i]).prop("selected", true);
+        }
+    }
+    for (var i = 0; i < $("#ddlCreditCardConvenienceType option").length; i++) {     // to show the dropdown capacity selected one
+        if ($($("#ddlCreditCardConvenienceType option")[i]).val() == 0) {
+            $($("#ddlCreditCardConvenienceType option")[i]).text();
+            $($("#ddlCreditCardConvenienceType option")[i]).prop("selected", true);
+        }
+    }
+
+
+    for (var i = 0; i < $("#ddlCreditCardConvenienceTypetc option").length; i++) {     // to show the dropdown capacity selected one
+        if ($($("#ddlCreditCardConvenienceTypetc option")[i]).val() == 0) {
+            $($("#ddlCreditCardConvenienceTypetc option")[i]).text();
+            $($("#ddlCreditCardConvenienceTypetc option")[i]).prop("selected", true);
+        }
+    }
+}
