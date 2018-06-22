@@ -1295,6 +1295,7 @@ Page sidebar
   }
   .page-sidebar-closed .page-sidebar .page-sidebar-menu.page-sidebar-menu-closed > li {
     /* hide opened sub menu */
+      /* padding: 8px 0px;*/
   }
   .page-sidebar-closed .page-sidebar .page-sidebar-menu.page-sidebar-menu-closed > li.open > .sub-menu,
   .page-sidebar-closed .page-sidebar .page-sidebar-menu.page-sidebar-menu-closed > li > .sub-menu {
@@ -2220,7 +2221,7 @@ Page content
     margin-left: 200px;
     margin-top: 0px;
     min-height: 600px;
-    padding: 25px 20px 10px 20px;
+    padding: 25px 20px 0px 20px;
   }
   .page-content-wrapper .page-content.no-min-height {
     min-height: auto;
@@ -2620,3 +2621,34 @@ Page Loading
     .form-group.pass i:hover {
         color: #8c8c8c;
     }
+
+    /* swetha */ 
+
+    .page-sidebar-closed .page-sidebar .page-sidebar-menu.page-sidebar-menu-closed > li > a {
+    padding-left: 11px;
+    padding-top: 49px;
+}
+.page-sidebar .page-sidebar-menu > li.active > a span.dashboard {
+  padding: 10px 28px;
+} 
+#ulAdminLeftMenus li a {
+  min-height: 128px;
+    line-height: 37px !important;
+}
+
+.page-sidebar .page-sidebar-menu > li.active > a span.dashboard {
+    padding: 12px 28px !important;
+}
+.page-sidebar .page-sidebar-menu > li > a span.dashboard {
+    background-position: -7% 100%;
+    padding: 9px 28px !important;
+}
+.page-sidebar .page-sidebar-menu > li.active > a span.schools {
+    background-position: 33% 65%;
+    padding: 14px 28px !important;
+}
+
+.page-sidebar-menu.page-sidebar-menu-hover-submenu > li:hover > .sub-menu {
+    box-shadow:none !important; 
+}
+

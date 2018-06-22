@@ -5,6 +5,15 @@
         .padl48{
             padding-left:48px !important;
         }
+       #Transactions a:hover{
+    border-radius:0px 0px 25px 0px !important;
+}
+         #Transactions a{
+    border-radius:0px 0px 25px 0px !important;
+}
+                 #Transactions{
+    border-radius:0px 0px 25px 0px !important; 
+}
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -99,7 +108,7 @@
                             <th class="noShow"><strong>Email Id</strong></th>
                             <th class="noExl">School Name </th>
                             <th class="noExl">Email ID </th>
-                            <th><strong>Number</strong> </th>
+                            <th><strong>Mobile Number</strong> </th>
                             <th><strong>Transactions </strong></th>
                             <th><strong>Amount</strong> </th>
                             <th class="noExl text-right">Action</th>

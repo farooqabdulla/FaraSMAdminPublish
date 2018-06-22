@@ -28,7 +28,7 @@
 }
 
 .scrl {
-    overflow-y: scroll;
+    overflow-y: auto;
             overflow-x: none;
     min-height: 280px;
     height: 425px;

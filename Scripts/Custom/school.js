@@ -368,11 +368,8 @@ function paytabsMarchantAccount() {
     clearValues();
     $('#paytabs_merch').modal('show');
     clearMarchantValues();
-    refreshpaytabsmerchantdetails();
-    refreshpaytabmerchantdetails1();
     document.getElementById('hdnInstituteID').value = $(this).attr("id");
     currencycodeformerchantdetails = $(this).attr("currencycode");
-
     //alert(currencycodeformerchantdetails);
     //document.getElementById('txtSecretKey').value = "";
     //document.getElementById('txtPaytabsEmailID').value = "";
@@ -922,16 +919,15 @@ $("#btnActivate").on("click", function () {
         return false;
     }
     if (creditCardConvinienceFeeTypeIdtc != "0" && creditCardConvinienceFeeValuetc.trim().length == 0) {
-        ErrorNotifier("Please enter credit card convinience transaction charges fee value");
-        return false;
+        ErrorNotifier("Please enter credit card convinience transaction charges fee value");  
     }
 
     var data = {
         type: 9, secreteKey: secreteKey, instituteId: instituteId, merchantEmail: merchantEmail, shippingAddress: shippingAddress,
         isActivateOrUnblock: isActivateOrUnblock, PayTabsMID: txtAPayTabsMID, CreditCardProcessingFeeTypeId: creditCardConvinienceFeeTypeId,
-        DebitCardProcessingFeeTypeId: debitCardConvinienceFeeTypeId, CreditCardProcessingFeeValue: creditCardConvinienceFeeValue,
-        DebitCardProcessingFeeValue: debitCardConvinienceFeeValue, creditCardConvinienceFeeTypeIdtc: creditCardConvinienceFeeTypeIdtc, debitCardConvinienceFeeTypeIdtc: debitCardConvinienceFeeTypeIdtc,
-        creditCardConvinienceFeeValuetc: creditCardConvinienceFeeValuetc, debitCardConvinienceFeeValuetc: debitCardConvinienceFeeValuetc
+        DebitCardProcessingFeeTypeId: debitCardConvinienceFeeTypeId, CreditCardProcessingFeeValue: parseFloat(creditCardConvinienceFeeValue),
+        DebitCardProcessingFeeValue: parseFloat(debitCardConvinienceFeeValue), creditCardConvinienceFeeTypeIdtc: creditCardConvinienceFeeTypeIdtc, debitCardConvinienceFeeTypeIdtc: debitCardConvinienceFeeTypeIdtc,
+        creditCardConvinienceFeeValuetc: parseFloat(creditCardConvinienceFeeValuetc), debitCardConvinienceFeeValuetc: parseFloat(debitCardConvinienceFeeValuetc)
     };
     request.Initiate("/AjaxHandlers/AdminSchool.ashx", "JSON", false, data, function (response) {
         if (response.Success == true) {
@@ -1056,90 +1052,3 @@ $('#excelDownload').on('click', function () {
 })
 
 // End Custom Define Functions
-
-
-
-function refreshpaytabmerchantdetails1()
-{
-    $('#txtDebitCardConvenience1').val('');
-
-    $('#txtDebitCardConvenience1tc').val('');
-    $('#txtCreditCardConvenience1').val('');
-
-    $('#txtCreditCardConvenience1tc').val('');
-    $('#lbltxtDebitCardConvenience1').text('');
-    $('#lbltxtDebitCardConvenience1tc').text('');
-    $('#lbltxtCreditCardConvenience1').text('');
-    $('#lbltxtCreditCardConvenience1tc').text('');
-    
-
-    for (var i = 0; i < $("#ddlDebitCardConvenienceType1 option").length; i++) {     // to show the dropdown capacity selected one
-        if ($($("#ddlDebitCardConvenienceType1 option")[i]).val() == 0) {
-            $($("#ddlDebitCardConvenienceType1 option")[i]).text();
-            $($("#ddlDebitCardConvenienceType1 option")[i]).prop("selected", true);
-        }
-    }
-    for (var i = 0; i < $("#ddlDebitCardConvenienceType1tc option").length; i++) {     // to show the dropdown capacity selected one
-        if ($($("#ddlDebitCardConvenienceType1tc option")[i]).val() == 0) {
-            $($("#ddlDebitCardConvenienceType1tc option")[i]).text();
-            $($("#ddlDebitCardConvenienceType1tc option")[i]).prop("selected", true);
-        }
-    }
-    for (var i = 0; i < $("#ddlCreditCardConvenienceType1 option").length; i++) {     // to show the dropdown capacity selected one
-        if ($($("#ddlCreditCardConvenienceType1 option")[i]).val() == 0) {
-            $($("#ddlCreditCardConvenienceType1 option")[i]).text();
-            $($("#ddlCreditCardConvenienceType1 option")[i]).prop("selected", true);
-        }
-    }
-
-
-    for (var i = 0; i < $("#ddlCreditCardConvenienceType1tc option").length; i++) {     // to show the dropdown capacity selected one
-        if ($($("#ddlCreditCardConvenienceType1tc option")[i]).val() == 0) {
-            $($("#ddlCreditCardConvenienceType1tc option")[i]).text();
-            $($("#ddlCreditCardConvenienceType1tc option")[i]).prop("selected", true);
-        }
-    }
-}
-
-
-function refreshpaytabsmerchantdetails()
-{
-    $('#txtDebitCardConvenience').val('');
-
-    $('#txtDebitCardConveniencetc').val('');
-    $('#txtCreditCardConvenience').val('');
-
-    $('#txtCreditCardConveniencetc').val('');
-
-    $('#lbltxtDebitCardConvenience').text('');
-    $('#lbltxtDebitCardConveniencetc').text('');
-    $('#lbltxtCreditCardConvenience').text('');
-    $('#lbltxtCreditCardConveniencetc').text('');
-
-    for (var i = 0; i < $("#ddlDebitCardConvenienceType option").length; i++) {     // to show the dropdown capacity selected one
-        if ($($("#ddlDebitCardConvenienceType option")[i]).val() == 0) {
-            $($("#ddlDebitCardConvenienceType option")[i]).text();
-            $($("#ddlDebitCardConvenienceType option")[i]).prop("selected", true);
-        }
-    }
-    for (var i = 0; i < $("#ddlDebitCardConvenienceTypetc option").length; i++) {     // to show the dropdown capacity selected one
-        if ($($("#ddlDebitCardConvenienceTypetc option")[i]).val() == 0) {
-            $($("#ddlDebitCardConvenienceTypetc option")[i]).text();
-            $($("#ddlDebitCardConvenienceTypetc option")[i]).prop("selected", true);
-        }
-    }
-    for (var i = 0; i < $("#ddlCreditCardConvenienceType option").length; i++) {     // to show the dropdown capacity selected one
-        if ($($("#ddlCreditCardConvenienceType option")[i]).val() == 0) {
-            $($("#ddlCreditCardConvenienceType option")[i]).text();
-            $($("#ddlCreditCardConvenienceType option")[i]).prop("selected", true);
-        }
-    }
-
-
-    for (var i = 0; i < $("#ddlCreditCardConvenienceTypetc option").length; i++) {     // to show the dropdown capacity selected one
-        if ($($("#ddlCreditCardConvenienceTypetc option")[i]).val() == 0) {
-            $($("#ddlCreditCardConvenienceTypetc option")[i]).text();
-            $($("#ddlCreditCardConvenienceTypetc option")[i]).prop("selected", true);
-        }
-    }
-}

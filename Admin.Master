@@ -6,7 +6,9 @@
 <html lang="en" class="no-js">
 <head>
     <meta charset="utf-8" />
-    <title>FaraAdmin-FaraPay</title>
+    <title>FaraAdmin-
+
+    </title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta content="width=device-width, initial-scale=1" name="viewport" />
     <meta content="" name="description" />
@@ -60,7 +62,7 @@
             margin:0;
         }
         .sub-menu .active{
-                background: #dfefff !important;
+                background: #dfefff !important; 
     color: #414042;
         }
 
@@ -100,6 +102,9 @@ margin-top: -149px;
 }  
 
          }
+        .page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover .page-sidebar-menu .sub-menu > li:hover > a, .page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover .page-sidebar-menu .sub-menu > li.open > a, .page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover .page-sidebar-menu .sub-menu > li.active > a, .page-sidebar .page-sidebar-menu .sub-menu > li:hover > a, .page-sidebar .page-sidebar-menu .sub-menu > li.open > a, .page-sidebar .page-sidebar-menu .sub-menu > li.active > a {
+    background: #0067c6 !important;
+}
     </style>
 </head>
 <!-- END HEAD -->

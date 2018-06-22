@@ -24,6 +24,30 @@ function GetAdminDetails()
     });
 
 }
+
+
+function seeadmintextlogin(x) {
+    x.type = "text";
+}
+
+function seeadminasterisklogin(x) {
+    x.type = "password";
+}
+
+function seeadminnewtextlogin(x) {
+    x.type = "text";
+}
+
+function seeadminnewasterisklogin(x) {
+    x.type = "password";
+}
+function seeadminnewconfirmtextlogin(x) {
+    x.type = "text";
+}
+
+function seeadminnewconfirmasterisklogin(x) {
+    x.type = "password";
+}
 $("#btnUpdateAdminProfile").click(function () {
     var superadminname=$('#txtAdminName').val();
     var mobile= $('#txtAdminMobile').val();

@@ -78,16 +78,31 @@
 											<div class="form-group">
 										<input type="password" id="txtOldPassword" required="required" />
                                             <label class="control-label"  for="input">Old Password</label>
+                                              <span class="pass_icn">
+                                                  <i class="fa fa-eye " id="spndecryptadminpassword" onmouseover="seeadmintextlogin(txtOldPassword)" onmouseout="seeadminasterisklogin(txtOldPassword)"></i>
+                                                  <!--<img src="assets/admin/img/pwd.png" alt=""  id="spmdecryptpasswordlogin" onmouseover="seetextlogin(logInPassword)" onmouseout="seeasterisklogin(logInPassword)">-->
+                                                   
+                                              </span>
                                             <i class="bar"></i>
 										</div>
 										<div class="form-group">
 										<input type="password" id="txtNewPassword" required="required" />
                                             <label class="control-label" for="input">New Password</label>
+                                             <%--<span class="pass_icn">
+                                                  <i class="fa fa-eye " id="spndecryptadminnewpassword" onmouseover="seeadminnewtextlogin(txtNewPassword)" onmouseout="seeadminnewasterisklogin(txtNewPassword)"></i>
+                                                  <!--<img src="assets/admin/img/pwd.png" alt=""  id="spmdecryptpasswordlogin" onmouseover="seetextlogin(logInPassword)" onmouseout="seeasterisklogin(logInPassword)">-->
+                                                   
+                                              </span>--%>
                                             <i class="bar"></i>
 										</div>
 										<div class="form-group">
 										<input type="password" id="txtConfirmPassword" required="required" />
                                             <label class="control-label" for="input">Confirm Password</label>
+                                             <%--<span class="pass_icn">
+                                                  <i class="fa fa-eye " id="spndecryptadminnewconfirmpassword" onmouseover="seeadminnewconfirmtextlogin(txtConfirmPassword)" onmouseout="seeadminnewconfirmasterisklogin(txtConfirmPassword)"></i>
+                                                  <!--<img src="assets/admin/img/pwd.png" alt=""  id="spmdecryptpasswordlogin" onmouseover="seetextlogin(logInPassword)" onmouseout="seeasterisklogin(logInPassword)">-->
+                                                   
+                                              </span>--%>
                                             <i class="bar"></i>
 										</div>
 										</div>

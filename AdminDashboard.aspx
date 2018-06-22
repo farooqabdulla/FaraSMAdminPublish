@@ -1,6 +1,13 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin.Master" AutoEventWireup="true" CodeBehind="AdminDashboard.aspx.cs" Inherits="FaraSM.AdminUI.AdminDashboard" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <style>
+#Transactions a:hover{
+    border-radius:0px 0px 25px 0px !important;
+}
+
+
+    </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <%-- <div class="text-center text-grey add_student">
@@ -9,20 +16,20 @@
     </div>--%>
     
    <%-- <div class="page-content">--%>
-    <div class="row margin-top-15 margin-bottom-20">
+    <div class="row margin-top-15 margin-bottom-20"> 
         <div class="col-sm-6">
             <div class="db_box clearfix">
                 <div class="pull-left">
                     <h5 class="head">Transactions Today</h5>
-                    <label class="number" id="lbltodayamount"> <span class="text">bhd</span></label>
+                    <label class="number" id="lbltodayamount"> <span class="text"></span></label>
                 </div>
-                <label class="pull-right num_circle margin-top-10" id="lblTodatTransactionCount">23</label>
+                <label class="pull-right num_circle margin-top-10" id="lblTodatTransactionCount"></label>
             </div>
         </div>
         <div class="col-sm-6">
             <div class="db_box">
                 <h5 class="head">Available Balance</h5>
-                <label class="number" id="lbltotalbalance">288888.00 <span class="text">bhd</span></label>
+                <label class="number" id="lbltotalbalance"> <span class="text"></span></label>
             </div>         
         </div>
     </div>
@@ -34,7 +41,7 @@
                 <label class="pull-left name">
                     <img src="assets/admin/img/approved_icn.png" alt="approved" class="margin-right-15">
                     Approved Schools </label>
-                <label class="pull-right num_circle margin-top-10" id="countofapprovedschools">23</label>
+                <label class="pull-right num_circle margin-top-10" id="countofapprovedschools"></label>
             </div>
         </div>
         <div class="col-sm-4">
@@ -43,7 +50,7 @@
                 <label class="pull-left name">
                     <img src="assets/admin/img/pending.png" alt="approved" class="margin-right-15">
                     Pending Schools </label></a>
-                <label class="pull-right num_circle margin-top-10" id="countofpendingschools">23</label>
+                <label class="pull-right num_circle margin-top-10" id="countofpendingschools"></label>
             </div>
         </div>
         <div class="col-sm-4">
@@ -51,7 +58,7 @@
                 <label class="pull-left name">
                     <img src="assets/admin/img/blocked.png" height="27" alt="approved" class="margin-right-15">
                     Blocked </label>
-                <label class="pull-right num_circle margin-top-10" id="countofblockedschools">23</label>
+                <label class="pull-right num_circle margin-top-10" id="countofblockedschools"></label>
             </div>
         </div>
     </div>

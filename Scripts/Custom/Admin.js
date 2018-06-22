@@ -4,6 +4,15 @@ $(document).ready(function () {
 
     request = new Request();
 });
+
+
+function seeadmintextlogin(x) {
+    x.type = "text";
+}
+
+function seeadminasterisklogin(x) {
+    x.type = "password";
+}
 $("#btnAdminLogin").on("click", function () {
     var userEmail = document.getElementById('txtAdminId').value;
     var password = document.getElementById('txtAdminPassword').value;
@@ -19,7 +28,7 @@ $("#btnAdminLogin").on("click", function () {
     data = { type: 1, emailId: userEmail, password: encryptedPassword };
     request.Initiate("/AjaxHandlers/Admin.ashx", "JSON", false, data, function (successResponseData) {
         if (successResponseData.Success == true) {
-            window.location.href = "/Schools.aspx";
+            window.location.href = "/AdminDashboard.aspx";
         }
         else {
             ErrorNotifier(successResponseData.Message);

@@ -4,7 +4,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>FaraAdmin-FaraPay</title>
+    <title>FaraAdmin-Farapay</title>
    <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet" type="text/css" />
     <link href="/assets/global/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
     <link href="/assets/global/plugins/simple-line-icons/simple-line-icons.min.css" rel="stylesheet" type="text/css" />
@@ -61,6 +61,11 @@
                             <div class="form-group">
                                 <input type="password" id="txtAdminPassword" required="required" placeholder="Password" />
                                 <%--<label class="control-label" for="input">Password</label>--%>
+                              <%--  <span class="pass_icn">
+                                                  <i class="fa fa-eye " id="spndecryptadminpassword" onmouseover="seeadmintextlogin(txtAdminPassword)" onmouseout="seeadminasterisklogin(txtAdminPassword)"></i>
+                                                  <!--<img src="assets/admin/img/pwd.png" alt=""  id="spmdecryptpasswordlogin" onmouseover="seetextlogin(logInPassword)" onmouseout="seeasterisklogin(logInPassword)">-->
+                                                   
+                                              </span>--%>
                                 <i class="bar"></i>
                             </div>
                             <%--<div class="form-group clearfix margin-top-25 f_12">
@@ -84,7 +89,7 @@
             <div class="col-lg-4 col-md-4 col-sm-2"></div>
         </div>
 
-        <div class="login_foot">Copyright  &copy; FaraPay. All Rights Reserved.</div>
+        <div class="login_foot">Copyright  &copy; Farapay. All Rights Reserved.</div>
 
     </div>
     <script src="assets/global/plugins/jquery.min.js" type="text/javascript"></script>
