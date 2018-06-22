@@ -31,7 +31,7 @@ $(document).ready(function () {
         changeYear: true,
         autoclose: true,
         todayHighlight: true,
-        startDate: new Date(),
+        //startDate: new Date(),
     });
     $('#refreshtable').click(function () {
         $("input[type=checkbox]").removeAttr('checked');
@@ -81,6 +81,35 @@ $("#clrStartDate").click(function () {
 });
 
 // end Page load
+
+
+
+
+$('#addnewdetailstbl').click(function () {
+    $('#withdr_infor').modal("show");
+    refreshwithdrawals();
+})
+  function refreshwithdrawals()
+{
+      $('#ddlSchools').val('');
+      $('txtDate').val('');
+      $('#txtWithdrawalAmount').val('');
+      $('#txtcomments').val('');
+      $('#txtAvailableWalletBalnce').text('');
+
+  }
+
+  $('#btnCancel').click(function () {
+
+      window.location.href = '/AddWithdrawalInformation.aspx';
+
+  });
+
+
+
+
+
+
 
 function getAllSchoolsDetails() {
     var data = { type: 1 };

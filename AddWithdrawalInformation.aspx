@@ -33,7 +33,7 @@
             <div class="col-sm-4 col-md-4 right-srch">
                 <div class="row">
                     <div class="col-sm-6">
-                        <a class="text-blue" id="addnewdetailstbl" data-toggle="modal" data-target="#withdr_infor"><i class="fa fa-plus-circle margin-right-10 margin-top-1"></i>Add Withdrawal Info</a><br />
+                        <a class="text-blue" id="addnewdetailstbl" ><i class="fa fa-plus-circle margin-right-10 margin-top-1"></i>Add Withdrawal Info</a><br />
                     </div>
                     <div class="col-sm-6"> 
                         <a class="text-blue" id="excelDownload"><i class="fa fa-file-excel-o margin-left-5 margin-top-1 margin-right-5 "></i>Download To Excel</a>
