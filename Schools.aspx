@@ -182,7 +182,7 @@
                                     </Select>
                                 </div>
                                 <div class="col-sm-2">
-                                    <input type="text" id="txtDebitCardConvenience" />
+                                    <input type="text" id="txtDebitCardConvenience" class="numbercheck" />
                                     <i class="bar"></i>
                                 </div>
                                     <div class="col-sm-2 margin-top-25">

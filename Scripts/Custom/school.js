@@ -28,6 +28,85 @@ $(document).ready(function () {
     clearMarchantValues();
    
     $('#filter').click();
+
+    //$('#txtDebitCardConvenience').blur(function () {
+    //    var value = $(this).val();
+    //    if (!$.isNumeric(value)) {
+    //        //alert("Please enter a valid data");
+    //        ErrorNotifier("Please enter a valid data");
+    //        $(this).val("");
+    //        return false;
+    //    }
+    //});
+    //$('#txtDebitCardConveniencetc').blur(function () {
+    //    var value = $(this).val();
+    //    if (!$.isNumeric(value)) {
+    //        //alert("Please enter a valid data");
+    //        ErrorNotifier("Please enter a valid data");
+    //        $(this).val("");
+    //        return false;
+    //    }
+    //});
+    //$('#txtCreditCardConvenience').blur(function () {
+    //    var value = $(this).val();
+    //    if (!$.isNumeric(value)) {
+    //        //alert("Please enter a valid data");
+    //        ErrorNotifier("Please enter a valid data");
+    //        $(this).val("");
+    //        return false;
+    //    }
+    //});
+    //$('#txtCreditCardConveniencetc').blur(function () {
+    //    var value = $(this).val();
+    //    if (!$.isNumeric(value)) {
+    //        //alert("Please enter a valid data");
+    //        ErrorNotifier("Please enter a valid data");
+    //        $(this).val("");
+    //        return false;
+    //    }
+    //});
+
+    $('#txtDebitCardConvenience,#txtDebitCardConveniencetc,#txtCreditCardConvenience,#txtCreditCardConveniencetc').keyup(validateOnlyNumbers);
+    $('#txtDebitCardConvenience1,#txtDebitCardConvenience1tc,#txtCreditCardConvenience1,#txtCreditCardConvenience1tc').keyup(validateOnlyNumbers);
+    // activate
+    //$('#txtDebitCardConvenience1').blur(function () {
+    //    var value = $(this).val();
+    //    if (!$.isNumeric(value)) {
+    //        //alert("Please enter a valid data");
+    //        ErrorNotifier("Please enter a valid data");
+    //        $(this).val("");
+    //        return false;
+    //    }
+    //});
+    //$('#txtDebitCardConvenience1tc').blur(function () {
+    //    var value = $(this).val();
+    //    if (!$.isNumeric(value)) {
+    //        //alert("Please enter a valid data");
+    //        ErrorNotifier("Please enter a valid data");
+
+    //        $(this).val("");
+    //        return false;
+    //    }
+
+    //});
+    //$('#txtCreditCardConvenience1').blur(function () {
+    //    var value = $(this).val();
+    //    if (!$.isNumeric(value)) {
+    //        //alert("Please enter a valid data");
+    //        ErrorNotifier("Please enter a valid data");
+    //        $(this).val("");
+    //        return false;
+    //    }
+    //});
+    //$('#txtCreditCardConvenience1tc').blur(function () {
+    //    var value = $(this).val();
+    //    if (!$.isNumeric(value)) {
+    //        //alert("Please enter a valid data");
+    //        ErrorNotifier("Please enter a valid data");
+    //        $(this).val("");
+    //        return false;
+    //    }
+    //});
 }); 
 
 // end Page load
@@ -47,7 +126,38 @@ function clearMarchantValues() {
     $('#txtABillingAddress').val('');
     $('#txtAPayTabsMID').val('');
     
+    $('#ddlDebitCardConvenienceType').val('0');
+    $('#ddlDebitCardConvenienceTypetc').val('0');
+    $('#ddlCreditCardConvenienceType').val('0');
+    $('#ddlCreditCardConvenienceTypetc').val('0');
+    $('#txtDebitCardConvenience').val('');
+    $('#txtDebitCardConveniencetc').val('');
+    $('#txtCreditCardConvenience').val('');
+    $('#txtCreditCardConveniencetc').val('');
+    // pending
+    $('#ddlDebitCardConvenienceType1').val('0');
+    $('#ddlDebitCardConvenienceType1tc').val('0');
+    $('#ddlCreditCardConvenienceType1').val('0');
+    $('#ddlCreditCardConvenienceType1tc').val('0');
+    $('#txtDebitCardConvenience1').val('');
+    $('#txtDebitCardConvenience1tc').val('');
+    $('#txtCreditCardConvenience1').val('');
+    $('#txtCreditCardConvenience1tc').val('');
 
+    // 
+
+    $('#lbltxtDebitCardConvenience').text('');
+    $('#lbltxtDebitCardConveniencetc').text('');
+    $('#lbltxtCreditCardConvenience').text('');
+    $('#lbltxtCreditCardConveniencetc').text('');
+
+
+    //
+
+    $('#lbltxtDebitCardConvenience1').text('');
+    $('#lbltxtDebitCardConvenience1tc').text('');
+    $('#lbltxtCreditCardConvenience1').text('');
+    $('#lbltxtCreditCardConvenience1tc').text('');
 }
 
 function unblockAccount() {
@@ -631,6 +741,9 @@ $("#btnUpdate").on("click", function () {
 
     }
 
+
+
+
     var data = {
         type: 6, secreteKey: secreteKey, instituteId: instituteId, merchantEmail: merchantEmail,
         shippingAddress: shippingAddress, PayTabsMID: txtPayTabsMID, CreditCardProcessingFeeTypeId: creditCardConvinienceFeeTypeId, creditCardConvinienceFeeTypeIdtc:creditCardConvinienceFeeTypeIdtc, debitCardConvinienceFeeTypeIdtc : debitCardConvinienceFeeTypeIdtc,
@@ -654,6 +767,13 @@ $("#btnUpdate").on("click", function () {
     });
     
 });
+
+
+
+
+
+
+
 
 function viewProfile() {
    
@@ -775,6 +895,10 @@ $("#btnProceed").on("click", function () {
     if ($('#ddlDebitCardConvenienceType').val() == "1") {
         $("#lbltxtDebitCardConvenience").text(currencycodeformerchantdetails);
     }
+    if($('#ddlDebitCardConvenienceType').val() == "0")
+    {
+        $("#lbltxtDebitCardConvenience").text('');
+    }
 });
 
 
@@ -786,6 +910,9 @@ $("#btnProceed").on("click", function () {
     if ($('#ddlDebitCardConvenienceTypetc').val() == "1") {
         $("#lbltxtDebitCardConveniencetc").text(currencycodeformerchantdetails);
     }
+    if ($('#ddlDebitCardConvenienceTypetc').val() == "0") {
+        $("#lbltxtDebitCardConveniencetc").text('');
+    }
 });
 
 //$('#ddlCreditCardConvenienceType').on("change", function () {
@@ -796,6 +923,9 @@ $("#btnProceed").on("click", function () {
     if ($('#ddlCreditCardConvenienceType').val() == "1") {
         $("#lbltxtCreditCardConvenience").text(currencycodeformerchantdetails);
     }
+    if ($('#ddlCreditCardConvenienceType').val() == "0") {
+        $("#lbltxtCreditCardConvenience").text('');
+    }
 });
 //$('#ddlCreditCardConvenienceTypetc').on("change", function () {
     $('#ddlCreditCardConvenienceTypetc').on("change", function () {
@@ -804,6 +934,9 @@ $("#btnProceed").on("click", function () {
     }
     if ($('#ddlCreditCardConvenienceTypetc').val() == "1") {
         $("#lbltxtCreditCardConveniencetc").text(currencycodeformerchantdetails);
+    }
+    if ($('#ddlCreditCardConvenienceTypetc').val() == "0") {
+        $("#lbltxtCreditCardConveniencetc").text('');
     }
 });
 
@@ -821,6 +954,9 @@ $("#btnProceed").on("click", function () {
         if ($('#ddlCreditCardConvenienceType1').val() == "1") {
             $("#lbltxtCreditCardConvenience1").text(currencycodeformerchantdetails);
         }
+        if ($('#ddlCreditCardConvenienceType1').val() == "0") {
+            $("#lbltxtCreditCardConvenience1").text('');
+        }
     });
 
 
@@ -832,6 +968,9 @@ $("#btnProceed").on("click", function () {
         if ($('#ddlDebitCardConvenienceType1').val() == "1") {
             $("#lbltxtDebitCardConvenience1").text(currencycodeformerchantdetails);
         }
+        if ($('#ddlDebitCardConvenienceType1').val() == "0") {
+            $("#lbltxtDebitCardConvenience1").text('');
+        }
     });
 
     //$('#ddlCreditCardConvenienceType').on("change", function () {
@@ -842,6 +981,9 @@ $("#btnProceed").on("click", function () {
         if ($('#ddlDebitCardConvenienceType1tc').val() == "1") {
             $("#lbltxtDebitCardConvenience1tc").text(currencycodeformerchantdetails);
         }
+        if ($('#ddlDebitCardConvenienceType1tc').val() == "0") {
+            $("#lbltxtDebitCardConvenience1tc").text('');
+        }
     });
     //$('#ddlCreditCardConvenienceTypetc').on("change", function () {
     $('#ddlCreditCardConvenienceType1tc').on("change", function () {
@@ -850,6 +992,9 @@ $("#btnProceed").on("click", function () {
         }
         if ($('#ddlCreditCardConvenienceType1tc').val() == "1") {
             $("#lbltxtCreditCardConvenience1tc").text(currencycodeformerchantdetails);
+        }
+        if ($('#ddlCreditCardConvenienceType1tc').val() == "0") {
+            $("#lbltxtCreditCardConvenience1tc").text('');
         }
     });
 
@@ -921,6 +1066,8 @@ $("#btnActivate").on("click", function () {
     if (creditCardConvinienceFeeTypeIdtc != "0" && creditCardConvinienceFeeValuetc.trim().length == 0) {
         ErrorNotifier("Please enter credit card convinience transaction charges fee value");  
     }
+
+    
 
     var data = {
         type: 9, secreteKey: secreteKey, instituteId: instituteId, merchantEmail: merchantEmail, shippingAddress: shippingAddress,
