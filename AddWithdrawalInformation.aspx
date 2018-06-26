@@ -156,7 +156,7 @@
                 <div class="modal-body">
                     <div class="form-group">
                         <select class="form-control" id="ddlSchools">
-                            <option value="0">Select</option>
+                            <option selected="selected" value="0">Select</option>
                         </select>
                     </div>
                     <div class="form-group">

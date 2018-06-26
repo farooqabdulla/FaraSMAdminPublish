@@ -91,7 +91,7 @@ $('#addnewdetailstbl').click(function () {
 })
   function refreshwithdrawals()
 {
-      $('#ddlSchools').val('');
+     // $('#ddlSchools').val('');
       $('txtDate').val('');
       $('#txtWithdrawalAmount').val('');
       $('#txtcomments').val('');
@@ -170,7 +170,7 @@ function getinstituteBalance() {
     });
 }
 
-$('#txtWithdrawalAmount').keypress(function (e) {
+$('#txtWithdrawalAmount').on("change",function (e) {
     var character = String.fromCharCode(e.keyCode)
     var newValue = this.value + character;
 

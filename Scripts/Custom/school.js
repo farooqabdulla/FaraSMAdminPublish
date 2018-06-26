@@ -666,7 +666,7 @@ function viewProfile() {
     if (statusID == 3 || statusID == 5)//Active and Block acounts can be redicrect to school details
     {
         var adminUrl = document.getElementById('hdnAdminUrl').value;
-        var location = "SchoolDetails.aspx?InstituteID=";
+        var location = "/SchoolDetails.aspx?InstituteID=";
         var url = (adminUrl + location + instituteID);
         window.open(url);
     }
