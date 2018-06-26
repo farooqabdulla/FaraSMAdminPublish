@@ -795,6 +795,8 @@ function viewProfile() {
 }
 
 function verifyAccount() {
+
+
     document.getElementById('hdnIsActivateOrUnblock').value = "0";
     document.getElementById('hdnInstituteID').value = $(this).attr("id");
     currencycodeformerchantdetails = $(this).attr("currencycode");

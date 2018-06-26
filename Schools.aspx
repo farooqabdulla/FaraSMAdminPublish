@@ -535,7 +535,7 @@
     <input type="hidden" id="hdnIsActivateOrUnblock" value="<%=IsActivateOrUnblock %>" />
      <script src="assets/global/plugins/jquery.min.js"></script>
     <script src="Scripts/Custom/request.js?v=1"></script>
-    <script src="Scripts/Custom/school.js?v=1"></script>
+    <script src="Scripts/Custom/school.js?v=2"></script>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ScriptPart" runat="server">
    <script src="Scripts/Plugins/jquery.table2excel.js"></script>
