@@ -14,7 +14,7 @@
                 <label id="filter" class="filt_btn mb-0 select" onclick="toggleClick();"><i class="fa fa-sliders margin-right-10"></i><span class="hidden-xs">Filters</span> </label>
             </div>
             <div class="col-sm-3 col-md-7 col-xs-10 mid-srch">
-                <input type="text" class="form-control" placeholder="Search by Name, Email, Status" id="txtSearch">
+                <input type="text" class="form-control" style="width:100%"    placeholder="Search by Name, Email, Status" id="txtSearch">
             </div>
             <div class="col-sm-3 col-md-3 col-xs-3 right-srch">
                 <a class="text-blue" id="excelDownload"><i class="fa fa-file-excel-o  margin-left-5 margin-top-10 margin-right-5 "></i>Download To Excel</a>
@@ -182,7 +182,7 @@
                                     </Select>
                                 </div>
                                 <div class="col-sm-2">
-                                    <input type="text" id="txtDebitCardConvenience" class="numbercheck" />
+                                    <input type="text" id="txtDebitCardConvenience"  />
                                     <i class="bar"></i>
                                 </div>
                                     <div class="col-sm-2 margin-top-25">
