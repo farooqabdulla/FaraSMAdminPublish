@@ -75,8 +75,8 @@ $(document).ready(function () {
     GetSchoolTransactionsForAdmin();
     
     GetPayTabsMerchantDetails();
-    $('#txtDebitCardConvenience,#txtDebitCardConveniencetc,#txtCreditCardConvenience,#txtCreditCardConveniencetc').keyup(validateOnlyNumbers);
-    $('#txtDebitCardConvenience1,#txtDebitCardConvenience1tc,#txtCreditCardConvenience1,#txtCreditCardConvenience1tc').keyup(validateOnlyNumbers);
+    $('#txtDebitCardConvenience,#txtDebitCardConveniencetc,#txtCreditCardConvenience,#txtCreditCardConveniencetc').keyup(decimalValidator);
+    $('#txtDebitCardConvenience1,#txtDebitCardConvenience1tc,#txtCreditCardConvenience1,#txtCreditCardConvenience1tc').keyup(decimalValidator);
     function getInstituteDetails() {
         var data = { type: 11, instituteId: instituteId };
         request.Initiate("/AjaxHandlers/AdminSchool.ashx", "JSON", true, data, function (res) {

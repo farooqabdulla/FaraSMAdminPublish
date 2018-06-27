@@ -66,8 +66,8 @@ $(document).ready(function () {
     //    }
     //});
 
-    $('#txtDebitCardConvenience,#txtDebitCardConveniencetc,#txtCreditCardConvenience,#txtCreditCardConveniencetc').keyup(validateOnlyNumbers);
-    $('#txtDebitCardConvenience1,#txtDebitCardConvenience1tc,#txtCreditCardConvenience1,#txtCreditCardConvenience1tc').keyup(validateOnlyNumbers);
+    $('#txtDebitCardConvenience,#txtDebitCardConveniencetc,#txtCreditCardConvenience,#txtCreditCardConveniencetc').keyup(decimalValidator);
+    $('#txtDebitCardConvenience1,#txtDebitCardConvenience1tc,#txtCreditCardConvenience1,#txtCreditCardConvenience1tc').keyup(decimalValidator);
     // activate
     //$('#txtDebitCardConvenience1').blur(function () {
     //    var value = $(this).val();
