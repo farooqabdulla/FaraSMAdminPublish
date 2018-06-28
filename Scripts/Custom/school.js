@@ -715,6 +715,25 @@ $("#btnUpdate").on("click", function () {
     //    ErrorNotifier("Please select debit card convinience fee type");
     //    return false;
     //}
+    if (debitCardConvinienceFeeTypeId == "0" && debitCardConvinienceFeeValue.trim().length != 0) {
+        ErrorNotifier("Please select debit card convinience fraud fee type");
+        return false;
+    }
+    else if (debitCardConvinienceFeeTypeIdtc == "0" && debitCardConvinienceFeeValuetc.trim().length != 0) {
+        ErrorNotifier("Please select debit card convinience  transaction fee type");
+        return false;
+
+    }
+    else if (creditCardConvinienceFeeTypeId == "0" && creditCardConvinienceFeeValue.trim().length != 0) {
+        ErrorNotifier("Please select credit card convinience fraud fee type");
+        return false;
+    }
+
+    else if (creditCardConvinienceFeeTypeIdtc == "0" && creditCardConvinienceFeeValuetc.trim().length != 0) {
+        ErrorNotifier("Please select credit card convinience transaction fee type");
+        return false;
+
+    }
     if (debitCardConvinienceFeeTypeId !="0" && debitCardConvinienceFeeValue.trim().length == 0) {
         ErrorNotifier("Please enter debit card convinience fraud  fee value");
         return false;
@@ -731,12 +750,12 @@ $("#btnUpdate").on("click", function () {
 
     }
     if (creditCardConvinienceFeeTypeId != "0" && creditCardConvinienceFeeValue.trim().length == 0) {
-        ErrorNotifier("Please enter credit card fraud convinience fee value");
+        ErrorNotifier("Please enter credit card convinience fraud fee value");
         return false;
     }
     if (creditCardConvinienceFeeTypeIdtc != "0" && creditCardConvinienceFeeValuetc.trim().length == 0)
     {
-        ErrorNotifier("Please enter credit card  transaction convinience fee value");
+        ErrorNotifier("Please enter credit card convinience transaction fee value");
         return false;
 
     }

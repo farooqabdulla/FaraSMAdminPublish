@@ -378,8 +378,28 @@ $(document).ready(function () {
             return false;
         }
 
+        else if (debitCardConvinienceFeeTypeId == "0" && debitCardConvinienceFeeValue.trim().length != 0) {
+            ErrorNotifier("Please select debit card convinience fraud fee type");
+            return false;
+        }
+        else if (debitCardConvinienceFeeTypeIdtc == "0" && debitCardConvinienceFeeValuetc.trim().length != 0) {
+            ErrorNotifier("Please select debit card convinience  transaction fee type");
+            return false;
+
+        }
+        else if (creditCardConvinienceFeeTypeId == "0" && creditCardConvinienceFeeValue.trim().length != 0) {
+            ErrorNotifier("Please select credit card convinience fraud fee type");
+            return false;
+        }
+
+        else if (creditCardConvinienceFeeTypeIdtc == "0" && creditCardConvinienceFeeValuetc.trim().length != 0) {
+            ErrorNotifier("Please select credit card convinience transaction fee type");
+            return false;
+
+        }
+
        else if (debitCardConvinienceFeeTypeId != "0" && debitCardConvinienceFeeValue.trim().length == 0) {
-            ErrorNotifier("Please enter debit card convinience fee value");
+            ErrorNotifier("Please enter debit card convinience fraud fee value");
             return false;
         }
        else if (debitCardConvinienceFeeTypeIdtc != "0" && debitCardConvinienceFeeValuetc.trim().length == 0) {
@@ -388,12 +408,12 @@ $(document).ready(function () {
 
         }
        else if (creditCardConvinienceFeeTypeId != "0" && creditCardConvinienceFeeValue.trim().length == 0) {
-            ErrorNotifier("Please enter credit card convinience fee value");
+            ErrorNotifier("Please enter credit card convinience fraud fee value");
             return false;
        }
 
        else if (creditCardConvinienceFeeTypeIdtc != "0" && creditCardConvinienceFeeValuetc.trim().length == 0) {
-            ErrorNotifier("Please enter credit card  transaction convinience fee value");
+           ErrorNotifier("Please enter credit card convinience transaction fee value");
             return false;
 
         }
