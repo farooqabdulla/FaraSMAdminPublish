@@ -12,7 +12,7 @@
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="text-center text-grey add_student">
+    <div class="text-center text-grey add_student" style="display: none">
         <img src="assets/admin/img/Hello-Admin.png" alt="">
         <h3 class="bold">Hi Admin</h3>
         <label class="blocked f_18">Start Adding Withdrawal Information for School Now !</label>
@@ -169,7 +169,7 @@
                     </div>
 
                     <div class="form-group">
-                        <input type="number" class="form-control" placeholder="Withdrawal Amount" min="0" required="required" id="txtWithdrawalAmount">
+                        <input  class="form-control" placeholder="Withdrawal Amount" required="required" id="txtWithdrawalAmount">
                     </div>
 
                     <div class="form-group">

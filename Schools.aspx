@@ -114,7 +114,7 @@
                                     <h4 class="bold-6">Reason</h4>
                                 </div>
                                 <div class="col-sm-10">
-                                    <input type="text" id="txtBlockReason" required="required" />
+                                    <input type="text" id="txtBlockReason" maxlength="120" required="required" />
                                     <label class="control-label" for="input">Max 120 characters</label>
                                     <i class="bar"></i>
                                 </div>

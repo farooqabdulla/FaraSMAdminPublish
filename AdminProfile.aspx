@@ -1,6 +1,13 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin.Master" AutoEventWireup="true" CodeBehind="AdminProfile.aspx.cs" Inherits="FaraSM.AdminUI.AdminProfile" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-
+<style>
+    .pass_icn{
+position:absolute;
+right:0px;
+bottom:12px;
+color:#bfbbbb;
+    }
+</style>
 
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -88,21 +95,21 @@
 										<div class="form-group">
 										<input type="password" id="txtNewPassword" required="required" />
                                             <label class="control-label" for="input">New Password</label>
-                                             <%--<span class="pass_icn">
+                                         <span class="pass_icn">
                                                   <i class="fa fa-eye " id="spndecryptadminnewpassword" onmouseover="seeadminnewtextlogin(txtNewPassword)" onmouseout="seeadminnewasterisklogin(txtNewPassword)"></i>
                                                   <!--<img src="assets/admin/img/pwd.png" alt=""  id="spmdecryptpasswordlogin" onmouseover="seetextlogin(logInPassword)" onmouseout="seeasterisklogin(logInPassword)">-->
                                                    
-                                              </span>--%>
+                                              </span>
                                             <i class="bar"></i>
 										</div>
 										<div class="form-group">
 										<input type="password" id="txtConfirmPassword" required="required" />
                                             <label class="control-label" for="input">Confirm Password</label>
-                                             <%--<span class="pass_icn">
+                                           <span class="pass_icn">
                                                   <i class="fa fa-eye " id="spndecryptadminnewconfirmpassword" onmouseover="seeadminnewconfirmtextlogin(txtConfirmPassword)" onmouseout="seeadminnewconfirmasterisklogin(txtConfirmPassword)"></i>
                                                   <!--<img src="assets/admin/img/pwd.png" alt=""  id="spmdecryptpasswordlogin" onmouseover="seetextlogin(logInPassword)" onmouseout="seeasterisklogin(logInPassword)">-->
                                                    
-                                              </span>--%>
+                                              </span>
                                             <i class="bar"></i>
 										</div>
 										</div>

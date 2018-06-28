@@ -31,7 +31,7 @@ $(document).ready(function () {
         changeYear: true,
         autoclose: true,
         todayHighlight: true,
-        //startDate: new Date(),
+        endDate: new Date(),
     });
     $('#refreshtable').click(function () {
         $("input[type=checkbox]").removeAttr('checked');
@@ -61,6 +61,13 @@ $(document).ready(function () {
         getAllWithdrawlsDetails();
 });
 });
+
+$("#AddWithdrawalInformation").click(function () {
+    getAllWithdrawlsDetails();
+
+});
+
+
 
 $("#clrStartDate").click(function () {
     $("#txtDate").datepicker("show", {
@@ -123,6 +130,19 @@ function getAllSchoolsDetails() {
         }
     });
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 function getinstituteBalance() {
     var instituteId = document.getElementById('ddlSchools').value;
@@ -191,6 +211,8 @@ $('#txtWithdrawalAmount').on("change",function (e) {
 });
 
 $("#txtWithdrawalAmount").on("keyup", function () {
+
+    //decimalValidator();
     withdralCalculation();
 });
 
@@ -251,6 +273,7 @@ function withdrawalinfoValidations(instituteId, comments, withdrawalAmount, avai
     return true;
 }
 
+
 $("#btnSave").on("click", function () {
     var instituteId = document.getElementById('ddlSchools').value;
     var comments = document.getElementById('txtcomments').value;
@@ -286,6 +309,7 @@ function getAllWithdrawlsDetails()
             $("#excelDownload").show();
             if (successResponseData.withdrawlslist.length == 0) {
                 $("#excelDownload").hide();
+                //$('#Withdrawlsdisplay').hide();
             }
 
             var html = '';
