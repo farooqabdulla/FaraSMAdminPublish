@@ -850,7 +850,7 @@ function bindSchoolDetails(response) {
                  // + "<tr> <td>Principal's Name</td> <td>" + response.AllSchoolsDetails[0]["Institutecode"]; +"</td> </tr>"
         + "<tr> <td>School Landline Number</td> <td>" + response.AllSchoolsDetails[0]["LandLineNumber"] + "</td> </tr>"
         + "<tr> <td>School Mobile Number</td> <td>" + response.AllSchoolsDetails[0]["PhoneNo"] + "</td> </tr>"
-        + "<tr> <td>School Fax Number</td> <td>" + response.AllSchoolsDetails[0]["FaxNumber"] + "</td> </tr>"
+        //+ "<tr> <td>School Fax Number</td> <td>" + response.AllSchoolsDetails[0]["FaxNumber"] + "</td> </tr>"
         + "<tr> <td>School Address</td> <td>" + response.AllSchoolsDetails[0]["Address"] + "</td> </tr>";
 
                   $(tblBody).appendTo($("#tblSchoolDetails"));

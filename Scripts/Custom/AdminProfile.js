@@ -16,7 +16,7 @@ function GetAdminDetails()
             $('#txtAdminName').val(successResponseData.SuperAdminDetails[0].Name);
             $('#txtAdminEmail').val(successResponseData.SuperAdminDetails[0].Email);
             $('#txtAdminMobile').val(successResponseData.SuperAdminDetails[0].Mobile);
-            $("#imgAdminProfile").prop("src", (successResponseData.SuperAdminDetails[0].Photo == "" ? "/Images/ProfileImages/defaultimage.png" : successResponseData.SuperAdminDetails[0].Photo))
+            $("#imgAdminProfile").prop("src", (successResponseData.SuperAdminDetails[0].Photo == "" ? $('#hdnWebUrl').val() + "/Images/ProfileImages/defaultimage.png" : $('#hdnWebUrl').val() + successResponseData.SuperAdminDetails[0].Photo))
         }
         else {
            
@@ -56,9 +56,9 @@ $("#btnUpdateAdminProfile").click(function () {
     {
         ErrorNotifier("SuperAdmin Name is Required");
     }
-    else if (mobile=='')
+    else if (mobile.trim().length < 7)
         {
-        ErrorNotifier("Please enter a mobile number.");
+        ErrorNotifier("Please enter a mobile number of length atleast 7.");
     }
     else if (!checkEmail('txtAdminEmail')) {
         ErrorNotifier("Please enter a valid email address.");
