@@ -66,8 +66,10 @@ $(document).ready(function () {
     //    }
     //});
 
-    $('#txtDebitCardConvenience,#txtDebitCardConveniencetc,#txtCreditCardConvenience,#txtCreditCardConveniencetc').keyup(decimalValidator);
-    $('#txtDebitCardConvenience1,#txtDebitCardConvenience1tc,#txtCreditCardConvenience1,#txtCreditCardConvenience1tc').keyup(decimalValidator);
+    //$('#txtDebitCardConvenience,#txtDebitCardConveniencetc,#txtCreditCardConvenience,#txtCreditCardConveniencetc').keyup(decimalValidator);
+    //$('#txtDebitCardConvenience1,#txtDebitCardConvenience1tc,#txtCreditCardConvenience1,#txtCreditCardConvenience1tc').keyup(decimalValidator);
+    $('#txtDebitCardConvenience,#txtDebitCardConveniencetc,#txtCreditCardConvenience,#txtCreditCardConveniencetc').keypress(decimalpointcheck);
+    $('#txtDebitCardConvenience1,#txtDebitCardConvenience1tc,#txtCreditCardConvenience1,#txtCreditCardConvenience1tc').keypress(decimalpointcheck);
     // activate
     //$('#txtDebitCardConvenience1').blur(function () {
     //    var value = $(this).val();
@@ -161,7 +163,7 @@ function clearMarchantValues() {
 }
 
 function unblockAccount() {
-
+    currencycodeformerchantdetails = $(this).attr("currencycode");
     document.getElementById('hdnIsActivateOrUnblock').value = "1";
     clearMarchantValues();
 
@@ -402,7 +404,7 @@ function bindAllSchools(response) {
                 + "<label class='dropdown dropdown-user pull-right margin-right-10 sch_stat'>"
                     + "<a class='dropdown-toggle' data-toggle='dropdown' data-hover='dropdown' data-close-others='true'><i class='fa fa-ellipsis-v'></i></a>"
                     + "<ul class='dropdown-menu dropdown-menu-default'>"
-                        + "<li><a id ='" + schoolDetails[i]["InstituteID"] + "' class ='deleteAccount' data-toggle='modal'><i class='icon-trash'></i> Un-block </a></li>" //Delete Account
+                        + "<li><a id ='" + schoolDetails[i]["InstituteID"] + "'    currencycode='" + schoolDetails[i]["Code"] + "'        class ='deleteAccount' data-toggle='modal'><i class='icon-trash'></i> Un-block </a></li>" //Delete Account
                     + "</ul>"
                 + "</label>"
              + "</td>"

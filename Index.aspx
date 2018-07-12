@@ -37,6 +37,12 @@
             height: 100%;
             font-family: "Open Sans", sans-serif;
         }
+         .pass_icn{
+position:absolute;
+right:0px;
+bottom:12px;
+color:#bfbbbb;
+    }
     </style>
 </head>
 
@@ -66,6 +72,11 @@
                                                   <!--<img src="assets/admin/img/pwd.png" alt=""  id="spmdecryptpasswordlogin" onmouseover="seetextlogin(logInPassword)" onmouseout="seeasterisklogin(logInPassword)">-->
                                                    
                                               </span>--%>
+                                <span class="pass_icn">
+                                                  <i class="fa fa-eye " id="spndecryptadminnewpassword" onmouseover="seeadminnewtextlogin(txtAdminPassword)" onmouseout="seeadminnewasterisklogin(txtAdminPassword)"></i>
+                                                  <!--<img src="assets/admin/img/pwd.png" alt=""  id="spmdecryptpasswordlogin" onmouseover="seetextlogin(logInPassword)" onmouseout="seeasterisklogin(logInPassword)">-->
+                                                   
+                                              </span>
                                 <i class="bar"></i>
                             </div>
                             <%--<div class="form-group clearfix margin-top-25 f_12">

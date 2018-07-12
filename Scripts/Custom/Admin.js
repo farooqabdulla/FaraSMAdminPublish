@@ -6,11 +6,12 @@ $(document).ready(function () {
 });
 
 
-function seeadmintextlogin(x) {
+
+function seeadminnewtextlogin(x) {
     x.type = "text";
 }
 
-function seeadminasterisklogin(x) {
+function seeadminnewasterisklogin(x) {
     x.type = "password";
 }
 $("#btnAdminLogin").on("click", function () {
