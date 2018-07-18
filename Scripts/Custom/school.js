@@ -379,7 +379,7 @@ function bindAllSchools(response) {
                     + "<ul class='dropdown-menu dropdown-menu-default'>"
                         + "<li><a id ='" + schoolDetails[i]["InstituteID"] + "' class ='verifyAccount'  currencycode='" + schoolDetails[i]["Code"] + "'    ><i class='icon-refresh'></i> Re-Verify Account </a></li>"
                         + "<li><a id ='" + schoolDetails[i]["InstituteID"] + "' class ='blockAccount'   ><i class='icon-ban'></i> Block Account </a></li>"
-                        + "<li><a id ='" + schoolDetails[i]["InstituteID"] + "_" + schoolDetails[i]["StatusID"] + "' class ='viewProfile' ><i class='fa fa-eye'></i> View Profile </a></li>"
+                        //+ "<li><a id ='" + schoolDetails[i]["InstituteID"] + "_" + schoolDetails[i]["StatusID"] + "' class ='viewProfile' ><i class='fa fa-eye'></i> View Profile </a></li>"
                     + "</ul>"
                 + "</label>"
              + "</td>"

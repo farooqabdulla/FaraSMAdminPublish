@@ -58,19 +58,19 @@
                 <div class="clearfix padBox bord-b text-blue">
                     <label class="pull-left mb-0">Refine Your Search</label>
                     <a id="refreshtable">
-                        <label class="pull-right mb-0"><i class="fa fa-repeat"></i></label>
+                        <label class="pull-right mb-0"><i class="fa fa-repeat" style="cursor: pointer;"></i></label>
                     </a>
                 </div>
                 <div class="clearfix padBox bord-b">
                     <label class="pull-left f_15">Country</label>
-                    <label class="pull-right indicator" data-toggle="collapse" data-target="#country"><i class="fa fa-plus-square-o"></i></label>
+                    <label class="pull-right indicator" data-toggle="collapse" data-target="#country"><i class="fa fa-plus-square-o" style="cursor: pointer;"></i></label>
                     <div class="clear"></div>
                     <ul id="country" class="collapse  margin-top-10">
                     </ul>
                 </div>
                 <div class="clearfix padBox bord-b">
                     <label class="pull-left f_15">Location</label>
-                    <label class="pull-right indicator" data-toggle="collapse" data-target="#location"><i class="fa fa-plus-square-o"></i></label>
+                    <label class="pull-right indicator" data-toggle="collapse" data-target="#location"><i class="fa fa-plus-square-o" style="cursor: pointer;"></i></label>
                     <div class="clear"></div>
                     <ul id="location" class="collapse margin-top-10">
                     </ul>
@@ -123,7 +123,7 @@
                             <th><strong>Mobile Number </strong> </th>
                             <th><strong>Time/Date</strong></th>
                             <th><strong>Withdrawal Amount</strong> </th>
-                            <th><strong> AvailableAmount </strong></th>
+                            <th><strong>Available Amount</strong></th>
                             <th><strong>Comments</strong></th>
                             <%-- <th>Status <i class="fa fa-sort margin-left-5"></i></th>--%>
                         </tr>
@@ -150,12 +150,12 @@
             <!-- Modal content-->
             <div class="modal-content">
                 <div class="modal-header clearfix">
-                    <h4 class="bold-6 pull-left">Add Withdrawal Information</h4>
+                    <h4 class="bold-6 pull-left text-blue">Add Withdrawal Information</h4>
                     <button type="button" class="close" data-dismiss="modal"><i class="fa fa-times"></i></button>
                 </div>
                 <div class="modal-body">
                     <div class="form-group">
-                        <select class="form-control" id="ddlSchools">
+                        <select class="form-control cursor-hand" id="ddlSchools">
                             <option selected="selected" value="0">Select</option>
                         </select>
                     </div>
@@ -178,7 +178,7 @@
 
                     <div class="form-group r-readonly avail-amnt">
                        <%-- <input type="text" class="form-control" placeholder="Available Amount" readonly="readonly" id="txtAvailableWalletBalnce">--%>
-                    <span class="text-left">Availabale Amount : </span>   <span class="font-green f_11" id="txtAvailableWalletBalnce"></span>
+                    <span class="text-left">Available Amount : </span>   <span class="font-green f_11" id="txtAvailableWalletBalnce"></span>
                     </div>
                       
                 </div>
@@ -202,7 +202,8 @@
      <script src="assets/global/plugins/jquery.min.js"></script>
     <script src="Scripts/Custom/request.js?v=1"></script>
     <script src="Scripts/Custom/AddWithdrawalInformation.js"></script>
-
+    
+    
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ScriptPart" runat="server">
     <script src="Scripts/Plugins/jquery.table2excel.js"></script>
