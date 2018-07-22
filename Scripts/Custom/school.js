@@ -1039,13 +1039,13 @@ $("#btnActivate").on("click", function () {
     var creditCardConvinienceFeeTypeIdtc = "0";
     creditCardConvinienceFeeTypeIdtc = document.getElementById('ddlCreditCardConvenienceType1tc').value;
     var debitCardConvinienceFeeValue = 0;
-    debitCardConvinienceFeeValue = document.getElementById('txtDebitCardConvenience1').value = "" ? 0 : document.getElementById('txtDebitCardConvenience1').value;
+    debitCardConvinienceFeeValue = document.getElementById('txtDebitCardConvenience1').value == "" ? 0 : document.getElementById('txtDebitCardConvenience1').value;
     var debitCardConvinienceFeeValuetc = 0;
-    debitCardConvinienceFeeValuetc = document.getElementById('txtDebitCardConvenience1tc').value = "" ? 0 : document.getElementById('txtDebitCardConvenience1tc').value;
+    debitCardConvinienceFeeValuetc = document.getElementById('txtDebitCardConvenience1tc').value == "" ? 0 : document.getElementById('txtDebitCardConvenience1tc').value;
     var creditCardConvinienceFeeValue = 0;
-    creditCardConvinienceFeeValue = document.getElementById('txtCreditCardConvenience1').value = "" ? 0 : document.getElementById('txtCreditCardConvenience1').value;
+    creditCardConvinienceFeeValue = document.getElementById('txtCreditCardConvenience1').value == "" ? 0 : document.getElementById('txtCreditCardConvenience1').value;
     var creditCardConvinienceFeeValuetc = 0;
-    creditCardConvinienceFeeValuetc = document.getElementById('txtCreditCardConvenience1tc').value = "" ? 0 : document.getElementById('txtCreditCardConvenience1tc').value;
+    creditCardConvinienceFeeValuetc = document.getElementById('txtCreditCardConvenience1tc').value == "" ? 0 : document.getElementById('txtCreditCardConvenience1tc').value;
 
 
 
@@ -1073,21 +1073,22 @@ $("#btnActivate").on("click", function () {
         return false;
     }
 
-    if (debitCardConvinienceFeeTypeId != "0" && debitCardConvinienceFeeValue.trim().length == 0) {
+    if (debitCardConvinienceFeeTypeId != "0" && debitCardConvinienceFeeValue == 0) {
         ErrorNotifier("Please enter debit card fraud charges  convinience fee  value");
         return false;
     }
-    if (debitCardConvinienceFeeTypeIdtc != "0" && debitCardConvinienceFeeValuetc.trim().length == 0) {
+    if (debitCardConvinienceFeeTypeIdtc != "0" && debitCardConvinienceFeeValuetc == 0) {
         ErrorNotifier("Please enter debit card  transaction charges convinience fee value");
         return false;
     }
 
-    if (creditCardConvinienceFeeTypeId != "0" && creditCardConvinienceFeeValue.trim().length == 0) {
+    if (creditCardConvinienceFeeTypeId != "0" && creditCardConvinienceFeeValue == 0) {
         ErrorNotifier("Please enter credit card  fraud charges convinience fee value");
         return false;
     }
-    if (creditCardConvinienceFeeTypeIdtc != "0" && creditCardConvinienceFeeValuetc.trim().length == 0) {
+    if (creditCardConvinienceFeeTypeIdtc != "0" && creditCardConvinienceFeeValuetc == 0) {
         ErrorNotifier("Please enter credit card convinience transaction charges fee value");  
+        return false;
     }
 
     
