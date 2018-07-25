@@ -58,7 +58,7 @@ $(document).ready(function () {
             lineThickness: 1
         },
         data: [{
-            type: "stepArea",
+            type: "splineArea",
             color: "rgba(0, 132, 254, 0.62)",
             markerSize: 5,
             xValueFormatString: "D MMM YYYY",
