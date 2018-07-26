@@ -68,9 +68,9 @@ function decimalpointcheck()   // to validate input with only two decimal points
     }
 
     if ((text.indexOf('.') != -1) &&
-        (text.substring(text.indexOf('.')).length > 2) &&
+        (text.substring(text.indexOf('.')).length > 3) &&
         (event.which != 0 && event.which != 8) &&
-        ($(this)[0].selectionStart >= text.length - 2)) {
+        ($(this)[0].selectionStart >= text.length - 3)) {
         event.preventDefault();
     }
 }
