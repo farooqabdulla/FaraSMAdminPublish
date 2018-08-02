@@ -95,10 +95,13 @@ $(document).ready(function () {
                         //title: {
                         //    text: "last 30 days fee collection" 
                         //},
+                        //width: 1080,
+                        height: 350,
                         axisY: {
                             title: "Fee Collection",
                         },
                         theme: "light2",
+                        zoomEnabled: false,
                         data: [
                         {
                             // Change type to "doughnut", "line", "splineArea", etc.

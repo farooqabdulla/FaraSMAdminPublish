@@ -5,6 +5,7 @@
         #Transactions a:hover {
             border-radius: 0px 0px 25px 0px !important;
         }
+        canvas { width: 100% !important; }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -67,7 +68,7 @@
 
     <div>
         <h4 class="bold-6 text-grey">Last 30 Day Fee Collection</h4>
-        <div class="portlet box" id="chartContainer" style="height: 500px; width: 100%;">
+        <div class="portlet box" id="chartContainer" style="height: 400px; width: 100%;">
         </div>
     </div>
     <div class="row margin-bottom-20">
