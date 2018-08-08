@@ -449,7 +449,7 @@ $("#btnBlockYes").on("click", function () {
     var reason = document.getElementById('txtBlockReason').value;
     instituteId = document.getElementById('hdnInstituteID').value;
 
-    if (reason.trim().length == 0) {
+    if (reason.trim().length == 0 || reason=='' || reason==null) {
         ErrorNotifier("Please enter reason");
         return false;
     }
