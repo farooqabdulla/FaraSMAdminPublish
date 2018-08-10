@@ -1065,7 +1065,7 @@ $("#btnActivate").on("click", function () {
     
     var reEmail = /^([\w\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
     if (!merchantEmail.match(reEmail)) {
-        ErrorNotifier("Please enter valid email address.");
+        ErrorNotifier("Please enter valid paytabs username(email)");
         return false;
     }
     if (txtAPayTabsMID.trim().length == 0) {
