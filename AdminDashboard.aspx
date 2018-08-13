@@ -68,8 +68,11 @@
 
     <div>
         <h4 class="bold-6 text-grey">Last 30 Day Fee Collection</h4>
-        <div class="portlet box" id="chartContainer" style="height: 400px; width: 100%;">
+        <div class="portlet box"  style="height: 400px; width: 100%; position:relative">
+            <div id="chartContainer"></div>
+            <div style="background:#fff; height:20px; position:absolute; width:98%; bottom:25px; z-index:99"></div>
         </div>
+         
     </div>
     <div class="row margin-bottom-20">
         <div class="col-sm-6">
