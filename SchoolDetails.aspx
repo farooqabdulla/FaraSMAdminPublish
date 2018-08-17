@@ -84,26 +84,6 @@
                 </ul>
                 <div class="tab-content material acdmc-yr">
                     <div class="tab-pane active pad-15" id="tab_15_1">
-                        <div class="row margin-top-15 margin-bottom-50">
-                            <div class="col-sm-4">
-                                <div class="db_box">
-                                    <h5 class="head">Total Fee Estimation</h5>
-                                    <label id="labelTotalFeeEstm" class="number">0 <span class="text">bhd</span></label>
-                                </div>
-                            </div>
-                            <div class="col-sm-4">
-                                <div class="db_box">
-                                    <h5 class="head">Total Fee Collected</h5>
-                                    <label id="labelTotalCollected" class="number">0 <span class="text">bhd</span></label>
-                                </div>
-                            </div>
-                            <div class="col-sm-4">
-                                <div class="db_box">
-                                    <h5 class="head">Total Fee Due</h5>
-                                    <label id="labelTotalFeeDue" class="number">0 <span class="text">bhd</span></label>
-                                </div>
-                            </div>
-                        </div>
 
                         <div class="row margin-bottom-50">
                             <div class="col-md-4 col-sm-4 col-xs-6 col-lg-2">
@@ -144,6 +124,37 @@
                             </div>
                         </div>
 
+
+                        <div class="row margin-top-15 margin-bottom-50">
+                            <div class="col-sm-3">
+                                <div class="db_box">
+                                    <h5 class="head">Total Fee Estimation</h5>
+                                    <label id="labelTotalFeeEstm" class="number">0 <span class="text">bhd</span></label>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="db_box">
+                                    <h5 class="head">Total Fee Collected</h5>
+                                    <label id="labelTotalCollected" class="number">0 <span class="text">bhd</span></label>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="db_box">
+                                    <h5 class="head">Total Fee Due</h5>
+                                    <label id="labelTotalFeeDue" class="number">0 <span class="text">bhd</span></label>
+                                </div>
+                            </div>
+                             <div class="col-sm-3">
+                                <div class="db_box">
+                                    <h5 class="head">Academic Year</h5>
+                                    <select style="width:100% !important;" id="selectAcademicYear" class="form-control input-inline">
+                                     <option selected="selected" value="0" disabled="disabled">Select Academic Year</option>
+                                        </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        
                         <div class="graph_box margin-bottom-50" style="height: 500px;">
                             <div class="clearfix margin-bottom-20">
                                 <h4 class="pull-left text-dark-blue text-uppercase bold-6">Total Revenue Generated</h4>

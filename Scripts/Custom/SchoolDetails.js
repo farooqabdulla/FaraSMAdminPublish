@@ -163,9 +163,13 @@ $(document).ready(function () {
             if (res.Success == true) {
                 $.each(res.AcademicYears, function () {
                     $("#selectAcademicYear").append($("<option>").val(this.Id).text(this.Name));
+                    if (this.IsCurrent == 1) {
+                        $('#selectAcademicYear option[value="' + this.Id + '"]').attr("selected", "selected");
+                        // $('#selectAcademicYearFeeFine option[value="' + this.Id + '"]').attr("selected", "selected");
+                    }
                 });
-
             }
+           
 
         })
     }
@@ -437,7 +441,8 @@ $(document).ready(function () {
     })
 
     function GetFeeSummary() {
-        var data = { type: 17, instituteId: instituteId };
+        var academicYearId = $('#selectAcademicYear').find("option:selected").val() || 0;
+        var data = { type: 17, instituteId: instituteId, academicYearId: academicYearId };
         request.Initiate("/AjaxHandlers/AdminSchool.ashx", "JSON", true, data, function (res) {
             if (res.Success == true) {
                 $("#labelTotalFeeEstm").html(res.FeeSummary[0].TotalEstimationFee + " " + currency);
@@ -867,6 +872,8 @@ $(document).ready(function () {
             $("#ddlDebitCardConvenienceType1,#ddlCreditCardConvenienceType1,#ddlDebitCardConvenienceType1tc,#ddlCreditCardConvenienceType1tc").html(discountTypes);
         });
     }
+
+    $('#selectAcademicYear').on('change', GetFeeSummary);
 
 
     //$("#blockAccountOrDeleteAccount").on("click", function () {
