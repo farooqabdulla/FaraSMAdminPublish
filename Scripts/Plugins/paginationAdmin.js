@@ -66,6 +66,7 @@
     function previous() {
         var goToPage = parseInt(pager.data("curr")) - 1;
         goTo(goToPage);
+
     }
 
     function next() {
@@ -95,5 +96,6 @@
 
         pager.data("curr", page);
         pager.children().removeClass("active");
+        pager.children().eq(page + 1).addClass("active");
     }
 }
