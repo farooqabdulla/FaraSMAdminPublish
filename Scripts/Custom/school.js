@@ -1207,6 +1207,10 @@ function timeRunner() {
     }, 1000);
     return 1;
 }
+
+
+// PAGINATION CODE
+
 $('#excelDownload').on('click', function () {
 
 

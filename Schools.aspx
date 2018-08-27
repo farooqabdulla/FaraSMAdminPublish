@@ -538,8 +538,9 @@
     <script src="Scripts/Custom/school.js?v=2"></script>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ScriptPart" runat="server">
+    <script src="Scripts/Plugins/paginationAdmin.js?v=1"></script>
    <script src="Scripts/Plugins/jquery.table2excel.js"></script>
-   <script src="Scripts/Plugins/paginationAdmin.js?v=1"></script>
+   
     <script>
 
         function toggleClick() {
