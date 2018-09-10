@@ -132,7 +132,7 @@
             </div>
         </div>
     </div>
-    <input type="hidden" id="hdnWebUrl" value="<%= ConfigurationManager.AppSettings["WebUrl"].ToString() %>" />
+    <input type="hidden" id="hdnWebUrl" value="<%=WebUrl %>" />
 
 
 </asp:Content>
