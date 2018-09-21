@@ -1,7 +1,8 @@
 ﻿
 var request;
 $(document).ready(function () {
-
+    checkNetConnection();
+    testInternet();
     request = new Request();
 });
 
@@ -43,3 +44,17 @@ $('body').on('keypress', '#txtAdminPassword,#txtAdminId', function (args) {
         return false;
     }
 });
+function checkNetConnection() {
+    debugger;
+    var status = navigator.onLine;
+    if (status) {
+    } else {
+        valu = $('#connectionUrl').val().trim() + 'NoInternetConnection.aspx';
+        window.location.href = valu;
+    }
+}
+function testInternet() {
+    setInterval(function () {
+        checkNetConnection();
+    }, 5000);//5 sec
+}

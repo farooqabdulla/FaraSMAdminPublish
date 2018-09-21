@@ -1024,3 +1024,47 @@ p.error-stnd{
     cursor: text !important;
 }    
 /*Srikanth css end*/
+
+.oops{
+color:#a2a2a2;
+padding-top:100px;
+}
+.oops h1{
+    font-size: 59px;
+    font-weight: 700;
+    padding: 10px 0;
+}
+.txt_aln{
+margin-top:100px;
+padding-bottom:50px;
+}
+.notfnd img{
+padding-top:25px;
+}
+.notfnd{
+color:#a2a2a2;
+}
+.notfnd h1{
+    font-size: 59px;
+    font-weight: 700;
+    padding: 10px 0;
+}
+.no-server{
+    margin-top: 200px;
+    text-align: right;
+}
+.pt60{
+padding-top:60px !important;
+}
+.notfnd{
+    padding-top:50px;
+}
+@media only screen and (max-width: 767px) {
+.oops{
+padding-top:0px;
+text-align:center;
+}
+.notfnd img{
+padding-top:50px;
+}
+}

@@ -3,7 +3,7 @@ var request = ''
 //======================== Master Page Load==========================================//
 $(document).ready(function () {
     request = new Request();
-
+    checkNetConnection();
 
     var urlString = document.location.href;
     var urlArray = urlString.split('/');
@@ -39,6 +39,7 @@ $(document).ready(function () {
             }
         }
     }
+    testInternet();
 });
 $(".sidebar-toggler i").click(function () {
     $(this).toggleClass("fa-angle-double-left fa-angle-double-right");
@@ -64,4 +65,18 @@ function GetAdminDetails() {
         }
     });
 
+}
+function checkNetConnection() {
+    debugger;
+    var status = navigator.onLine;
+    if (status) {
+    } else {
+        valu = $('#connectionUrl').val().trim() + 'NoInternetConnection.aspx';
+        window.location.href = valu;
+    }
+}
+function testInternet() {
+    setInterval(function () {
+        checkNetConnection();
+    }, 5000);//5 sec
 }

@@ -29,7 +29,7 @@
     <link href="/assets/admin/layout/css/custom.css" rel="stylesheet" type="text/css" />
 
     <!-- END THEME STYLES -->
-    <link rel="shortcut icon" href="favicon.ico" />
+    <link rel="shortcut icon" href="assets/global/img/favicon.png" />
     <style type="text/css">
         body {
             background: url(assets/admin/img/login_bg2.png) no-repeat;
@@ -95,6 +95,7 @@ color:#bfbbbb;
                             </div>
                         </div>
                     </div>
+                    <input type="hidden" id="connectionUrl" value="<%=ConfigurationManager.AppSettings["WebUrl"].ToString()%> " />
                 </div>
             </div>
             <div class="col-lg-4 col-md-4 col-sm-2"></div>
