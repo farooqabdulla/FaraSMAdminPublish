@@ -67,7 +67,7 @@ function GetAdminDetails() {
 
 }
 function checkNetConnection() {
-    debugger;
+    //debugger;
     var status = navigator.onLine;
     if (status) {
     } else {

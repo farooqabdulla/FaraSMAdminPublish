@@ -49,11 +49,11 @@ $('#RefineSearch').on("click", function () {
 
 
 function GetTransactionList() {
-    debugger;
+    //debugger;
     Searchtext = $("#txtSearch").val();
     data = { type: 1, Searchtext: Searchtext,countries:glbcountry,locations:glblocations };
     request.Initiate("/AjaxHandlers/Finance1.ashx", "JSON", false, data, function (successResponseData) {
-         debugger
+         //debugger
         console.log(successResponseData.Transactionlist);
         $("#excelDownload").show();
         if (successResponseData.Success == true) {
